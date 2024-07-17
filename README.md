@@ -1,6 +1,6 @@
-# Front-end Boilerplate
+# Get My CV
 
-This template helps you create new front-end applications. Built with Vite JS on top of the official `react-ts` template, it enforces strict TypeScript settings and uses the new ESLint flat config. The stringent rules ensure type safety, prevent implicit type coercion, and maintain high code quality. Prettier is also integrated for consistent code formatting.
+That small app generates my CV as a PDF.
 
 ## Prerequisites
 
@@ -9,18 +9,16 @@ This template helps you create new front-end applications. Built with Vite JS on
 
 ## Getting Started
 
-Use [degit](https://github.com/Rich-Harris/degit) to get the template without its Git history.
+Clone the project
 
 ```
-npx degit HuguesBlanco/front-end-boilerplate my-app
+git clone https://github.com/HuguesBlanco/get-my-cv.git
 ```
-
-_Replace `my-app` with the name of your app._
 
 Navigate to the app folder.
 
 ```
-cd my-app
+cd get-my-cv
 ```
 
 Install dependencies.
@@ -29,7 +27,7 @@ Install dependencies.
 npm install
 ```
 
-Run the `dev` script to start your development server.
+Run the `dev` script to start the development server.
 
 ```
 npm run dev
