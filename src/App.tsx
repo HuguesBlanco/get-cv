@@ -1,5 +1,7 @@
+import PdfViewer from './PdfViewer';
+
 function App(): JSX.Element {
-  return <>App</>;
+  return <PdfViewer />;
 }
 
 export default App;
