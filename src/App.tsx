@@ -1,7 +1,7 @@
-import PdfViewer from './PdfViewer';
+import CvViewer from './CvViewer';
 
 function App(): JSX.Element {
-  return <PdfViewer />;
+  return <CvViewer />;
 }
 
 export default App;
