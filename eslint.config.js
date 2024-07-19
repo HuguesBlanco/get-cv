@@ -1,13 +1,13 @@
 // @ts-check
 
 import eslint from '@eslint/js';
-import tseslint from 'typescript-eslint';
-import reactRefresh from 'eslint-plugin-react-refresh';
-import reactHooks from 'eslint-plugin-react-hooks';
-import globals from 'globals';
 import eslintConfigPrettier from 'eslint-config-prettier';
-import reactRecommended from 'eslint-plugin-react/configs/recommended.js';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
 import reactJsxRuntime from 'eslint-plugin-react/configs/jsx-runtime.js';
+import reactRecommended from 'eslint-plugin-react/configs/recommended.js';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
   {
@@ -38,6 +38,7 @@ export default tseslint.config(
       '@typescript-eslint/explicit-function-return-type': 'warn',
       '@typescript-eslint/explicit-module-boundary-types': 'warn',
       '@typescript-eslint/strict-boolean-expressions': 'error',
+      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
     },
   },
   {
