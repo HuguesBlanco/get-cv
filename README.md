@@ -52,6 +52,8 @@ If you're using [Visual Studio Code](https://code.visualstudio.com), the followi
   Adds shorthand prefixes and code snippets to autocompletion suggestions, accelerating and facilitating development.
 - **[GitLens — Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)**  
   Enhances Git capabilities in VS Code by providing a variety of tools, such as displaying historical context about line changes in the editor and showing a stash view in your source control tab.
+- **[Vitest](https://marketplace.visualstudio.com/items?itemName=vitest.explorer)**
+  Integrates Vitest into VS Code, providing a graphical interface to run and debug tests directly in the editor.
 
 ## Available Scripts
 
@@ -62,6 +64,7 @@ In the project directory, you can run the following scripts:
 | `npm run dev`        | Starts the development server. Open [http://localhost:5173](http://localhost:5173) to view it in your browser. The development server integrates Hot Module Replacement (HMR), which automatically reloads the application when you make changes to the code. |
 | `npm run typescript` | Runs the TypeScript compiler in watch mode. It will continuously check your code for type errors and other issues as you make changes.                                                                                                                        |
 | `npm run lint`       | Runs ESLint and displays potential code problems. This helps maintain code quality and consistency.                                                                                                                                                           |
+| `npm run test`       | Runs all unit tests using Vitest.                                                                                                                                                                                                                             |
 | `npm run build`      | Builds the application for production. This script compiles the TypeScript code and bundles the application with Vite. The output will be in the `dist` folder.                                                                                               |
 | `npm run preview`    | Serves the production build locally. This is useful for testing the production build before deploying. **Note**: You must run `npm run build` beforehand.                                                                                                     |
 
