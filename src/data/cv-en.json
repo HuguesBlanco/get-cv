@@ -1,64 +1,21 @@
 {
-  "professionalExperience": [
+  "contact": {
+    "email": "contact@huguesblanco.com",
+    "phone": "+32 473 40 20 71",
+    "postalAddress": {
+      "streetNumber": "31",
+      "streetName": "Rue Sainte-Véronique",
+      "additionalAddressInfo": "boite 33",
+      "city": "Liège",
+      "postalCode": "4000",
+      "country": "Belgium"
+    }
+  },
+  "languages": [
+    { "language": "French", "level": "Native speaker" },
     {
-      "title": "Front-End Developer",
-      "description": "As part of the front-end team responsible for developing the user interface of a SaaS ERP software, I developed in TypeScript to ensure strong typing and reduce bugs. I created reusable components in React.js, styled with Tailwind CSS. I designed JavaScript libraries, including tools for financial calculations and accounting simplification. Additionally, I refactored code to enhance modularity and readability, simplifying it and adding unit tests to ensure quality.",
-      "skills": [
-        "JavaScript",
-        "TypeScript",
-        "React.js",
-        "Tailwind CSS",
-        "unit testing",
-        "Git",
-        "Agile methodology",
-        "Scrum"
-      ],
-      "startDate": "2022-01-01T00:00:00.000Z",
-      "endDate": null
-    },
-    {
-      "title": "Working Holiday",
-      "description": "Spent a year in Australia focused on improving language skills and experiencing a new culture. Improved English through daily interactions with native speakers and immersed in Australian culture and lifestyle.",
-      "skills": ["Adaptability", "communication in English"],
-      "startDate": "2020-03-01T00:00:00.000Z",
-      "endDate": "2021-07-01T00:00:00.000Z"
-    },
-    {
-      "title": "Head of Data and Email Marketing",
-      "description": "Coordinated email marketing and data enrichment initiatives at a specialized agency. Defined and implemented the strategy in collaboration with other teams, primarily the development team. Managed client relationships, planned tasks, and dispatched work.",
-      "skills": [
-        "Data marketing strategy",
-        "operational leadership",
-        "client relationship management"
-      ],
-      "startDate": "2018-05-01T00:00:00.000Z",
-      "endDate": "2019-12-01T00:00:00.000Z"
-    },
-    {
-      "title": "Data and Email Marketing Project Manager",
-      "description": "Managed email, retargeting, and data enrichment campaigns. Directed entire email campaigns, including client needs analysis, campaign scenario design, coding, targeting, routing, and performance tracking. Enriched data by segmenting the audience, aggregating, and reformatting data. Automated tasks using PHP scripts.",
-      "skills": [
-        "Project management",
-        "email marketing",
-        "retargeting",
-        "performance tracking"
-      ],
-      "startDate": "2016-02-01T00:00:00.000Z",
-      "endDate": "2018-05-01T00:00:00.000Z"
-    },
-    {
-      "title": "Web Designer",
-      "description": "Graphic design and coding of websites and digital content. Designed websites, presentation materials, and newsletters. Translated designs into HTML and CSS, using platforms such as Qualifio and WordPress CMS.",
-      "skills": ["Graphic design", "Adobe Suite", "WordPress", "HTML", "CSS"],
-      "startDate": "2015-01-01T00:00:00.000Z",
-      "endDate": "2016-02-01T00:00:00.000Z"
-    },
-    {
-      "title": "Graphic Designer (Internship)",
-      "description": "Gained practical experience in graphic design, advertising, and creative campaigns. Created visual materials such as logos, icons, and diagrams. Designed layouts for posters and catalogs. Researched ideas and concepts for an advertising campaign.",
-      "skills": ["Creativity", "graphic design", "layout design"],
-      "startDate": "2014-09-01T00:00:00.000Z",
-      "endDate": "2014-10-01T00:00:00.000Z"
+      "language": "English",
+      "level": "Professional working proficiency (C1 according to CEFR)"
     }
   ],
   "skills": [
@@ -87,39 +44,132 @@
     "Creativity",
     "layout design"
   ],
-  "education": [
+  "companies": [
     {
-      "degree": "Training course",
-      "field": "Graphic Designer: Print and Web",
+      "name": "Easybox",
+      "description": "Enterprise Software Provider",
+      "website": "www.easybox.com",
+      "location": "Ghent",
+      "jobPositions": [
+        {
+          "title": "Front-End Developer",
+          "description": "As part of the front-end team responsible for developing the user interface of a SaaS ERP software, I developed in TypeScript to ensure strong typing and reduce bugs. I created reusable components in React.js, styled with Tailwind CSS. I designed JavaScript libraries, including tools for financial calculations and accounting simplification. Additionally, I refactored code to enhance modularity and readability, simplifying it and adding unit tests to ensure quality.",
+          "skills": [
+            "JavaScript",
+            "TypeScript",
+            "React.js",
+            "Tailwind CSS",
+            "unit testing",
+            "Git",
+            "Agile methodology",
+            "Scrum"
+          ],
+          "startDate": "2022-01-01T00:00:00.000Z",
+          "endDate": null
+        }
+      ]
+    },
+    {
+      "name": "Working Holiday",
+      "location": "Australia",
+      "jobPositions": [
+        {
+          "title": "Work and travel",
+          "description": "Spent a year in Australia focused on improving language skills and experiencing a new culture. Improved English through daily interactions with native speakers and immersed in Australian culture and lifestyle.",
+          "skills": ["Adaptability", "communication in English"],
+          "startDate": "2020-03-01T00:00:00.000Z",
+          "endDate": "2021-07-01T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "name": "The Wave",
+      "description": "Data marketing agency",
+      "website": "thewave.digital",
+      "location": "Brussels",
+      "jobPositions": [
+        {
+          "title": "Head of Data and Email Marketing",
+          "description": "Coordinated email marketing and data enrichment initiatives at a specialized agency. Defined and implemented the strategy in collaboration with other teams, primarily the development team. Managed client relationships, planned tasks, and dispatched work.",
+          "skills": [
+            "Data marketing strategy",
+            "operational leadership",
+            "client relationship management"
+          ],
+          "startDate": "2018-05-01T00:00:00.000Z",
+          "endDate": "2019-12-01T00:00:00.000Z"
+        },
+        {
+          "title": "Data and Email Marketing Project Manager",
+          "description": "Managed email, retargeting, and data enrichment campaigns. Directed entire email campaigns, including client needs analysis, campaign scenario design, coding, targeting, routing, and performance tracking. Enriched data by segmenting the audience, aggregating, and reformatting data. Automated tasks using PHP scripts.",
+          "skills": [
+            "Project management",
+            "email marketing",
+            "retargeting",
+            "performance tracking"
+          ],
+          "startDate": "2016-02-01T00:00:00.000Z",
+          "endDate": "2018-05-01T00:00:00.000Z"
+        },
+        {
+          "title": "Web Designer",
+          "description": "Graphic design and coding of websites and digital content. Designed websites, presentation materials, and newsletters. Translated designs into HTML and CSS, using platforms such as Qualifio and WordPress CMS.",
+          "skills": [
+            "Graphic design",
+            "Adobe Suite",
+            "WordPress",
+            "HTML",
+            "CSS"
+          ],
+          "startDate": "2015-01-01T00:00:00.000Z",
+          "endDate": "2016-02-01T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "name": "Apollo",
+      "description": "Communications agency",
+      "website": "www.apollo-com.be",
+      "location": "Liège",
+      "jobPositions": [
+        {
+          "title": "Graphic Designer (Internship)",
+          "description": "Gained practical experience in graphic design, advertising, and creative campaigns. Created visual materials such as logos, icons, and diagrams. Designed layouts for posters and catalogs. Researched ideas and concepts for an advertising campaign.",
+          "skills": ["Creativity", "graphic design", "layout design"],
+          "startDate": "2014-09-01T00:00:00.000Z",
+          "endDate": "2014-10-01T00:00:00.000Z"
+        }
+      ]
+    }
+  ],
+  "educationAchievements": [
+    {
+      "title": "Training course : “Graphic Designer : Print and Web”",
       "institution": "Corail-Forem training center",
       "startDate": "2013-01-01T00:00:00.000Z",
       "endDate": "2014-01-01T00:00:00.000Z"
     },
     {
-      "degree": "Master of Fine Arts",
-      "field": "Illustration",
+      "title": "Master of Fine Arts in Illustration",
       "institution": "Fine Arts School of Liège",
       "startDate": "2011-01-01T00:00:00.000Z",
       "endDate": "2013-01-01T00:00:00.000Z"
     },
     {
-      "degree": "Training course",
-      "field": "Digital special effects",
+      "title": "Training course : “Digital special effects”",
       "institution": "CGItrainer Belgium",
       "startDate": "2010-01-01T00:00:00.000Z",
       "endDate": "2011-01-01T00:00:00.000Z"
     },
     {
-      "degree": "Bachelor’s degree",
-      "field": "Fine Arts, major in illustration",
+      "title": "Bachelor’s degree in Fine Arts, major in illustration",
       "institution": "Saint-Luc Liège",
       "startDate": "2007-01-01T00:00:00.000Z",
       "endDate": "2010-01-01T00:00:00.000Z"
     },
     {
-      "degree": "High school",
-      "field": "Sciences and mathematics",
-      "institution": "Liège1",
+      "title": "High school, major in sciences and mathematics",
+      "institution": "Liège 1",
       "startDate": "2001-01-01T00:00:00.000Z",
       "endDate": "2007-01-01T00:00:00.000Z"
     }
@@ -149,14 +199,5 @@
       "credentialId": "KUPNURUAGWQY",
       "issueDate": "2020-09-01T00:00:00.000Z"
     }
-  ],
-  "languages": {
-    "french": "Native speaker",
-    "english": "Professional working proficiency (C1 according to CEFR)"
-  },
-  "contact": {
-    "email": "contact@huguesblanco.com",
-    "phone": "+32 473 40 20 71",
-    "address": "31 rue Adolphe Renson boite 33, 4000 Liège, Belgique"
-  }
+  ]
 }
