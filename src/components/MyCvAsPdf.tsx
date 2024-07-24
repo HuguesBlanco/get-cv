@@ -1,12 +1,16 @@
 import { Document, Page, Text, View } from '@react-pdf/renderer';
+import { getCvData } from '../services/cvService';
+import CvHeader from './CvHeader';
 
 export default function MyCvAsPdf(): JSX.Element {
+  const cvData = getCvData();
+
   return (
     <Document>
       <Page size="A4">
         <View style={{ margin: '10mm' }}>
           <View>
-            <Text>header</Text>
+            <CvHeader cvData={cvData} />
           </View>
 
           <View style={{ flexDirection: 'row' }}>
