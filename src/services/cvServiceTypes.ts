@@ -24,8 +24,8 @@ export type JobPosition = {
   title: string;
   description: string;
   skills: Skill[];
-  startDate: string;
-  endDate: string | null;
+  startDate: Date;
+  endDate: Date | null;
 };
 
 export type Company = {
@@ -39,15 +39,15 @@ export type Company = {
 export type EducationAchievement = {
   title: string;
   institution: string;
-  startDate: string;
-  endDate: string;
+  startDate: Date;
+  endDate: Date;
 };
 
 export type OnlineCourse = {
   course: string;
   platform: string;
   credentialId: string;
-  issueDate: string;
+  issueDate: Date;
 };
 
 export type CvData = {
