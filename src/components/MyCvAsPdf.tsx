@@ -1,24 +1,27 @@
-import { Document, Page, StyleSheet, Text, View } from '@react-pdf/renderer';
+import { Document, Page, Text, View } from '@react-pdf/renderer';
 
 export default function MyCvAsPdf(): JSX.Element {
-  const styles = StyleSheet.create({
-    page: {
-      backgroundColor: '#ffffff',
-    },
-    section: {
-      margin: 10,
-      padding: 10,
-    },
-  });
-
   return (
     <Document>
-      <Page size="A4" style={styles.page}>
-        <View style={styles.section}>
-          <Text>Section #1</Text>
-        </View>
-        <View style={styles.section}>
-          <Text>Section #2</Text>
+      <Page size="A4">
+        <View style={{ margin: '10mm' }}>
+          <View>
+            <Text>header</Text>
+          </View>
+
+          <View style={{ flexDirection: 'row' }}>
+            <View style={{ width: '33.333%' }}>
+              <Text>profileDetails</Text>
+            </View>
+
+            <View style={{ width: '66.666%' }}>
+              <Text>workExperience</Text>
+            </View>
+          </View>
+
+          <View>
+            <Text>educationalBackground</Text>
+          </View>
         </View>
       </Page>
     </Document>
