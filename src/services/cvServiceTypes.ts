@@ -1,3 +1,8 @@
+export type Name = {
+  firstName: string;
+  lastName: string;
+};
+
 export type PostalAddress = {
   streetNumber: string;
   streetName: string;
@@ -51,6 +56,8 @@ export type OnlineCourse = {
 };
 
 export type CvData = {
+  name: Name;
+  objective: string;
   contact: Contact;
   languages: Language[];
   skills: Skill[];
