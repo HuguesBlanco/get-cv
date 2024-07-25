@@ -1,12 +1,27 @@
-import { Document, Page, Text, View } from '@react-pdf/renderer';
+import { Document, Font, Page, Text, View } from '@react-pdf/renderer';
 import { getCvData } from '../services/cvService';
 import CvHeader from './CvHeader';
 
 export default function MyCvAsPdf(): JSX.Element {
   const cvData = getCvData();
 
+  Font.register({
+    family: 'Source Sans 3',
+    fonts: [
+      {
+        src: 'src/assets/SourceSans3-Regular.ttf',
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+      },
+    ],
+  });
+
   return (
-    <Document>
+    <Document
+      style={{
+        fontFamily: 'Source Sans 3',
+      }}
+    >
       <Page size="A4">
         <View style={{ margin: '10mm' }}>
           <View>
