@@ -14,7 +14,12 @@ export default function MyCvAsPdf(): JSX.Element {
           </View>
 
           <View style={{ flexDirection: 'row' }}>
-            <View style={{ width: '33.333%' }}>
+            <View
+              style={{
+                width: '33.333%',
+                borderRight: '0.4mm solid #a3c3e4',
+              }}
+            >
               <Text>profileDetails</Text>
             </View>
 
