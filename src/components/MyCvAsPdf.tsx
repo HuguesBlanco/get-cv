@@ -1,5 +1,6 @@
 import { Document, Font, Page, Text, View } from '@react-pdf/renderer';
 import { getCvData } from '../services/cvService';
+import CvContact from './CvContact';
 import CvHeader from './CvHeader';
 
 export default function MyCvAsPdf(): JSX.Element {
@@ -17,12 +18,15 @@ export default function MyCvAsPdf(): JSX.Element {
   });
 
   return (
-    <Document
-      style={{
-        fontFamily: 'Source Sans 3',
-      }}
-    >
-      <Page size="A4">
+    <Document>
+      <Page
+        size="A4"
+        // Note: It seems that applying the following styles to the <Document> instead of the <Page> causes some bugs with the font size.
+        style={{
+          fontFamily: 'Source Sans 3',
+          fontSize: '11',
+        }}
+      >
         <View style={{ margin: '10mm' }}>
           <View>
             <CvHeader cvData={cvData} />
@@ -35,7 +39,7 @@ export default function MyCvAsPdf(): JSX.Element {
                 borderRight: '0.4mm solid #a3c3e4',
               }}
             >
-              <Text>profileDetails</Text>
+              <CvContact cvData={cvData} />
             </View>
 
             <View style={{ width: '66.666%' }}>
