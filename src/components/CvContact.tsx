@@ -4,7 +4,9 @@ import CvParagraph from './CvParagraph';
 import CvSectionContainer from './CvSectionContainer';
 import CvTitle from './CvTitle';
 
-export default function CvContact({ cvData }: { cvData: CvData }): JSX.Element {
+type CvContactProps = { cvData: CvData };
+
+export default function CvContact({ cvData }: CvContactProps): JSX.Element {
   return (
     <CvSectionContainer>
       <CvTitle>CONTACT</CvTitle>

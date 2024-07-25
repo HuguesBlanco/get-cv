@@ -1,7 +1,9 @@
 import { Text, View } from '@react-pdf/renderer';
 import { CvData } from '../services/cvServiceTypes';
 
-export default function CvHeader({ cvData }: { cvData: CvData }): JSX.Element {
+type CvHeaderProps = { cvData: CvData };
+
+export default function CvHeader({ cvData }: CvHeaderProps): JSX.Element {
   return (
     <View>
       <View>
