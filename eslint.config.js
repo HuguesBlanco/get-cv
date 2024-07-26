@@ -36,10 +36,27 @@ export default tseslint.config(
       'no-implicit-globals': 'error',
       'no-unused-expressions': 'error',
       camelcase: 'error',
-      '@typescript-eslint/explicit-function-return-type': 'warn',
-      '@typescript-eslint/explicit-module-boundary-types': 'warn',
+      '@typescript-eslint/explicit-function-return-type': 'error',
+      '@typescript-eslint/explicit-module-boundary-types': 'error',
       '@typescript-eslint/strict-boolean-expressions': 'error',
       '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+    },
+  },
+  {
+    files: ['**/*.tsx'],
+    rules: {
+      'no-restricted-exports': [
+        'error',
+        {
+          restrictDefaultExports: {
+            direct: false,
+            named: true,
+            defaultFrom: true,
+            namedFrom: true,
+            namespaceFrom: true,
+          },
+        },
+      ],
     },
   },
   {
@@ -55,6 +72,21 @@ export default tseslint.config(
     },
   },
   reactRecommended,
+  {
+    rules: {
+      'react/function-component-definition': [
+        'error',
+        {
+          namedComponents: 'function-declaration',
+        },
+      ],
+      'react/destructuring-assignment': [
+        'error',
+        'always',
+        { destructureInSignature: 'always' },
+      ],
+    },
+  },
   reactJsxRuntime,
 
   {
