@@ -10,10 +10,12 @@ type CvTitleProps = {
     | (ReactElement<typeof View> | ReactElement<typeof Text>)[];
 };
 
-export default function CvTitle({ children }: CvTitleProps): JSX.Element {
+function CvTitle({ children }: CvTitleProps): JSX.Element {
   return (
     <View style={{ paddingBottom: '10', color: '#a3c3e4', fontSize: '20' }}>
       {isString(children) ? <Text>{children}</Text> : children}
     </View>
   );
 }
+
+export default CvTitle;

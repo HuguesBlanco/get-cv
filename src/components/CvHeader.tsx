@@ -3,7 +3,7 @@ import { CvData } from '../services/cvServiceTypes';
 
 type CvHeaderProps = { cvData: CvData };
 
-export default function CvHeader({ cvData }: CvHeaderProps): JSX.Element {
+function CvHeader({ cvData }: CvHeaderProps): JSX.Element {
   return (
     <View>
       <View>
@@ -18,3 +18,5 @@ export default function CvHeader({ cvData }: CvHeaderProps): JSX.Element {
     </View>
   );
 }
+
+export default CvHeader;

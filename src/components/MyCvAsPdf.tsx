@@ -3,7 +3,7 @@ import { getCvData } from '../services/cvService';
 import CvContact from './CvContact';
 import CvHeader from './CvHeader';
 
-export default function MyCvAsPdf(): JSX.Element {
+function MyCvAsPdf(): JSX.Element {
   const cvData = getCvData();
 
   Font.register({
@@ -55,3 +55,5 @@ export default function MyCvAsPdf(): JSX.Element {
     </Document>
   );
 }
+
+export default MyCvAsPdf;

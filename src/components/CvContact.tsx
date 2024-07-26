@@ -6,7 +6,7 @@ import CvTitle from './CvTitle';
 
 type CvContactProps = { cvData: CvData };
 
-export default function CvContact({ cvData }: CvContactProps): JSX.Element {
+function CvContact({ cvData }: CvContactProps): JSX.Element {
   return (
     <CvSectionContainer>
       <CvTitle>CONTACT</CvTitle>
@@ -23,3 +23,5 @@ export default function CvContact({ cvData }: CvContactProps): JSX.Element {
     </CvSectionContainer>
   );
 }
+
+export default CvContact;
