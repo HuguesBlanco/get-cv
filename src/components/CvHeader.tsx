@@ -19,6 +19,7 @@ function CvHeader({ cvData }: CvHeaderProps): JSX.Element {
             style={{
               color: COLOR,
               fontSize: '42pt',
+              fontWeight: 'light',
               letterSpacing: '2',
               margin: '-2pt',
               textTransform: 'uppercase',
