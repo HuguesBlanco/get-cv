@@ -55,6 +55,18 @@ If you're using [Visual Studio Code](https://code.visualstudio.com), the followi
 - **[Vitest](https://marketplace.visualstudio.com/items?itemName=vitest.explorer)**
   Integrates Vitest into VS Code, providing a graphical interface to run and debug tests directly in the editor.
 
+## VS Code Settings
+
+Add the following configuration to your [settings.json](https://code.visualstudio.com/docs/getstarted/settings#_settingsjson) file in [Visual Studio Code](https://code.visualstudio.com):
+
+```json
+"editor.codeActionsOnSave": {
+  "source.organizeImports": true
+}
+```
+
+This setting automatically organizes your imports every time you save a file. This ensures that imports are always sorted consistently, preventing unnecessary changes in import order during merge requests and improving code readability.
+
 ## Available Scripts
 
 In the project directory, you can run the following scripts:
