@@ -12,7 +12,7 @@ function CvContact({ cvData }: CvContactProps): JSX.Element {
 
   return (
     <CvSectionContainer>
-      <CvTitle>CONTACT</CvTitle>
+      <CvTitle>Contact</CvTitle>
 
       <CvParagraph>
         <View style={{ flexDirection: 'row' }}>
