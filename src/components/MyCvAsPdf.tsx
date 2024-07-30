@@ -34,7 +34,7 @@ function MyCvAsPdf(): JSX.Element {
         // Note: It seems that applying the following styles to the <Document> instead of the <Page> causes some bugs with the font size.
         style={{
           fontFamily: 'Source Sans 3',
-          fontSize: '11',
+          fontSize: '10',
         }}
       >
         <View style={{ margin: '10mm' }}>
