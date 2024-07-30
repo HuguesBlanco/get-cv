@@ -3,7 +3,7 @@ import { CvData } from '../services/cvServiceTypes';
 import CvIcon from './CvIcon';
 import CvParagraph from './CvParagraph';
 import CvSectionContainer from './CvSectionContainer';
-import CvTitle from './CvTitle';
+import CvTitle1 from './CvTitle1';
 
 type CvContactProps = { cvData: CvData };
 
@@ -12,7 +12,7 @@ function CvContact({ cvData }: CvContactProps): JSX.Element {
 
   return (
     <CvSectionContainer>
-      <CvTitle>Contact</CvTitle>
+      <CvTitle1>Contact</CvTitle1>
 
       <CvParagraph>
         <View style={{ flexDirection: 'row' }}>

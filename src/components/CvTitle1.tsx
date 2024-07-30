@@ -4,7 +4,7 @@ type CvTitleProps = {
   children: string;
 };
 
-function CvTitle({ children }: CvTitleProps): JSX.Element {
+function CvTitle1({ children }: CvTitleProps): JSX.Element {
   const titleText = children.toUpperCase();
 
   return (
@@ -14,4 +14,4 @@ function CvTitle({ children }: CvTitleProps): JSX.Element {
   );
 }
 
-export default CvTitle;
+export default CvTitle1;
