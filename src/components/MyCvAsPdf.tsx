@@ -2,6 +2,7 @@ import { Document, Font, Page, Text, View } from '@react-pdf/renderer';
 import { getCvData } from '../services/cvService';
 import CvContact from './CvContact';
 import CvHeader from './CvHeader';
+import CvWorkExperience from './CvWorkExperience';
 
 function MyCvAsPdf(): JSX.Element {
   const cvData = getCvData();
@@ -20,12 +21,14 @@ function MyCvAsPdf(): JSX.Element {
         fontWeight: 'normal',
       },
       {
-        src: 'src/assets/SourceSans3-Regular.ttf',
+        src: 'src/assets/SourceSans3-Bold.ttf',
         fontStyle: 'normal',
         fontWeight: 'bold',
       },
     ],
   });
+
+  Font.registerHyphenationCallback((word) => [word]);
 
   return (
     <Document>
@@ -34,7 +37,7 @@ function MyCvAsPdf(): JSX.Element {
         // Note: It seems that applying the following styles to the <Document> instead of the <Page> causes some bugs with the font size.
         style={{
           fontFamily: 'Source Sans 3',
-          fontSize: '10',
+          fontSize: '9',
         }}
       >
         <View style={{ margin: '10mm' }}>
@@ -53,7 +56,7 @@ function MyCvAsPdf(): JSX.Element {
             </View>
 
             <View style={{ width: '66.666%' }}>
-              <Text>workExperience</Text>
+              <CvWorkExperience cvData={cvData} />
             </View>
           </View>
 
