@@ -1,17 +1,17 @@
 import { Text, View } from '@react-pdf/renderer';
+import { ReactElement } from 'react';
 import { CvData } from '../services/cvServiceTypes';
 import CvIcon from './CvIcon';
 import CvParagraph from './CvParagraph';
-import CvSectionContainer from './CvSectionContainer';
 import CvTitle1 from './CvTitle1';
 
 type CvContactProps = { cvData: CvData };
 
-function CvContact({ cvData }: CvContactProps): JSX.Element {
+function CvContact({ cvData }: CvContactProps): ReactElement<typeof View> {
   const leftSpace = '5mm';
 
   return (
-    <CvSectionContainer>
+    <View>
       <CvTitle1>Contact</CvTitle1>
 
       <CvParagraph>
@@ -73,7 +73,7 @@ function CvContact({ cvData }: CvContactProps): JSX.Element {
           <Text>{cvData.contact.postalAddress.country}</Text>
         </View>
       </CvParagraph>
-    </CvSectionContainer>
+    </View>
   );
 }
 

@@ -1,6 +1,5 @@
 import { Image, Text, View } from '@react-pdf/renderer';
 import { CvData } from '../services/cvServiceTypes';
-import CvSectionContainer from './CvSectionContainer';
 
 type CvHeaderProps = { cvData: CvData };
 
@@ -9,7 +8,7 @@ function CvHeader({ cvData }: CvHeaderProps): JSX.Element {
   const IMAGE_SIZE = '35mm';
 
   return (
-    <CvSectionContainer>
+    <View>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
         <View>
           <Text style={{ fontSize: '21pt', letterSpacing: '5' }}>
@@ -54,7 +53,7 @@ function CvHeader({ cvData }: CvHeaderProps): JSX.Element {
           </View>
         </View>
       </View>
-    </CvSectionContainer>
+    </View>
   );
 }
 

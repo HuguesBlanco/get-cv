@@ -30,6 +30,8 @@ function MyCvAsPdf(): JSX.Element {
 
   Font.registerHyphenationCallback((word) => [word]);
 
+  const sectionPaddingX = '5mm';
+
   return (
     <Document>
       <Page
@@ -48,14 +50,22 @@ function MyCvAsPdf(): JSX.Element {
           <View style={{ flexDirection: 'row' }}>
             <View
               style={{
-                width: '33.333%',
                 borderRight: '0.4mm solid #a3c3e4',
+                paddingLeft: sectionPaddingX,
+                paddingRight: sectionPaddingX,
+                width: '33.333%',
               }}
             >
               <CvContact cvData={cvData} />
             </View>
 
-            <View style={{ width: '66.666%' }}>
+            <View
+              style={{
+                paddingLeft: sectionPaddingX,
+                paddingRight: sectionPaddingX,
+                width: '66.666%',
+              }}
+            >
               <CvWorkExperience cvData={cvData} />
             </View>
           </View>
