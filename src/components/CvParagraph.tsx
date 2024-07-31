@@ -8,11 +8,20 @@ type CvParagraphProps = {
     | ReactElement<typeof View>
     | ReactElement<typeof Text>
     | (ReactElement<typeof View> | ReactElement<typeof Text>)[];
+  isJustified?: boolean;
 };
 
-function CvParagraph({ children }: CvParagraphProps): JSX.Element {
+function CvParagraph({
+  children,
+  isJustified = false,
+}: CvParagraphProps): JSX.Element {
   return (
-    <View style={{ paddingBottom: '10' }}>
+    <View
+      style={{
+        paddingBottom: '10',
+        ...(isJustified && { textAlign: 'justify' }),
+      }}
+    >
       {isString(children) ? <Text>{children}</Text> : children}
     </View>
   );
