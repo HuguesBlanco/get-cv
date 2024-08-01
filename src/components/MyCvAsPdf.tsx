@@ -1,6 +1,7 @@
 import { Document, Font, Page, Text, View } from '@react-pdf/renderer';
 import { getCvData } from '../services/cvService';
 import CvContact from './CvContact';
+import CvEducation from './CvEducation';
 import CvHeader from './CvHeader';
 import CvWorkExperience from './CvWorkExperience';
 
@@ -70,8 +71,26 @@ function MyCvAsPdf(): JSX.Element {
             </View>
           </View>
 
-          <View>
-            <Text>educationalBackground</Text>
+          <View style={{ flexDirection: 'row' }}>
+            <View
+              style={{
+                paddingLeft: sectionPaddingX,
+                paddingRight: sectionPaddingX,
+                width: '33.333%',
+              }}
+            >
+              <Text>Online courses</Text>
+            </View>
+
+            <View
+              style={{
+                paddingLeft: sectionPaddingX,
+                paddingRight: sectionPaddingX,
+                width: '66.666%',
+              }}
+            >
+              <CvEducation cvData={cvData} />
+            </View>
           </View>
         </View>
       </Page>

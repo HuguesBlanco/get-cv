@@ -21,6 +21,7 @@ function CvJobPosition({
             {...(jobPositionData.endDate && {
               endDate: jobPositionData.endDate,
             })}
+            isMonthDisplayed={true}
           />
         }
       >
