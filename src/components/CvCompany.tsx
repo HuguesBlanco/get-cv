@@ -4,13 +4,13 @@ import { Company } from '../services/cvServiceTypes';
 import CvJobPosition from './CvJobPosition';
 import CvTitle2 from './CvTitle2';
 
-type extraContentProps = {
+type CompanyAdditionalInformationProps = {
   companyData: Company;
 };
 
 function CompanyAdditionalInformation({
   companyData,
-}: extraContentProps): ReactElement<typeof Text> {
+}: CompanyAdditionalInformationProps): ReactElement<typeof Text> {
   return companyData.description !== undefined ? (
     <Text>
       <Text>{companyData.description}</Text>
