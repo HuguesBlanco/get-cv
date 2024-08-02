@@ -4,7 +4,6 @@ import { PdfTextElement, PdfViewElement } from './types';
 
 type CvParagraphProps = {
   children: string | PdfViewElement | PdfTextElement;
-
   isJustified?: boolean;
 };
 
