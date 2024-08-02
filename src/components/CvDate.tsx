@@ -3,7 +3,7 @@ import { PdfTextElement } from './types';
 
 type CvDateProps = {
   startDate: Date;
-  endDate?: Date;
+  endDate: Date | null;
   isMonthDisplayed: boolean;
 };
 
@@ -23,7 +23,7 @@ function CvDate({
 }: CvDateProps): PdfTextElement {
   const formattedStartDate = formatDate(startDate, isMonthDisplayed);
   const formattedEndDate =
-    endDate !== undefined ? formatDate(endDate, isMonthDisplayed) : null;
+    endDate !== null ? formatDate(endDate, isMonthDisplayed) : null;
 
   return (
     <Text>

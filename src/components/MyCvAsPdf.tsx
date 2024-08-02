@@ -1,8 +1,9 @@
-import { Document, Font, Page, Text, View } from '@react-pdf/renderer';
+import { Document, Font, Page, View } from '@react-pdf/renderer';
 import { getCvData } from '../services/cvService';
 import CvContact from './CvContact';
 import CvEducation from './CvEducation';
 import CvHeader from './CvHeader';
+import OnlineCourses from './CvOnlineCourses';
 import CvWorkExperience from './CvWorkExperience';
 import { PdfDocumentElement } from './types';
 
@@ -80,7 +81,7 @@ function MyCvAsPdf(): PdfDocumentElement {
                 width: '33.333%',
               }}
             >
-              <Text>Online courses</Text>
+              <OnlineCourses cvData={cvData} />
             </View>
 
             <View

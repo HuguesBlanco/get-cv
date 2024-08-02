@@ -4,10 +4,13 @@ import { PdfTextElement, PdfViewElement } from './types';
 
 type CvTitle2Props = {
   children: string | PdfTextElement;
-  extraContent?: string | PdfViewElement | PdfTextElement;
+  extraContent?: string | PdfViewElement | PdfTextElement | null;
 };
 
 function CvTitle2({ children, extraContent }: CvTitle2Props): PdfViewElement {
+  const isExtraContentAvailable =
+    extraContent !== undefined && extraContent !== null;
+
   return (
     <View
       style={{
@@ -20,10 +23,10 @@ function CvTitle2({ children, extraContent }: CvTitle2Props): PdfViewElement {
         {children}
       </Text>
 
-      {extraContent !== undefined && isString(extraContent) && (
+      {isExtraContentAvailable && isString(extraContent) && (
         <Text style={{ fontSize: 9 }}>{extraContent}</Text>
       )}
-      {extraContent !== undefined && !isString(extraContent) && (
+      {isExtraContentAvailable && !isString(extraContent) && (
         <View>{extraContent}</View>
       )}
     </View>

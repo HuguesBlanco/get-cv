@@ -1,9 +1,7 @@
 import { View } from '@react-pdf/renderer';
 import { CvData } from '../services/cvServiceTypes';
-import CvDate from './CvDate';
-import CvParagraph from './CvParagraph';
+import CvLearning from './CvLearning';
 import CvTitle1 from './CvTitle1';
-import CvTitle3 from './CvTitle3';
 import { PdfViewElement } from './types';
 
 type CvEducationProps = { cvData: CvData };
@@ -13,21 +11,12 @@ function CvEducation({ cvData }: CvEducationProps): PdfViewElement {
     <View>
       <CvTitle1>Education</CvTitle1>
       {cvData.educationAchievements.map((achievement) => (
-        <View key={achievement.title}>
-          <CvTitle3
-            extraContent={
-              <CvDate
-                startDate={achievement.startDate}
-                endDate={achievement.endDate}
-                isMonthDisplayed={false}
-              />
-            }
-          >
-            {achievement.title}
-          </CvTitle3>
-
-          <CvParagraph>{achievement.institution}</CvParagraph>
-        </View>
+        <CvLearning
+          key={achievement.title}
+          title={achievement.title}
+          learningProvider={achievement.institution}
+          dateRange={{ start: achievement.startDate, end: achievement.endDate }}
+        />
       ))}
     </View>
   );

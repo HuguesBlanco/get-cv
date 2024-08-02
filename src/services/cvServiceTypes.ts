@@ -30,7 +30,7 @@ export type JobPosition = {
   description: string;
   skills: Skill[];
   startDate: Date;
-  endDate: Date | null;
+  endDate: Date;
 };
 
 export type Company = {

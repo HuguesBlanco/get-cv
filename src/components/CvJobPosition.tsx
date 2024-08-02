@@ -18,9 +18,7 @@ function CvJobPosition({
         extraContent={
           <CvDate
             startDate={jobPositionData.startDate}
-            {...(jobPositionData.endDate && {
-              endDate: jobPositionData.endDate,
-            })}
+            endDate={jobPositionData.endDate}
             isMonthDisplayed={true}
           />
         }

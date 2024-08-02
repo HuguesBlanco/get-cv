@@ -10,21 +10,25 @@ type CompanyAdditionalInformationProps = {
 
 function CompanyAdditionalInformation({
   companyData,
-}: CompanyAdditionalInformationProps): PdfTextElement {
-  return companyData.description !== undefined ? (
-    <Text>
-      <Text>{companyData.description}</Text>
+}: CompanyAdditionalInformationProps): PdfTextElement | null {
+  if (companyData.description !== undefined) {
+    return (
+      <Text>
+        <Text>{companyData.description}</Text>
 
-      {companyData.website !== undefined && (
-        <Text>
-          {'  •  '}
-          {companyData.website}
-        </Text>
-      )}
-    </Text>
-  ) : (
-    <Text>{companyData.location}</Text>
-  );
+        {companyData.website !== undefined && (
+          <Text>
+            {'  •  '}
+            {companyData.website}
+          </Text>
+        )}
+      </Text>
+    );
+  } else if (companyData.location !== undefined) {
+    return <Text>{companyData.location}</Text>;
+  }
+
+  return null;
 }
 
 type CvCompanyProps = {
