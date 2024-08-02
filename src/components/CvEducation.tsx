@@ -1,14 +1,14 @@
 import { View } from '@react-pdf/renderer';
-import { ReactElement } from 'react';
 import { CvData } from '../services/cvServiceTypes';
 import CvDate from './CvDate';
 import CvParagraph from './CvParagraph';
 import CvTitle1 from './CvTitle1';
 import CvTitle3 from './CvTitle3';
+import { PdfViewElement } from './types';
 
 type CvEducationProps = { cvData: CvData };
 
-function CvEducation({ cvData }: CvEducationProps): ReactElement<typeof View> {
+function CvEducation({ cvData }: CvEducationProps): PdfViewElement {
   return (
     <View>
       <CvTitle1>Education</CvTitle1>

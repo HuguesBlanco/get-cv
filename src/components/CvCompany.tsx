@@ -1,8 +1,8 @@
 import { Text, View } from '@react-pdf/renderer';
-import { ReactElement } from 'react';
 import { Company } from '../services/cvServiceTypes';
 import CvJobPosition from './CvJobPosition';
 import CvTitle2 from './CvTitle2';
+import { PdfTextElement, PdfViewElement } from './types';
 
 type CompanyAdditionalInformationProps = {
   companyData: Company;
@@ -10,7 +10,7 @@ type CompanyAdditionalInformationProps = {
 
 function CompanyAdditionalInformation({
   companyData,
-}: CompanyAdditionalInformationProps): ReactElement<typeof Text> {
+}: CompanyAdditionalInformationProps): PdfTextElement {
   return companyData.description !== undefined ? (
     <Text>
       <Text>{companyData.description}</Text>
@@ -31,7 +31,7 @@ type CvCompanyProps = {
   companyData: Company;
 };
 
-function CvCompany({ companyData }: CvCompanyProps): ReactElement<typeof View> {
+function CvCompany({ companyData }: CvCompanyProps): PdfViewElement {
   return (
     <View>
       <CvTitle2

@@ -1,13 +1,13 @@
 import { Text, View } from '@react-pdf/renderer';
-import { ReactElement } from 'react';
 import { CvData } from '../services/cvServiceTypes';
 import CvIcon from './CvIcon';
 import CvParagraph from './CvParagraph';
 import CvTitle1 from './CvTitle1';
+import { PdfViewElement } from './types';
 
 type CvContactProps = { cvData: CvData };
 
-function CvContact({ cvData }: CvContactProps): ReactElement<typeof View> {
+function CvContact({ cvData }: CvContactProps): PdfViewElement {
   const leftSpace = '5mm';
 
   return (
@@ -43,34 +43,36 @@ function CvContact({ cvData }: CvContactProps): ReactElement<typeof View> {
       </CvParagraph>
 
       <CvParagraph>
-        <View style={{ flexDirection: 'row' }}>
-          <View
-            style={{
-              width: leftSpace,
-              justifyContent: 'center',
-            }}
-          >
-            <CvIcon icon="locationDot" size={10} />
+        <View>
+          <View style={{ flexDirection: 'row' }}>
+            <View
+              style={{
+                width: leftSpace,
+                justifyContent: 'center',
+              }}
+            >
+              <CvIcon icon="locationDot" size={10} />
+            </View>
+            <Text>{`${cvData.contact.postalAddress.streetNumber} ${cvData.contact.postalAddress.streetName} ${cvData.contact.postalAddress.additionalAddressInfo}`}</Text>
           </View>
-          <Text>{`${cvData.contact.postalAddress.streetNumber} ${cvData.contact.postalAddress.streetName} ${cvData.contact.postalAddress.additionalAddressInfo}`}</Text>
-        </View>
 
-        <View style={{ flexDirection: 'row' }}>
-          <View
-            style={{
-              width: leftSpace,
-            }}
-          ></View>
-          <Text>{`${cvData.contact.postalAddress.postalCode} ${cvData.contact.postalAddress.city}`}</Text>
-        </View>
+          <View style={{ flexDirection: 'row' }}>
+            <View
+              style={{
+                width: leftSpace,
+              }}
+            ></View>
+            <Text>{`${cvData.contact.postalAddress.postalCode} ${cvData.contact.postalAddress.city}`}</Text>
+          </View>
 
-        <View style={{ flexDirection: 'row' }}>
-          <View
-            style={{
-              width: leftSpace,
-            }}
-          ></View>
-          <Text>{cvData.contact.postalAddress.country}</Text>
+          <View style={{ flexDirection: 'row' }}>
+            <View
+              style={{
+                width: leftSpace,
+              }}
+            ></View>
+            <Text>{cvData.contact.postalAddress.country}</Text>
+          </View>
         </View>
       </CvParagraph>
     </View>

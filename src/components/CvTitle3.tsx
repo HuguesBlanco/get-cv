@@ -1,16 +1,13 @@
 import { Text, View } from '@react-pdf/renderer';
-import { ReactElement } from 'react';
 import { isString } from '../utils/typeChecks';
+import { PdfTextElement, PdfViewElement } from './types';
 
 type CvTitle3Props = {
-  children: string | ReactElement<typeof Text>;
-  extraContent?: string | ReactElement<typeof View> | ReactElement<typeof Text>;
+  children: string | PdfTextElement;
+  extraContent?: string | PdfViewElement | PdfTextElement;
 };
 
-function CvTitle3({
-  children,
-  extraContent,
-}: CvTitle3Props): ReactElement<typeof View> {
+function CvTitle3({ children, extraContent }: CvTitle3Props): PdfViewElement {
   return (
     <View
       style={{

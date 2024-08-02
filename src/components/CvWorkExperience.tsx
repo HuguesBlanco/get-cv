@@ -1,14 +1,12 @@
 import { View } from '@react-pdf/renderer';
-import { ReactElement } from 'react';
 import { CvData } from '../services/cvServiceTypes';
 import CvCompany from './CvCompany';
 import CvTitle1 from './CvTitle1';
+import { PdfViewElement } from './types';
 
 type CvWorkExperienceProps = { cvData: CvData };
 
-function CvWorkExperience({
-  cvData,
-}: CvWorkExperienceProps): ReactElement<typeof View> {
+function CvWorkExperience({ cvData }: CvWorkExperienceProps): PdfViewElement {
   return (
     <View>
       <CvTitle1>Experience</CvTitle1>

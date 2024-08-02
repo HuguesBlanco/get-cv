@@ -1,10 +1,11 @@
 import { Text } from '@react-pdf/renderer';
+import { PdfTextElement } from './types';
 
-type ErrorMessageProps = {
+export type CvErrorProps = {
   message: string;
 };
 
-function CvError({ message }: ErrorMessageProps): JSX.Element {
+function CvError({ message }: CvErrorProps): PdfTextElement {
   console.error(message);
 
   return (

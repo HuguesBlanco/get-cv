@@ -1,20 +1,17 @@
 import { Text, View } from '@react-pdf/renderer';
-import { ReactElement } from 'react';
 import { isString } from '../utils/typeChecks';
+import { PdfTextElement, PdfViewElement } from './types';
 
 type CvParagraphProps = {
-  children:
-    | string
-    | ReactElement<typeof View>
-    | ReactElement<typeof Text>
-    | (ReactElement<typeof View> | ReactElement<typeof Text>)[];
+  children: string | PdfViewElement | PdfTextElement;
+
   isJustified?: boolean;
 };
 
 function CvParagraph({
   children,
   isJustified = false,
-}: CvParagraphProps): JSX.Element {
+}: CvParagraphProps): PdfViewElement {
   return (
     <View
       style={{

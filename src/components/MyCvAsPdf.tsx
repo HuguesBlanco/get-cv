@@ -4,8 +4,9 @@ import CvContact from './CvContact';
 import CvEducation from './CvEducation';
 import CvHeader from './CvHeader';
 import CvWorkExperience from './CvWorkExperience';
+import { PdfDocumentElement } from './types';
 
-function MyCvAsPdf(): JSX.Element {
+function MyCvAsPdf(): PdfDocumentElement {
   const cvData = getCvData();
 
   Font.register({

@@ -1,11 +1,11 @@
 import { Text, View } from '@react-pdf/renderer';
-import { ReactElement } from 'react';
+import { PdfViewElement } from './types';
 
 type CvTitleProps = {
   children: string;
 };
 
-function CvTitle1({ children }: CvTitleProps): ReactElement<typeof View> {
+function CvTitle1({ children }: CvTitleProps): PdfViewElement {
   return (
     <View style={{ paddingBottom: 10 }}>
       <Text

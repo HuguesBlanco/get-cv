@@ -1,10 +1,10 @@
 import { Path, Svg } from '@react-pdf/renderer';
-import { ReactElement } from 'react';
 import envelopeIcon from '../assets/envelope-solid.svg?raw';
 import houseIcon from '../assets/house-solid.svg?raw';
 import locationDotIcon from '../assets/location-dot-solid.svg?raw';
 import phoneIcon from '../assets/phone-solid.svg?raw';
 import CvError from './CvError';
+import { PdfSvgElement } from './types';
 
 type Icon = 'envelope' | 'house' | 'locationDot' | 'phone';
 
@@ -74,7 +74,7 @@ function calculateDimensions(
 function CvIcon({
   icon,
   size,
-}: CvIconProps): ReactElement<typeof Svg> | ReactElement<typeof CvError> {
+}: CvIconProps): PdfSvgElement | ReturnType<typeof CvError> {
   const iconSvg = getIconSvgContent(icon);
 
   const attributes = parseSvgAttributes(iconSvg);

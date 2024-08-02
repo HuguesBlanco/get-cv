@@ -1,9 +1,10 @@
 import { Image, Text, View } from '@react-pdf/renderer';
 import { CvData } from '../services/cvServiceTypes';
+import { PdfViewElement } from './types';
 
 type CvHeaderProps = { cvData: CvData };
 
-function CvHeader({ cvData }: CvHeaderProps): JSX.Element {
+function CvHeader({ cvData }: CvHeaderProps): PdfViewElement {
   const COLOR = '#a3c3e4';
   const IMAGE_SIZE = '35mm';
 

@@ -1,5 +1,5 @@
 import { Text } from '@react-pdf/renderer';
-import { ReactElement } from 'react';
+import { PdfTextElement } from './types';
 
 type CvDateProps = {
   startDate: Date;
@@ -20,7 +20,7 @@ function CvDate({
   startDate,
   endDate,
   isMonthDisplayed,
-}: CvDateProps): ReactElement<typeof Text> {
+}: CvDateProps): PdfTextElement {
   const formattedStartDate = formatDate(startDate, isMonthDisplayed);
   const formattedEndDate =
     endDate !== undefined ? formatDate(endDate, isMonthDisplayed) : null;
