@@ -1,4 +1,5 @@
 import { Path, Svg } from '@react-pdf/renderer';
+import circleIcon from '../assets/circle-solid.svg?raw';
 import envelopeIcon from '../assets/envelope-solid.svg?raw';
 import houseIcon from '../assets/house-solid.svg?raw';
 import locationDotIcon from '../assets/location-dot-solid.svg?raw';
@@ -6,7 +7,7 @@ import phoneIcon from '../assets/phone-solid.svg?raw';
 import CvError, { CvErrorElement } from './CvError';
 import { PdfSvgElement } from './types';
 
-type Icon = 'envelope' | 'house' | 'locationDot' | 'phone';
+type Icon = 'envelope' | 'house' | 'locationDot' | 'phone' | 'circle';
 
 type CvIconProps = {
   icon: Icon;
@@ -22,6 +23,7 @@ function getIconSvgContent(icon: Icon): string {
     house: houseIcon,
     locationDot: locationDotIcon,
     phone: phoneIcon,
+    circle: circleIcon,
   };
 
   return iconMap[icon];
