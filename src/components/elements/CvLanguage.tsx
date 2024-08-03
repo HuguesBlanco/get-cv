@@ -1,6 +1,6 @@
 import { Text, View } from '@react-pdf/renderer';
-import { Language } from '../services/cvServiceTypes';
-import { PdfViewElement } from './types';
+import { Language } from '../../services/cvServiceTypes';
+import { PdfViewElement } from '../types';
 
 type CvLanguageProps = {
   languageData: Language;

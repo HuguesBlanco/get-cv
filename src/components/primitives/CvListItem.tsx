@@ -1,6 +1,6 @@
 import { Text, View } from '@react-pdf/renderer';
+import { PdfViewElement } from '../types';
 import CvIcon from './CvIcon';
-import { PdfViewElement } from './types';
 
 type CvListItemProps = {
   content: string;

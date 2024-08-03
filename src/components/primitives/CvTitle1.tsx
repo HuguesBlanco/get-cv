@@ -1,5 +1,5 @@
 import { Text, View } from '@react-pdf/renderer';
-import { PdfViewElement } from './types';
+import { PdfViewElement } from '../types';
 
 type CvTitleProps = {
   children: string;

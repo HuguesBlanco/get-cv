@@ -4,8 +4,8 @@ import envelopeIcon from '../assets/envelope-solid.svg?raw';
 import houseIcon from '../assets/house-solid.svg?raw';
 import locationDotIcon from '../assets/location-dot-solid.svg?raw';
 import phoneIcon from '../assets/phone-solid.svg?raw';
-import CvError, { CvErrorElement } from './CvError';
-import { PdfSvgElement } from './types';
+import CvError, { CvErrorElement } from '../CvError';
+import { PdfSvgElement } from '../types';
 
 type Icon = 'envelope' | 'house' | 'locationDot' | 'phone' | 'circle';
 

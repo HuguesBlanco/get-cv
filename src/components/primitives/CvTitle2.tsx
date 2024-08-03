@@ -1,6 +1,6 @@
 import { Text, View } from '@react-pdf/renderer';
-import { isString } from '../utils/typeChecks';
-import { PdfTextElement, PdfViewElement } from './types';
+import { isString } from '../../utils/typeChecks';
+import { PdfTextElement, PdfViewElement } from '../types';
 
 type CvTitle2Props = {
   children: string | PdfTextElement;

@@ -1,5 +1,5 @@
 import { PDFViewer } from '@react-pdf/renderer';
-import MyCvAsPdf from './MyCvAsPdf';
+import MyCvAsPdf from './CvAsPdf';
 import { PdfViewerElement } from './types';
 
 function CvViewer(): PdfViewerElement {

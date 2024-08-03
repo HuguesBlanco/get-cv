@@ -1,6 +1,6 @@
 import { PDFDownloadLink } from '@react-pdf/renderer';
+import MyCvAsPdf from './CvAsPdf';
 import CvViewer from './CvViewer';
-import MyCvAsPdf from './MyCvAsPdf';
 
 function App(): JSX.Element {
   return (

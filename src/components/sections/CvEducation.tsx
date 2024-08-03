@@ -1,14 +1,12 @@
 import { View } from '@react-pdf/renderer';
-import { CvData } from '../services/cvServiceTypes';
-import CvLearning from './CvLearning';
-import CvTitle1 from './CvTitle1';
-import { PdfViewElement } from './types';
+import { CvData } from '../../services/cvServiceTypes';
+import CvLearning from '../elements/CvLearning';
+import CvTitle1 from '../primitives/CvTitle1';
+import { PdfViewElement } from '../types';
 
-type CvSectionEducationProps = { cvData: CvData };
+type CvEducationProps = { cvData: CvData };
 
-function CvSectionEducation({
-  cvData,
-}: CvSectionEducationProps): PdfViewElement {
+function CvEducation({ cvData }: CvEducationProps): PdfViewElement {
   return (
     <View>
       <CvTitle1>Education</CvTitle1>
@@ -24,4 +22,4 @@ function CvSectionEducation({
   );
 }
 
-export default CvSectionEducation;
+export default CvEducation;

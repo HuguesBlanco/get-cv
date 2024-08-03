@@ -1,12 +1,12 @@
 import { Document, Font, Page, View } from '@react-pdf/renderer';
 import { getCvData } from '../services/cvService';
 import CvHeader from './CvHeader';
-import CvSectionContact from './CvSectionContact';
-import CvSectionEducation from './CvSectionEducation';
-import CvSectionLanguages from './CvSectionLanguages';
-import CvSectionOnlineCourses from './CvSectionOnlineCourses';
-import CvSectionSkills from './CvSectionSkills';
-import CvSectionWorkExperience from './CvSectionWorkExperience';
+import CvContact from './sections/CvContact';
+import CvEducation from './sections/CvEducation';
+import CvLanguages from './sections/CvLanguages';
+import CvOnlineCourses from './sections/CvOnlineCourses';
+import CvSkills from './sections/CvSkills';
+import CvWorkExperience from './sections/CvWorkExperience';
 import { PdfDocumentElement } from './types';
 
 function MyCvAsPdf(): PdfDocumentElement {
@@ -61,11 +61,11 @@ function MyCvAsPdf(): PdfDocumentElement {
                 width: '33.333%',
               }}
             >
-              <CvSectionContact cvData={cvData} />
+              <CvContact cvData={cvData} />
 
-              <CvSectionSkills skillsData={cvData.skills} />
+              <CvSkills skillsData={cvData.skills} />
 
-              <CvSectionLanguages languagesData={cvData.languages} />
+              <CvLanguages languagesData={cvData.languages} />
             </View>
 
             <View
@@ -75,7 +75,7 @@ function MyCvAsPdf(): PdfDocumentElement {
                 width: '66.666%',
               }}
             >
-              <CvSectionWorkExperience cvData={cvData} />
+              <CvWorkExperience cvData={cvData} />
             </View>
           </View>
 
@@ -87,7 +87,7 @@ function MyCvAsPdf(): PdfDocumentElement {
                 width: '33.333%',
               }}
             >
-              <CvSectionOnlineCourses cvData={cvData} />
+              <CvOnlineCourses cvData={cvData} />
             </View>
 
             <View
@@ -97,7 +97,7 @@ function MyCvAsPdf(): PdfDocumentElement {
                 width: '66.666%',
               }}
             >
-              <CvSectionEducation cvData={cvData} />
+              <CvEducation cvData={cvData} />
             </View>
           </View>
         </View>

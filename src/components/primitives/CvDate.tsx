@@ -1,5 +1,5 @@
 import { Text } from '@react-pdf/renderer';
-import { PdfTextElement } from './types';
+import { PdfTextElement } from '../types';
 
 type CvDateProps = {
   startDate: Date;

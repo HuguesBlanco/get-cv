@@ -1,13 +1,13 @@
 import { Text, View } from '@react-pdf/renderer';
-import { CvData } from '../services/cvServiceTypes';
-import CvIcon from './CvIcon';
-import CvParagraph from './CvParagraph';
-import CvTitle1 from './CvTitle1';
-import { PdfViewElement } from './types';
+import { CvData } from '../../services/cvServiceTypes';
+import CvIcon from '../primitives/CvIcon';
+import CvParagraph from '../primitives/CvParagraph';
+import CvTitle1 from '../primitives/CvTitle1';
+import { PdfViewElement } from '../types';
 
-type CvSectionContactProps = { cvData: CvData };
+type CvContactProps = { cvData: CvData };
 
-function CvSectionContact({ cvData }: CvSectionContactProps): PdfViewElement {
+function CvContact({ cvData }: CvContactProps): PdfViewElement {
   const leftSpace = '5mm';
 
   return (
@@ -79,4 +79,4 @@ function CvSectionContact({ cvData }: CvSectionContactProps): PdfViewElement {
   );
 }
 
-export default CvSectionContact;
+export default CvContact;

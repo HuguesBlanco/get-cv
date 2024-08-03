@@ -1,8 +1,8 @@
 import { View } from '@react-pdf/renderer';
-import CvDate from './CvDate';
-import CvParagraph from './CvParagraph';
-import CvTitle3 from './CvTitle3';
-import { PdfTextElement, PdfViewElement } from './types';
+import CvDate from '../primitives/CvDate';
+import CvParagraph from '../primitives/CvParagraph';
+import CvTitle3 from '../primitives/CvTitle3';
+import { PdfTextElement, PdfViewElement } from '../types';
 
 type DateRangeProps = { start: Date | null; end: Date | null };
 

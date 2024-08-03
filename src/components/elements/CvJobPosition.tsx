@@ -1,9 +1,9 @@
 import { Text, View } from '@react-pdf/renderer';
-import { JobPosition } from '../services/cvServiceTypes';
-import CvDate from './CvDate';
-import CvParagraph from './CvParagraph';
-import CvTitle3 from './CvTitle3';
-import { PdfViewElement } from './types';
+import { JobPosition } from '../../services/cvServiceTypes';
+import CvDate from '../primitives/CvDate';
+import CvParagraph from '../primitives/CvParagraph';
+import CvTitle3 from '../primitives/CvTitle3';
+import { PdfViewElement } from '../types';
 
 type CvJobPositionProps = {
   jobPositionData: JobPosition;

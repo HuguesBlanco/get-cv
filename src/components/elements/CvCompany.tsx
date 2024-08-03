@@ -1,8 +1,8 @@
 import { Text, View } from '@react-pdf/renderer';
-import { Company } from '../services/cvServiceTypes';
+import { Company } from '../../services/cvServiceTypes';
+import CvTitle2 from '../primitives/CvTitle2';
+import { PdfTextElement, PdfViewElement } from '../types';
 import CvJobPosition from './CvJobPosition';
-import CvTitle2 from './CvTitle2';
-import { PdfTextElement, PdfViewElement } from './types';
 
 type CompanyAdditionalInformationProps = {
   companyData: Company;
