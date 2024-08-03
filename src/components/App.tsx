@@ -1,5 +1,5 @@
 import { PDFDownloadLink } from '@react-pdf/renderer';
-import MyCvAsPdf from './CvAsPdf';
+import CvDocument from './CvDocument';
 import CvViewer from './CvViewer';
 
 function App(): JSX.Element {
@@ -7,7 +7,7 @@ function App(): JSX.Element {
     <>
       <div>
         <PDFDownloadLink
-          document={<MyCvAsPdf />}
+          document={<CvDocument />}
           fileName="hugues_blanco_alvarez_cv.pdf"
         >
           {({ loading }) => (loading ? 'Loading...' : 'Download CV')}

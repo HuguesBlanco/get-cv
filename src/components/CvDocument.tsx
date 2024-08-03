@@ -9,7 +9,7 @@ import CvSkills from './sections/CvSkills';
 import CvWorkExperience from './sections/CvWorkExperience';
 import { PdfDocumentElement } from './types';
 
-function MyCvAsPdf(): PdfDocumentElement {
+function CvDocument(): PdfDocumentElement {
   const cvData = getCvData();
 
   Font.register({
@@ -106,4 +106,4 @@ function MyCvAsPdf(): PdfDocumentElement {
   );
 }
 
-export default MyCvAsPdf;
+export default CvDocument;
