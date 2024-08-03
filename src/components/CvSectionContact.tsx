@@ -5,9 +5,9 @@ import CvParagraph from './CvParagraph';
 import CvTitle1 from './CvTitle1';
 import { PdfViewElement } from './types';
 
-type CvContactProps = { cvData: CvData };
+type CvSectionContactProps = { cvData: CvData };
 
-function CvContact({ cvData }: CvContactProps): PdfViewElement {
+function CvSectionContact({ cvData }: CvSectionContactProps): PdfViewElement {
   const leftSpace = '5mm';
 
   return (
@@ -79,4 +79,4 @@ function CvContact({ cvData }: CvContactProps): PdfViewElement {
   );
 }
 
-export default CvContact;
+export default CvSectionContact;

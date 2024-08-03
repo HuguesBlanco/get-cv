@@ -4,9 +4,11 @@ import CvCompany from './CvCompany';
 import CvTitle1 from './CvTitle1';
 import { PdfViewElement } from './types';
 
-type CvWorkExperienceProps = { cvData: CvData };
+type CvSectionWorkExperienceProps = { cvData: CvData };
 
-function CvWorkExperience({ cvData }: CvWorkExperienceProps): PdfViewElement {
+function CvSectionWorkExperience({
+  cvData,
+}: CvSectionWorkExperienceProps): PdfViewElement {
   return (
     <View>
       <CvTitle1>Experience</CvTitle1>
@@ -18,4 +20,4 @@ function CvWorkExperience({ cvData }: CvWorkExperienceProps): PdfViewElement {
   );
 }
 
-export default CvWorkExperience;
+export default CvSectionWorkExperience;

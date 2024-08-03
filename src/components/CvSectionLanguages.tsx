@@ -4,11 +4,13 @@ import CvLanguage from './CvLanguage';
 import CvTitle1 from './CvTitle1';
 import { PdfViewElement } from './types';
 
-type CvLanguagesProps = {
+type CvSectionLanguagesProps = {
   languagesData: Language[];
 };
 
-function CvLanguages({ languagesData }: CvLanguagesProps): PdfViewElement {
+function CvSectionLanguages({
+  languagesData,
+}: CvSectionLanguagesProps): PdfViewElement {
   return (
     <View>
       <CvTitle1>Languages</CvTitle1>
@@ -20,4 +22,4 @@ function CvLanguages({ languagesData }: CvLanguagesProps): PdfViewElement {
   );
 }
 
-export default CvLanguages;
+export default CvSectionLanguages;

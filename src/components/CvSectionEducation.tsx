@@ -4,9 +4,11 @@ import CvLearning from './CvLearning';
 import CvTitle1 from './CvTitle1';
 import { PdfViewElement } from './types';
 
-type CvEducationProps = { cvData: CvData };
+type CvSectionEducationProps = { cvData: CvData };
 
-function CvEducation({ cvData }: CvEducationProps): PdfViewElement {
+function CvSectionEducation({
+  cvData,
+}: CvSectionEducationProps): PdfViewElement {
   return (
     <View>
       <CvTitle1>Education</CvTitle1>
@@ -22,4 +24,4 @@ function CvEducation({ cvData }: CvEducationProps): PdfViewElement {
   );
 }
 
-export default CvEducation;
+export default CvSectionEducation;

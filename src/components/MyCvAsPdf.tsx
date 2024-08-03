@@ -1,12 +1,12 @@
 import { Document, Font, Page, View } from '@react-pdf/renderer';
 import { getCvData } from '../services/cvService';
-import CvContact from './CvContact';
-import CvEducation from './CvEducation';
 import CvHeader from './CvHeader';
-import CvLanguages from './CvLanguages';
-import CvOnlineCourses from './CvOnlineCourses';
-import CvSkills from './CvSkills';
-import CvWorkExperience from './CvWorkExperience';
+import CvSectionContact from './CvSectionContact';
+import CvSectionEducation from './CvSectionEducation';
+import CvSectionLanguages from './CvSectionLanguages';
+import CvSectionOnlineCourses from './CvSectionOnlineCourses';
+import CvSectionSkills from './CvSectionSkills';
+import CvSectionWorkExperience from './CvSectionWorkExperience';
 import { PdfDocumentElement } from './types';
 
 function MyCvAsPdf(): PdfDocumentElement {
@@ -61,11 +61,11 @@ function MyCvAsPdf(): PdfDocumentElement {
                 width: '33.333%',
               }}
             >
-              <CvContact cvData={cvData} />
+              <CvSectionContact cvData={cvData} />
 
-              <CvSkills skillsData={cvData.skills} />
+              <CvSectionSkills skillsData={cvData.skills} />
 
-              <CvLanguages languagesData={cvData.languages} />
+              <CvSectionLanguages languagesData={cvData.languages} />
             </View>
 
             <View
@@ -75,7 +75,7 @@ function MyCvAsPdf(): PdfDocumentElement {
                 width: '66.666%',
               }}
             >
-              <CvWorkExperience cvData={cvData} />
+              <CvSectionWorkExperience cvData={cvData} />
             </View>
           </View>
 
@@ -87,7 +87,7 @@ function MyCvAsPdf(): PdfDocumentElement {
                 width: '33.333%',
               }}
             >
-              <CvOnlineCourses cvData={cvData} />
+              <CvSectionOnlineCourses cvData={cvData} />
             </View>
 
             <View
@@ -97,7 +97,7 @@ function MyCvAsPdf(): PdfDocumentElement {
                 width: '66.666%',
               }}
             >
-              <CvEducation cvData={cvData} />
+              <CvSectionEducation cvData={cvData} />
             </View>
           </View>
         </View>

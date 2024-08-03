@@ -4,11 +4,11 @@ import CvListItem from './CvListItem';
 import CvTitle1 from './CvTitle1';
 import { PdfViewElement } from './types';
 
-type CvSkillsProps = {
+type CvSectionSkillsProps = {
   skillsData: Skill[];
 };
 
-function CvSkills({ skillsData }: CvSkillsProps): PdfViewElement {
+function CvSectionSkills({ skillsData }: CvSectionSkillsProps): PdfViewElement {
   return (
     <View>
       <CvTitle1>Skills</CvTitle1>
@@ -20,4 +20,4 @@ function CvSkills({ skillsData }: CvSkillsProps): PdfViewElement {
   );
 }
 
-export default CvSkills;
+export default CvSectionSkills;
