@@ -4,9 +4,9 @@ import CvLearning from './CvLearning';
 import CvTitle1 from './CvTitle1';
 import { PdfViewElement } from './types';
 
-type OnlineCoursesProps = { cvData: CvData };
+type CvOnlineCoursesProps = { cvData: CvData };
 
-function OnlineCourses({ cvData }: OnlineCoursesProps): PdfViewElement {
+function CvOnlineCourses({ cvData }: CvOnlineCoursesProps): PdfViewElement {
   return (
     <View>
       <CvTitle1>Online courses</CvTitle1>
@@ -21,4 +21,4 @@ function OnlineCourses({ cvData }: OnlineCoursesProps): PdfViewElement {
   );
 }
 
-export default OnlineCourses;
+export default CvOnlineCourses;

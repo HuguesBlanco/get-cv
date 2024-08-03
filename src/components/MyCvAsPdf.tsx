@@ -4,7 +4,7 @@ import CvContact from './CvContact';
 import CvEducation from './CvEducation';
 import CvHeader from './CvHeader';
 import CvLanguages from './CvLanguages';
-import OnlineCourses from './CvOnlineCourses';
+import CvOnlineCourses from './CvOnlineCourses';
 import CvSkills from './CvSkills';
 import CvWorkExperience from './CvWorkExperience';
 import { PdfDocumentElement } from './types';
@@ -87,7 +87,7 @@ function MyCvAsPdf(): PdfDocumentElement {
                 width: '33.333%',
               }}
             >
-              <OnlineCourses cvData={cvData} />
+              <CvOnlineCourses cvData={cvData} />
             </View>
 
             <View
