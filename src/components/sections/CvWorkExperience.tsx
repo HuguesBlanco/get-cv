@@ -1,21 +1,18 @@
-import { View } from '@react-pdf/renderer';
 import { CvData } from '../../services/cvServiceTypes';
 
 import CvCompany from '../elements/CvCompany';
-import CvTitle1 from '../primitives/CvTitle1';
+import CvSection from '../primitives/CvSection';
 import { PdfViewElement } from '../types';
 
 type CvWorkExperienceProps = { cvData: CvData };
 
 function CvWorkExperience({ cvData }: CvWorkExperienceProps): PdfViewElement {
   return (
-    <View>
-      <CvTitle1>Experience</CvTitle1>
-
+    <CvSection title="Experience">
       {cvData.companies.map((companyData) => {
         return <CvCompany key={companyData.name} companyData={companyData} />;
       })}
-    </View>
+    </CvSection>
   );
 }
 
