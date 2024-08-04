@@ -1,5 +1,6 @@
 import { Text, View } from '@react-pdf/renderer';
 import { Company } from '../../services/cvServiceTypes';
+import CvParagraph from '../primitives/CvParagraph';
 import CvTitle2 from '../primitives/CvTitle2';
 import { PdfTextElement, PdfViewElement } from '../types';
 import CvJobPosition from './CvJobPosition';
@@ -46,12 +47,17 @@ function CvCompany({ companyData }: CvCompanyProps): PdfViewElement {
         {companyData.name}
       </CvTitle2>
 
-      {companyData.jobPositions.map((jobPositionData) => (
-        <CvJobPosition
-          key={jobPositionData.title}
-          jobPositionData={jobPositionData}
-        />
-      ))}
+      {companyData.jobPositions.map((jobPositionData, index) => {
+        const isLastPosition = index === companyData.jobPositions.length - 1;
+        return (
+          <CvParagraph
+            key={jobPositionData.title}
+            isBottomSpacingEnabled={!isLastPosition}
+          >
+            <CvJobPosition jobPositionData={jobPositionData} />
+          </CvParagraph>
+        );
+      })}
     </View>
   );
 }

@@ -1,7 +1,6 @@
 import { Text, View } from '@react-pdf/renderer';
 import { JobPosition } from '../../services/cvServiceTypes';
 import CvDate from '../primitives/CvDate';
-import CvParagraph from '../primitives/CvParagraph';
 import CvTitle3 from '../primitives/CvTitle3';
 import { PdfViewElement } from '../types';
 
@@ -26,9 +25,9 @@ function CvJobPosition({
         {jobPositionData.title}
       </CvTitle3>
 
-      <CvParagraph isJustified>
-        <Text>{jobPositionData.description}</Text>
-      </CvParagraph>
+      <Text style={{ textAlign: 'justify' }}>
+        {jobPositionData.description}
+      </Text>
     </View>
   );
 }

@@ -40,7 +40,7 @@ function CvContact({ cvData }: CvContactProps): PdfViewElement {
         </View>
       </CvParagraph>
 
-      <CvParagraph>
+      <CvParagraph isBottomSpacingEnabled={false}>
         <View>
           <View style={{ flexDirection: 'row' }}>
             <View

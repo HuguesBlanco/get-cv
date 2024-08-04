@@ -1,6 +1,5 @@
-import { View } from '@react-pdf/renderer';
+import { Text, View } from '@react-pdf/renderer';
 import CvDate from '../primitives/CvDate';
-import CvParagraph from '../primitives/CvParagraph';
 import CvTitle3 from '../primitives/CvTitle3';
 import { PdfTextElement, PdfViewElement } from '../types';
 
@@ -35,7 +34,7 @@ function CvLearning({
       >
         {title}
       </CvTitle3>
-      <CvParagraph>{learningProvider}</CvParagraph>
+      <Text>{learningProvider}</Text>
     </View>
   );
 }

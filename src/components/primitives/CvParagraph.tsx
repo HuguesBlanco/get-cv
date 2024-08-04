@@ -11,13 +11,11 @@ type CvParagraphProps = {
 function CvParagraph({
   children,
   isBottomSpacingEnabled = true,
-  isJustified = false,
 }: CvParagraphProps): PdfViewElement {
   return (
     <View
       style={{
         ...(isBottomSpacingEnabled && { marginBottom: '4mm' }),
-        ...(isJustified && { textAlign: 'justify' }),
       }}
     >
       {isString(children) ? <Text>{children}</Text> : children}

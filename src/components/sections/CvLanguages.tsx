@@ -1,5 +1,6 @@
 import { Language } from '../../services/cvServiceTypes';
 import CvLanguage from '../elements/CvLanguage';
+import CvParagraph from '../primitives/CvParagraph';
 import CvSection from '../primitives/CvSection';
 import { PdfViewElement } from '../types';
 
@@ -10,9 +11,17 @@ type CvLanguagesProps = {
 function CvLanguages({ languagesData }: CvLanguagesProps): PdfViewElement {
   return (
     <CvSection title="Languages">
-      {languagesData.map((languageData) => (
-        <CvLanguage key={languageData.language} languageData={languageData} />
-      ))}
+      {languagesData.map((languageData, index) => {
+        const isLastLanguage = index === languagesData.length - 1;
+        return (
+          <CvParagraph
+            key={languageData.language}
+            isBottomSpacingEnabled={!isLastLanguage}
+          >
+            <CvLanguage languageData={languageData} />
+          </CvParagraph>
+        );
+      })}
     </CvSection>
   );
 }
