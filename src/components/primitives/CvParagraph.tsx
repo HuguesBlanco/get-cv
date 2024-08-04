@@ -4,17 +4,19 @@ import { PdfTextElement, PdfViewElement } from '../types';
 
 type CvParagraphProps = {
   children: string | PdfViewElement | PdfTextElement;
+  isBottomSpacingEnabled?: boolean;
   isJustified?: boolean;
 };
 
 function CvParagraph({
   children,
+  isBottomSpacingEnabled = true,
   isJustified = false,
 }: CvParagraphProps): PdfViewElement {
   return (
     <View
       style={{
-        paddingBottom: '10',
+        ...(isBottomSpacingEnabled && { marginBottom: '4mm' }),
         ...(isJustified && { textAlign: 'justify' }),
       }}
     >
