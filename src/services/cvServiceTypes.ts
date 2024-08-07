@@ -19,7 +19,7 @@ export type Contact = {
 };
 
 export type Language = {
-  language: string;
+  name: string;
   level: string;
 };
 
@@ -49,7 +49,7 @@ export type EducationAchievement = {
 };
 
 export type OnlineCourse = {
-  course: string;
+  name: string;
   platform: string;
   credentialId: string;
   issueDate: Date;

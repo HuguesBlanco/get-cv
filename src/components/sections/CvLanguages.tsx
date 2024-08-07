@@ -16,7 +16,7 @@ function CvLanguages({ languages }: CvLanguagesProps): PdfViewElement {
 
         return (
           <CvParagraph
-            key={language.language}
+            key={language.name}
             isBottomSpacingEnabled={!isLastLanguage}
           >
             <CvLanguage language={language} />

@@ -20,7 +20,7 @@ function CvOnlineCourses({
             isBottomSpacingEnabled={!isLastCourse}
           >
             <CvLearning
-              title={course.course}
+              title={course.name}
               learningProvider={course.platform}
             />
           </CvParagraph>
