@@ -17,9 +17,9 @@
     }
   },
   "languages": [
-    { "language": "French", "level": "Native speaker" },
+    { "name": "French", "level": "Native speaker" },
     {
-      "language": "English",
+      "name": "English",
       "level": "Professional working proficiency\n(C1 according to CEFR)"
     }
   ],
@@ -181,25 +181,25 @@
   ],
   "onlineCourses": [
     {
-      "course": "Testing React 16 Applications with Jest 26",
+      "name": "Testing React 16 Applications with Jest 26",
       "platform": "Pluralsight",
       "credentialId": "7d8c844b-4cde-457c-8bbc-3ced20d8a5b7",
       "issueDate": "2022-08-01T00:00:00.000Z"
     },
     {
-      "course": "React for the rest of us",
+      "name": "React for the rest of us",
       "platform": "Udemy",
       "credentialId": "UC-f8e79852-9a1c-4c3c-abac-00d1fca133bd",
       "issueDate": "2021-09-01T00:00:00.000Z"
     },
     {
-      "course": "Introduction to Git and GitHub",
+      "name": "Introduction to Git and GitHub",
       "platform": "Coursera / Google",
       "credentialId": "TXSN5AYYHQDQ",
       "issueDate": "2020-11-01T00:00:00.000Z"
     },
     {
-      "course": "HTML, CSS, and Javascript for Web Developers",
+      "name": "HTML, CSS, and Javascript for Web Developers",
       "platform": "Coursera / Johns Hopkins university",
       "credentialId": "KUPNURUAGWQY",
       "issueDate": "2020-09-01T00:00:00.000Z"
