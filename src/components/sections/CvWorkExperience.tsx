@@ -1,24 +1,26 @@
-import { CvData } from '../../services/cvServiceTypes';
+import { Company } from '../../services/cvServiceTypes';
 
 import CvCompany from '../elements/CvCompany';
 import CvParagraph from '../primitives/CvParagraph';
 import CvSection from '../primitives/CvSection';
 import { PdfViewElement } from '../types';
 
-type CvWorkExperienceProps = { cvData: CvData };
+type CvWorkExperienceProps = { companies: Company[] };
 
-function CvWorkExperience({ cvData }: CvWorkExperienceProps): PdfViewElement {
+function CvWorkExperience({
+  companies,
+}: CvWorkExperienceProps): PdfViewElement {
   return (
     <CvSection title="Experience">
-      {cvData.companies.map((companyData, index) => {
-        const isLastCompany = index === cvData.companies.length - 1;
+      {companies.map((company, index) => {
+        const isLastCompany = index === companies.length - 1;
 
         return (
           <CvParagraph
-            key={companyData.name}
+            key={company.name}
             isBottomSpacingEnabled={!isLastCompany}
           >
-            <CvCompany companyData={companyData} />
+            <CvCompany companyData={company} />
           </CvParagraph>
         );
       })}

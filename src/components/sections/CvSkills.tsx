@@ -4,13 +4,13 @@ import CvSection from '../primitives/CvSection';
 import { PdfViewElement } from '../types';
 
 type CvSkillsProps = {
-  skillsData: Skill[];
+  skills: Skill[];
 };
 
-function CvSkills({ skillsData }: CvSkillsProps): PdfViewElement {
+function CvSkills({ skills }: CvSkillsProps): PdfViewElement {
   return (
     <CvSection title="Skills">
-      {skillsData.map((skill) => (
+      {skills.map((skill) => (
         <CvListItem key={skill} content={skill} />
       ))}
     </CvSection>

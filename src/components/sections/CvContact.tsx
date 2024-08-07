@@ -1,13 +1,13 @@
 import { Text, View } from '@react-pdf/renderer';
-import { CvData } from '../../services/cvServiceTypes';
+import { Contact } from '../../services/cvServiceTypes';
 import CvIcon from '../primitives/CvIcon';
 import CvParagraph from '../primitives/CvParagraph';
 import CvSection from '../primitives/CvSection';
 import { PdfViewElement } from '../types';
 
-type CvContactProps = { cvData: CvData };
+type CvContactProps = { contact: Contact };
 
-function CvContact({ cvData }: CvContactProps): PdfViewElement {
+function CvContact({ contact }: CvContactProps): PdfViewElement {
   const leftSpace = '5mm';
 
   return (
@@ -22,7 +22,7 @@ function CvContact({ cvData }: CvContactProps): PdfViewElement {
           >
             <CvIcon icon="envelope" size={10} />
           </View>
-          <Text>{cvData.contact.email}</Text>
+          <Text>{contact.email}</Text>
         </View>
       </CvParagraph>
 
@@ -36,7 +36,7 @@ function CvContact({ cvData }: CvContactProps): PdfViewElement {
           >
             <CvIcon icon="phone" size={10} />
           </View>
-          <Text>{cvData.contact.phone}</Text>
+          <Text>{contact.phone}</Text>
         </View>
       </CvParagraph>
 
@@ -51,7 +51,7 @@ function CvContact({ cvData }: CvContactProps): PdfViewElement {
             >
               <CvIcon icon="locationDot" size={10} />
             </View>
-            <Text>{`${cvData.contact.postalAddress.streetNumber} ${cvData.contact.postalAddress.streetName} ${cvData.contact.postalAddress.additionalAddressInfo}`}</Text>
+            <Text>{`${contact.postalAddress.streetNumber} ${contact.postalAddress.streetName} ${contact.postalAddress.additionalAddressInfo}`}</Text>
           </View>
 
           <View style={{ flexDirection: 'row' }}>
@@ -60,7 +60,7 @@ function CvContact({ cvData }: CvContactProps): PdfViewElement {
                 width: leftSpace,
               }}
             ></View>
-            <Text>{`${cvData.contact.postalAddress.postalCode} ${cvData.contact.postalAddress.city}`}</Text>
+            <Text>{`${contact.postalAddress.postalCode} ${contact.postalAddress.city}`}</Text>
           </View>
 
           <View style={{ flexDirection: 'row' }}>
@@ -69,7 +69,7 @@ function CvContact({ cvData }: CvContactProps): PdfViewElement {
                 width: leftSpace,
               }}
             ></View>
-            <Text>{cvData.contact.postalAddress.country}</Text>
+            <Text>{contact.postalAddress.country}</Text>
           </View>
         </View>
       </CvParagraph>

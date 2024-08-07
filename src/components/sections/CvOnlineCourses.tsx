@@ -1,25 +1,27 @@
-import { CvData } from '../../services/cvServiceTypes';
+import { OnlineCourse } from '../../services/cvServiceTypes';
 import CvLearning from '../elements/CvLearning';
 import CvParagraph from '../primitives/CvParagraph';
 import CvSection from '../primitives/CvSection';
 import { PdfViewElement } from '../types';
 
-type CvOnlineCoursesProps = { cvData: CvData };
+type CvOnlineCoursesProps = { onlineCourses: OnlineCourse[] };
 
-function CvOnlineCourses({ cvData }: CvOnlineCoursesProps): PdfViewElement {
+function CvOnlineCourses({
+  onlineCourses: onlineCourses,
+}: CvOnlineCoursesProps): PdfViewElement {
   return (
     <CvSection title="Online courses">
-      {cvData.onlineCourses.map((courseData, index) => {
-        const isLastCourse = index === cvData.onlineCourses.length - 1;
+      {onlineCourses.map((course, index) => {
+        const isLastCourse = index === onlineCourses.length - 1;
 
         return (
           <CvParagraph
-            key={courseData.credentialId}
+            key={course.credentialId}
             isBottomSpacingEnabled={!isLastCourse}
           >
             <CvLearning
-              title={courseData.course}
-              learningProvider={courseData.platform}
+              title={course.course}
+              learningProvider={course.platform}
             />
           </CvParagraph>
         );

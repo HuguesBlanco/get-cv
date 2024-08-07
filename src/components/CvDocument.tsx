@@ -61,11 +61,11 @@ function CvDocument(): PdfDocumentElement {
                 width: '33.333%',
               }}
             >
-              <CvContact cvData={cvData} />
+              <CvContact contact={cvData.contact} />
 
-              <CvSkills skillsData={cvData.skills} />
+              <CvSkills skills={cvData.skills} />
 
-              <CvLanguages languagesData={cvData.languages} />
+              <CvLanguages languages={cvData.languages} />
             </View>
 
             <View
@@ -75,7 +75,7 @@ function CvDocument(): PdfDocumentElement {
                 width: '66.666%',
               }}
             >
-              <CvWorkExperience cvData={cvData} />
+              <CvWorkExperience companies={cvData.companies} />
             </View>
           </View>
 
@@ -87,7 +87,7 @@ function CvDocument(): PdfDocumentElement {
                 width: '33.333%',
               }}
             >
-              <CvOnlineCourses cvData={cvData} />
+              <CvOnlineCourses onlineCourses={cvData.onlineCourses} />
             </View>
 
             <View
@@ -97,7 +97,9 @@ function CvDocument(): PdfDocumentElement {
                 width: '66.666%',
               }}
             >
-              <CvEducation cvData={cvData} />
+              <CvEducation
+                educationAchievements={cvData.educationAchievements}
+              />
             </View>
           </View>
         </View>
