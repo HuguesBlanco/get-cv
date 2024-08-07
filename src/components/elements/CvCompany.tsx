@@ -6,55 +6,53 @@ import { PdfTextElement, PdfViewElement } from '../types';
 import CvJobPosition from './CvJobPosition';
 
 type CompanyAdditionalInformationProps = {
-  companyData: Company;
+  company: Company;
 };
 
 function CompanyAdditionalInformation({
-  companyData,
+  company,
 }: CompanyAdditionalInformationProps): PdfTextElement | null {
-  if (companyData.description !== undefined) {
+  if (company.description !== undefined) {
     return (
       <Text>
-        <Text>{companyData.description}</Text>
+        <Text>{company.description}</Text>
 
-        {companyData.website !== undefined && (
+        {company.website !== undefined && (
           <Text>
             {'  •  '}
-            {companyData.website}
+            {company.website}
           </Text>
         )}
       </Text>
     );
-  } else if (companyData.location !== undefined) {
-    return <Text>{companyData.location}</Text>;
+  } else if (company.location !== undefined) {
+    return <Text>{company.location}</Text>;
   }
 
   return null;
 }
 
 type CvCompanyProps = {
-  companyData: Company;
+  company: Company;
 };
 
-function CvCompany({ companyData }: CvCompanyProps): PdfViewElement {
+function CvCompany({ company }: CvCompanyProps): PdfViewElement {
   return (
     <View>
       <CvTitle2
-        extraContent={
-          <CompanyAdditionalInformation companyData={companyData} />
-        }
+        extraContent={<CompanyAdditionalInformation company={company} />}
       >
-        {companyData.name}
+        {company.name}
       </CvTitle2>
 
-      {companyData.jobPositions.map((jobPositionData, index) => {
-        const isLastPosition = index === companyData.jobPositions.length - 1;
+      {company.jobPositions.map((jobPosition, index) => {
+        const isLastPosition = index === company.jobPositions.length - 1;
         return (
           <CvParagraph
-            key={jobPositionData.title}
+            key={jobPosition.title}
             isBottomSpacingEnabled={!isLastPosition}
           >
-            <CvJobPosition jobPositionData={jobPositionData} />
+            <CvJobPosition jobPosition={jobPosition} />
           </CvParagraph>
         );
       })}

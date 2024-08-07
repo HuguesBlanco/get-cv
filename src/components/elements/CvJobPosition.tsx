@@ -5,29 +5,25 @@ import CvTitle3 from '../primitives/CvTitle3';
 import { PdfViewElement } from '../types';
 
 type CvJobPositionProps = {
-  jobPositionData: JobPosition;
+  jobPosition: JobPosition;
 };
 
-function CvJobPosition({
-  jobPositionData,
-}: CvJobPositionProps): PdfViewElement {
+function CvJobPosition({ jobPosition }: CvJobPositionProps): PdfViewElement {
   return (
     <View style={{ paddingLeft: 20 }}>
       <CvTitle3
         extraContent={
           <CvDate
-            startDate={jobPositionData.startDate}
-            endDate={jobPositionData.endDate}
+            startDate={jobPosition.startDate}
+            endDate={jobPosition.endDate}
             isMonthDisplayed={true}
           />
         }
       >
-        {jobPositionData.title}
+        {jobPosition.title}
       </CvTitle3>
 
-      <Text style={{ textAlign: 'justify' }}>
-        {jobPositionData.description}
-      </Text>
+      <Text style={{ textAlign: 'justify' }}>{jobPosition.description}</Text>
     </View>
   );
 }

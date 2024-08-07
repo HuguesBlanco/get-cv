@@ -19,7 +19,7 @@ function CvLanguages({ languages }: CvLanguagesProps): PdfViewElement {
             key={language.language}
             isBottomSpacingEnabled={!isLastLanguage}
           >
-            <CvLanguage languageData={language} />
+            <CvLanguage language={language} />
           </CvParagraph>
         );
       })}

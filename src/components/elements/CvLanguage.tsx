@@ -3,17 +3,17 @@ import { Language } from '../../services/cvServiceTypes';
 import { PdfViewElement } from '../types';
 
 type CvLanguageProps = {
-  languageData: Language;
+  language: Language;
 };
 
-function CvLanguage({ languageData }: CvLanguageProps): PdfViewElement {
+function CvLanguage({ language }: CvLanguageProps): PdfViewElement {
   return (
     <View style={{ flexDirection: 'row' }}>
       <Text style={{ width: '25%', fontWeight: 'bold' }}>
-        {languageData.language}
+        {language.language}
       </Text>
 
-      <Text style={{ width: '75 %' }}>{languageData.level}</Text>
+      <Text style={{ width: '75 %' }}>{language.level}</Text>
     </View>
   );
 }

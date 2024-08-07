@@ -20,7 +20,7 @@ function CvWorkExperience({
             key={company.name}
             isBottomSpacingEnabled={!isLastCompany}
           >
-            <CvCompany companyData={company} />
+            <CvCompany company={company} />
           </CvParagraph>
         );
       })}
