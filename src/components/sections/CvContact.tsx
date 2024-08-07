@@ -2,7 +2,7 @@ import { Text, View } from '@react-pdf/renderer';
 import { Contact } from '../../services/cvServiceTypes';
 import CvIcon from '../primitives/CvIcon';
 import CvListItem from '../primitives/CvListItem';
-import CvSection from '../primitives/CvSection';
+import CvTitle1 from '../primitives/CvTitle1';
 import { PdfViewElement } from '../types';
 
 type CvContactProps = { contact: Contact };
@@ -11,7 +11,9 @@ function CvContact({ contact }: CvContactProps): PdfViewElement {
   const leftSpace = '5mm';
 
   return (
-    <CvSection title="Contact">
+    <View>
+      <CvTitle1>Contact</CvTitle1>
+
       <CvListItem>
         <View style={{ flexDirection: 'row' }}>
           <View
@@ -73,7 +75,7 @@ function CvContact({ contact }: CvContactProps): PdfViewElement {
           </View>
         </View>
       </CvListItem>
-    </CvSection>
+    </View>
   );
 }
 

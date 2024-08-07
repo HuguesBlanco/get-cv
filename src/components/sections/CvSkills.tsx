@@ -1,6 +1,7 @@
+import { View } from '@react-pdf/renderer';
 import { Skill } from '../../services/cvServiceTypes';
 import CvListItem from '../primitives/CvListItem';
-import CvSection from '../primitives/CvSection';
+import CvTitle1 from '../primitives/CvTitle1';
 import { PdfViewElement } from '../types';
 
 type CvSkillsProps = {
@@ -9,13 +10,15 @@ type CvSkillsProps = {
 
 function CvSkills({ skills }: CvSkillsProps): PdfViewElement {
   return (
-    <CvSection title="Skills">
+    <View>
+      <CvTitle1>Skills</CvTitle1>
+
       {skills.map((skill) => (
         <CvListItem key={skill} icon="circle" isBottomSpacingEnabled={false}>
           {skill}
         </CvListItem>
       ))}
-    </CvSection>
+    </View>
   );
 }
 

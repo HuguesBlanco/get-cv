@@ -1,8 +1,9 @@
+import { View } from '@react-pdf/renderer';
 import { Language } from '../../services/cvServiceTypes';
 import { isLastElement } from '../../utils/arrayUtils';
 import CvLanguage from '../elements/CvLanguage';
 import CvListItem from '../primitives/CvListItem';
-import CvSection from '../primitives/CvSection';
+import CvTitle1 from '../primitives/CvTitle1';
 import { PdfViewElement } from '../types';
 
 type CvLanguagesProps = {
@@ -11,7 +12,9 @@ type CvLanguagesProps = {
 
 function CvLanguages({ languages }: CvLanguagesProps): PdfViewElement {
   return (
-    <CvSection title="Languages">
+    <View>
+      <CvTitle1>Languages</CvTitle1>
+
       {languages.map((language, index) => (
         <CvListItem
           key={language.name}
@@ -20,7 +23,7 @@ function CvLanguages({ languages }: CvLanguagesProps): PdfViewElement {
           <CvLanguage language={language} />
         </CvListItem>
       ))}
-    </CvSection>
+    </View>
   );
 }
 

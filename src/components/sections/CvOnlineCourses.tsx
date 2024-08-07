@@ -1,8 +1,9 @@
+import { View } from '@react-pdf/renderer';
 import { OnlineCourse } from '../../services/cvServiceTypes';
 import { isLastElement } from '../../utils/arrayUtils';
 import CvLearning from '../elements/CvLearning';
 import CvListItem from '../primitives/CvListItem';
-import CvSection from '../primitives/CvSection';
+import CvTitle1 from '../primitives/CvTitle1';
 import { PdfViewElement } from '../types';
 
 type CvOnlineCoursesProps = { onlineCourses: OnlineCourse[] };
@@ -11,7 +12,9 @@ function CvOnlineCourses({
   onlineCourses,
 }: CvOnlineCoursesProps): PdfViewElement {
   return (
-    <CvSection title="Online courses">
+    <View>
+      <CvTitle1>Online courses</CvTitle1>
+
       {onlineCourses.map((course, index) => {
         return (
           <CvListItem
@@ -25,7 +28,7 @@ function CvOnlineCourses({
           </CvListItem>
         );
       })}
-    </CvSection>
+    </View>
   );
 }
 
