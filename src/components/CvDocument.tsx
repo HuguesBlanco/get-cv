@@ -1,5 +1,5 @@
 import { Document, Font, Page, View } from '@react-pdf/renderer';
-import { getCvData } from '../services/cvService';
+import { getCv } from '../services/cvService';
 import CvHeader from './CvHeader';
 import CvContact from './sections/CvContact';
 import CvEducation from './sections/CvEducation';
@@ -10,7 +10,7 @@ import CvWorkExperience from './sections/CvWorkExperience';
 import { PdfDocumentElement } from './types';
 
 function CvDocument(): PdfDocumentElement {
-  const cvData = getCvData();
+  const cv = getCv();
 
   Font.register({
     family: 'Source Sans 3',
@@ -49,7 +49,7 @@ function CvDocument(): PdfDocumentElement {
       >
         <View style={{ margin: '10mm' }}>
           <View>
-            <CvHeader cvData={cvData} />
+            <CvHeader cv={cv} />
           </View>
 
           <View style={{ flexDirection: 'row' }}>
@@ -61,11 +61,11 @@ function CvDocument(): PdfDocumentElement {
                 width: '33.333%',
               }}
             >
-              <CvContact contact={cvData.contact} />
+              <CvContact contact={cv.contact} />
 
-              <CvSkills skills={cvData.skills} />
+              <CvSkills skills={cv.skills} />
 
-              <CvLanguages languages={cvData.languages} />
+              <CvLanguages languages={cv.languages} />
             </View>
 
             <View
@@ -75,7 +75,7 @@ function CvDocument(): PdfDocumentElement {
                 width: '66.666%',
               }}
             >
-              <CvWorkExperience companies={cvData.companies} />
+              <CvWorkExperience companies={cv.companies} />
             </View>
           </View>
 
@@ -87,7 +87,7 @@ function CvDocument(): PdfDocumentElement {
                 width: '33.333%',
               }}
             >
-              <CvOnlineCourses onlineCourses={cvData.onlineCourses} />
+              <CvOnlineCourses onlineCourses={cv.onlineCourses} />
             </View>
 
             <View
@@ -97,9 +97,7 @@ function CvDocument(): PdfDocumentElement {
                 width: '66.666%',
               }}
             >
-              <CvEducation
-                educationAchievements={cvData.educationAchievements}
-              />
+              <CvEducation educationAchievements={cv.educationAchievements} />
             </View>
           </View>
         </View>

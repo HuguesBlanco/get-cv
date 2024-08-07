@@ -1,9 +1,9 @@
-import cvData from '../data/cv-en.json';
+import cv from '../data/cv-en.json';
 import { transformIsoDatesToDateObjects } from '../utils/transformers';
-import { CvData } from './cvServiceTypes';
+import { Cv } from './cvServiceTypes';
 
-export function getCvData(): CvData {
-  const parsedCvData = transformIsoDatesToDateObjects(cvData) as CvData;
+export function getCv(): Cv {
+  const parsedCv = transformIsoDatesToDateObjects(cv) as Cv;
 
-  return parsedCvData;
+  return parsedCv;
 }

@@ -1,10 +1,10 @@
 import { Image, Text, View } from '@react-pdf/renderer';
-import { CvData } from '../services/cvServiceTypes';
+import { Cv } from '../services/cvServiceTypes';
 import { PdfViewElement } from './types';
 
-type CvHeaderProps = { cvData: CvData };
+type CvHeaderProps = { cv: Cv };
 
-function CvHeader({ cvData }: CvHeaderProps): PdfViewElement {
+function CvHeader({ cv }: CvHeaderProps): PdfViewElement {
   const COLOR = '#a3c3e4';
   const IMAGE_SIZE = '35mm';
 
@@ -13,7 +13,7 @@ function CvHeader({ cvData }: CvHeaderProps): PdfViewElement {
       <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
         <View>
           <Text style={{ fontSize: '21pt', letterSpacing: '5' }}>
-            {cvData.name.firstName}
+            {cv.name.firstName}
           </Text>
           <Text
             style={{
@@ -25,12 +25,12 @@ function CvHeader({ cvData }: CvHeaderProps): PdfViewElement {
               textTransform: 'uppercase',
             }}
           >
-            {cvData.name.lastName}
+            {cv.name.lastName}
           </Text>
           <Text
             style={{ fontSize: '11pt', letterSpacing: '1', marginLeft: '59mm' }}
           >
-            {cvData.objective}
+            {cv.objective}
           </Text>
         </View>
         <View>

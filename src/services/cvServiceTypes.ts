@@ -55,7 +55,7 @@ export type OnlineCourse = {
   issueDate: Date;
 };
 
-export type CvData = {
+export type Cv = {
   name: Name;
   objective: string;
   contact: Contact;
