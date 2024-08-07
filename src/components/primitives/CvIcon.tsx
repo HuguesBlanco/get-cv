@@ -6,8 +6,7 @@ import locationDotIcon from '../../assets/location-dot-solid.svg?raw';
 import phoneIcon from '../../assets/phone-solid.svg?raw';
 import CvError, { CvErrorElement } from '../CvError';
 import { PdfSvgElement } from '../types';
-
-type Icon = 'envelope' | 'house' | 'locationDot' | 'phone' | 'circle';
+import { Icon } from './types';
 
 type CvIconProps = {
   icon: Icon;

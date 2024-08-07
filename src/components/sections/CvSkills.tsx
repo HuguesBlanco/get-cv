@@ -11,7 +11,9 @@ function CvSkills({ skills }: CvSkillsProps): PdfViewElement {
   return (
     <CvSection title="Skills">
       {skills.map((skill) => (
-        <CvListItem key={skill} content={skill} />
+        <CvListItem key={skill} icon="circle" isBottomSpacingEnabled={false}>
+          {skill}
+        </CvListItem>
       ))}
     </CvSection>
   );

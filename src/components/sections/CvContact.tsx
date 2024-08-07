@@ -1,7 +1,7 @@
 import { Text, View } from '@react-pdf/renderer';
 import { Contact } from '../../services/cvServiceTypes';
 import CvIcon from '../primitives/CvIcon';
-import CvParagraph from '../primitives/CvParagraph';
+import CvListItem from '../primitives/CvListItem';
 import CvSection from '../primitives/CvSection';
 import { PdfViewElement } from '../types';
 
@@ -12,7 +12,7 @@ function CvContact({ contact }: CvContactProps): PdfViewElement {
 
   return (
     <CvSection title="Contact">
-      <CvParagraph>
+      <CvListItem>
         <View style={{ flexDirection: 'row' }}>
           <View
             style={{
@@ -24,9 +24,9 @@ function CvContact({ contact }: CvContactProps): PdfViewElement {
           </View>
           <Text>{contact.email}</Text>
         </View>
-      </CvParagraph>
+      </CvListItem>
 
-      <CvParagraph>
+      <CvListItem>
         <View style={{ flexDirection: 'row' }}>
           <View
             style={{
@@ -38,9 +38,9 @@ function CvContact({ contact }: CvContactProps): PdfViewElement {
           </View>
           <Text>{contact.phone}</Text>
         </View>
-      </CvParagraph>
+      </CvListItem>
 
-      <CvParagraph isBottomSpacingEnabled={false}>
+      <CvListItem isBottomSpacingEnabled={false}>
         <View>
           <View style={{ flexDirection: 'row' }}>
             <View
@@ -72,7 +72,7 @@ function CvContact({ contact }: CvContactProps): PdfViewElement {
             <Text>{contact.postalAddress.country}</Text>
           </View>
         </View>
-      </CvParagraph>
+      </CvListItem>
     </CvSection>
   );
 }

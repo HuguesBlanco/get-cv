@@ -1,6 +1,6 @@
 import { OnlineCourse } from '../../services/cvServiceTypes';
 import CvLearning from '../elements/CvLearning';
-import CvParagraph from '../primitives/CvParagraph';
+import CvListItem from '../primitives/CvListItem';
 import CvSection from '../primitives/CvSection';
 import { PdfViewElement } from '../types';
 
@@ -15,7 +15,7 @@ function CvOnlineCourses({
         const isLastCourse = index === onlineCourses.length - 1;
 
         return (
-          <CvParagraph
+          <CvListItem
             key={course.credentialId}
             isBottomSpacingEnabled={!isLastCourse}
           >
@@ -23,7 +23,7 @@ function CvOnlineCourses({
               title={course.name}
               learningProvider={course.platform}
             />
-          </CvParagraph>
+          </CvListItem>
         );
       })}
     </CvSection>

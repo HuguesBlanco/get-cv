@@ -1,6 +1,6 @@
 import { Language } from '../../services/cvServiceTypes';
 import CvLanguage from '../elements/CvLanguage';
-import CvParagraph from '../primitives/CvParagraph';
+import CvListItem from '../primitives/CvListItem';
 import CvSection from '../primitives/CvSection';
 import { PdfViewElement } from '../types';
 
@@ -15,12 +15,12 @@ function CvLanguages({ languages }: CvLanguagesProps): PdfViewElement {
         const isLastLanguage = index === languages.length - 1;
 
         return (
-          <CvParagraph
+          <CvListItem
             key={language.name}
             isBottomSpacingEnabled={!isLastLanguage}
           >
             <CvLanguage language={language} />
-          </CvParagraph>
+          </CvListItem>
         );
       })}
     </CvSection>

@@ -1,6 +1,6 @@
 import { EducationAchievement } from '../../services/cvServiceTypes';
 import CvLearning from '../elements/CvLearning';
-import CvParagraph from '../primitives/CvParagraph';
+import CvListItem from '../primitives/CvListItem';
 import CvSection from '../primitives/CvSection';
 import { PdfViewElement } from '../types';
 
@@ -15,7 +15,7 @@ function CvEducation({
         const isLastAchievment = index === educationAchievements.length - 1;
 
         return (
-          <CvParagraph
+          <CvListItem
             key={achievement.title}
             isBottomSpacingEnabled={!isLastAchievment}
           >
@@ -27,7 +27,7 @@ function CvEducation({
                 end: achievement.endDate,
               }}
             />
-          </CvParagraph>
+          </CvListItem>
         );
       })}
     </CvSection>
