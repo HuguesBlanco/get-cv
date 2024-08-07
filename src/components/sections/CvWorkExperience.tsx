@@ -1,4 +1,5 @@
 import { Company } from '../../services/cvServiceTypes';
+import { isLastElement } from '../../utils/arrayUtils';
 
 import CvCompany from '../elements/CvCompany';
 import CvListItem from '../primitives/CvListItem';
@@ -12,18 +13,14 @@ function CvWorkExperience({
 }: CvWorkExperienceProps): PdfViewElement {
   return (
     <CvSection title="Experience">
-      {companies.map((company, index) => {
-        const isLastCompany = index === companies.length - 1;
-
-        return (
-          <CvListItem
-            key={company.name}
-            isBottomSpacingEnabled={!isLastCompany}
-          >
-            <CvCompany company={company} />
-          </CvListItem>
-        );
-      })}
+      {companies.map((company, index) => (
+        <CvListItem
+          key={company.name}
+          isBottomSpacingEnabled={!isLastElement(index, companies)}
+        >
+          <CvCompany company={company} />
+        </CvListItem>
+      ))}
     </CvSection>
   );
 }

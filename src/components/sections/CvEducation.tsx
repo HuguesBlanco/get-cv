@@ -1,4 +1,5 @@
 import { EducationAchievement } from '../../services/cvServiceTypes';
+import { isLastElement } from '../../utils/arrayUtils';
 import CvLearning from '../elements/CvLearning';
 import CvListItem from '../primitives/CvListItem';
 import CvSection from '../primitives/CvSection';
@@ -11,25 +12,21 @@ function CvEducation({
 }: CvEducationProps): PdfViewElement {
   return (
     <CvSection title="Education">
-      {educationAchievements.map((achievement, index) => {
-        const isLastAchievment = index === educationAchievements.length - 1;
-
-        return (
-          <CvListItem
-            key={achievement.title}
-            isBottomSpacingEnabled={!isLastAchievment}
-          >
-            <CvLearning
-              title={achievement.title}
-              learningProvider={achievement.institution}
-              dateRange={{
-                start: achievement.startDate,
-                end: achievement.endDate,
-              }}
-            />
-          </CvListItem>
-        );
-      })}
+      {educationAchievements.map((achievement, index) => (
+        <CvListItem
+          key={achievement.title}
+          isBottomSpacingEnabled={!isLastElement(index, educationAchievements)}
+        >
+          <CvLearning
+            title={achievement.title}
+            learningProvider={achievement.institution}
+            dateRange={{
+              start: achievement.startDate,
+              end: achievement.endDate,
+            }}
+          />
+        </CvListItem>
+      ))}
     </CvSection>
   );
 }
