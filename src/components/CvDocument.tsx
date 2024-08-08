@@ -35,6 +35,7 @@ function CvDocument(): PdfDocumentElement {
 
   Font.registerHyphenationCallback((word) => [word]);
 
+  const partMarginBottom = '10mm';
   const slotPaddingX = '5mm';
 
   return (
@@ -48,11 +49,16 @@ function CvDocument(): PdfDocumentElement {
         }}
       >
         <View style={{ margin: '10mm' }}>
-          <View id="slot-1">
-            <CvHeader cv={cv} />
+          <View id="part-1" style={{ marginBottom: partMarginBottom }}>
+            <View id="slot-1">
+              <CvHeader cv={cv} />
+            </View>
           </View>
 
-          <View style={{ flexDirection: 'row' }}>
+          <View
+            id="part-2"
+            style={{ flexDirection: 'row', marginBottom: partMarginBottom }}
+          >
             <View
               id="slot-2"
               style={{
@@ -82,7 +88,10 @@ function CvDocument(): PdfDocumentElement {
             </View>
           </View>
 
-          <View style={{ flexDirection: 'row' }}>
+          <View
+            id="part-3"
+            style={{ flexDirection: 'row', marginBottom: partMarginBottom }}
+          >
             <View
               id="slot-4"
               style={{
