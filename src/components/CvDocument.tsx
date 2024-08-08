@@ -35,9 +35,9 @@ function CvDocument(): PdfDocumentElement {
 
   Font.registerHyphenationCallback((word) => [word]);
 
-  const partMarginBottom = '10mm';
-  const slotPaddingX = '5mm';
-  const color = '#a3c3e4';
+  const PARTS_MARGIN_BOTTOM = '10mm';
+  const SLOTS_MARGIN_X = '5mm';
+  const COLOR = '#a3c3e4';
 
   return (
     <Document>
@@ -50,71 +50,71 @@ function CvDocument(): PdfDocumentElement {
         }}
       >
         <View style={{ margin: '10mm' }}>
-          <View id="part-1" style={{ marginBottom: partMarginBottom }}>
+          <View id="part-1" style={{ marginBottom: PARTS_MARGIN_BOTTOM }}>
             <View id="slot-1">
-              <CvHeader cv={cv} color={color} />
+              <CvHeader cv={cv} color={COLOR} />
             </View>
           </View>
 
           <View
             id="part-2"
-            style={{ flexDirection: 'row', marginBottom: partMarginBottom }}
+            style={{ flexDirection: 'row', marginBottom: PARTS_MARGIN_BOTTOM }}
           >
             <View
               id="slot-2"
               style={{
-                borderRight: `0.4mm solid ${color}`,
-                paddingLeft: slotPaddingX,
-                paddingRight: slotPaddingX,
+                borderRight: `0.4mm solid ${COLOR}`,
+                paddingLeft: SLOTS_MARGIN_X,
+                paddingRight: SLOTS_MARGIN_X,
                 width: '33.333%',
                 justifyContent: 'space-between',
               }}
             >
-              <CvContact contact={cv.contact} color={color} />
+              <CvContact contact={cv.contact} color={COLOR} />
 
-              <CvSkills skills={cv.skills} color={color} />
+              <CvSkills skills={cv.skills} color={COLOR} />
 
-              <CvLanguages languages={cv.languages} color={color} />
+              <CvLanguages languages={cv.languages} color={COLOR} />
             </View>
 
             <View
               id="slot-3"
               style={{
-                paddingLeft: slotPaddingX,
-                paddingRight: slotPaddingX,
+                paddingLeft: SLOTS_MARGIN_X,
+                paddingRight: SLOTS_MARGIN_X,
                 width: '66.666%',
               }}
             >
-              <CvWorkExperience companies={cv.companies} color={color} />
+              <CvWorkExperience companies={cv.companies} color={COLOR} />
             </View>
           </View>
 
           <View
             id="part-3"
-            style={{ flexDirection: 'row', marginBottom: partMarginBottom }}
+            style={{ flexDirection: 'row', marginBottom: PARTS_MARGIN_BOTTOM }}
           >
             <View
               id="slot-4"
               style={{
-                paddingLeft: slotPaddingX,
-                paddingRight: slotPaddingX,
+                paddingLeft: SLOTS_MARGIN_X,
+                paddingRight: SLOTS_MARGIN_X,
                 width: '33.333%',
               }}
             >
-              <CvOnlineCourses onlineCourses={cv.onlineCourses} color={color} />
+              <CvOnlineCourses onlineCourses={cv.onlineCourses} color={COLOR} />
             </View>
 
             <View
               id="slot-5"
               style={{
-                paddingLeft: slotPaddingX,
-                paddingRight: slotPaddingX,
+                paddingLeft: SLOTS_MARGIN_X,
+                paddingRight: SLOTS_MARGIN_X,
                 width: '66.666%',
               }}
             >
               <CvEducation
                 educationAchievements={cv.educationAchievements}
-                color={color}
+                color={COLOR}
               />
             </View>
           </View>
