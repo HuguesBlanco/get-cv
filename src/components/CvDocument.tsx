@@ -35,7 +35,7 @@ function CvDocument(): PdfDocumentElement {
 
   Font.registerHyphenationCallback((word) => [word]);
 
-  const sectionPaddingX = '5mm';
+  const slotPaddingX = '5mm';
 
   return (
     <Document>
@@ -48,16 +48,17 @@ function CvDocument(): PdfDocumentElement {
         }}
       >
         <View style={{ margin: '10mm' }}>
-          <View>
+          <View id="slot-1">
             <CvHeader cv={cv} />
           </View>
 
           <View style={{ flexDirection: 'row' }}>
             <View
+              id="slot-2"
               style={{
                 borderRight: '0.4mm solid #a3c3e4',
-                paddingLeft: sectionPaddingX,
-                paddingRight: sectionPaddingX,
+                paddingLeft: slotPaddingX,
+                paddingRight: slotPaddingX,
                 width: '33.333%',
                 justifyContent: 'space-between',
               }}
@@ -70,9 +71,10 @@ function CvDocument(): PdfDocumentElement {
             </View>
 
             <View
+              id="slot-3"
               style={{
-                paddingLeft: sectionPaddingX,
-                paddingRight: sectionPaddingX,
+                paddingLeft: slotPaddingX,
+                paddingRight: slotPaddingX,
                 width: '66.666%',
               }}
             >
@@ -82,9 +84,10 @@ function CvDocument(): PdfDocumentElement {
 
           <View style={{ flexDirection: 'row' }}>
             <View
+              id="slot-4"
               style={{
-                paddingLeft: sectionPaddingX,
-                paddingRight: sectionPaddingX,
+                paddingLeft: slotPaddingX,
+                paddingRight: slotPaddingX,
                 width: '33.333%',
               }}
             >
@@ -92,9 +95,10 @@ function CvDocument(): PdfDocumentElement {
             </View>
 
             <View
+              id="slot-5"
               style={{
-                paddingLeft: sectionPaddingX,
-                paddingRight: sectionPaddingX,
+                paddingLeft: slotPaddingX,
+                paddingRight: slotPaddingX,
                 width: '66.666%',
               }}
             >
