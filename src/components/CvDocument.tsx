@@ -1,8 +1,8 @@
 import { Document, Font, Page, View } from '@react-pdf/renderer';
 import { getCv } from '../services/cvService';
-import CvHeader from './CvHeader';
 import CvContact from './sections/CvContact';
 import CvEducation from './sections/CvEducation';
+import CvHeader from './sections/CvHeader';
 import CvLanguages from './sections/CvLanguages';
 import CvOnlineCourses from './sections/CvOnlineCourses';
 import CvSkills from './sections/CvSkills';

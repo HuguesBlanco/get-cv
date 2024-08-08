@@ -1,6 +1,6 @@
 import { Image, Text, View } from '@react-pdf/renderer';
-import { Cv } from '../services/cvServiceTypes';
-import { PdfViewElement } from './types';
+import { Cv } from '../../services/cvServiceTypes';
+import { PdfViewElement } from '../types';
 
 type CvHeaderProps = { cv: Cv; color: string };
 
