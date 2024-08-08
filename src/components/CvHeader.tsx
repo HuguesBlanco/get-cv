@@ -2,10 +2,9 @@ import { Image, Text, View } from '@react-pdf/renderer';
 import { Cv } from '../services/cvServiceTypes';
 import { PdfViewElement } from './types';
 
-type CvHeaderProps = { cv: Cv };
+type CvHeaderProps = { cv: Cv; color: string };
 
-function CvHeader({ cv }: CvHeaderProps): PdfViewElement {
-  const COLOR = '#a3c3e4';
+function CvHeader({ cv, color }: CvHeaderProps): PdfViewElement {
   const IMAGE_SIZE = '35mm';
 
   return (
@@ -17,7 +16,7 @@ function CvHeader({ cv }: CvHeaderProps): PdfViewElement {
           </Text>
           <Text
             style={{
-              color: COLOR,
+              color: color,
               fontSize: '42pt',
               fontWeight: 'light',
               letterSpacing: '2',
@@ -36,7 +35,7 @@ function CvHeader({ cv }: CvHeaderProps): PdfViewElement {
         <View>
           <View
             style={{
-              backgroundColor: COLOR,
+              backgroundColor: color,
               width: IMAGE_SIZE,
               height: IMAGE_SIZE,
               borderRadius: '50%',

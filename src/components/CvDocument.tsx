@@ -37,6 +37,7 @@ function CvDocument(): PdfDocumentElement {
 
   const partMarginBottom = '10mm';
   const slotPaddingX = '5mm';
+  const color = '#a3c3e4';
 
   return (
     <Document>
@@ -51,7 +52,7 @@ function CvDocument(): PdfDocumentElement {
         <View style={{ margin: '10mm' }}>
           <View id="part-1" style={{ marginBottom: partMarginBottom }}>
             <View id="slot-1">
-              <CvHeader cv={cv} />
+              <CvHeader cv={cv} color={color} />
             </View>
           </View>
 
@@ -62,18 +63,18 @@ function CvDocument(): PdfDocumentElement {
             <View
               id="slot-2"
               style={{
-                borderRight: '0.4mm solid #a3c3e4',
+                borderRight: `0.4mm solid ${color}`,
                 paddingLeft: slotPaddingX,
                 paddingRight: slotPaddingX,
                 width: '33.333%',
                 justifyContent: 'space-between',
               }}
             >
-              <CvContact contact={cv.contact} />
+              <CvContact contact={cv.contact} color={color} />
 
-              <CvSkills skills={cv.skills} />
+              <CvSkills skills={cv.skills} color={color} />
 
-              <CvLanguages languages={cv.languages} />
+              <CvLanguages languages={cv.languages} color={color} />
             </View>
 
             <View
@@ -84,7 +85,7 @@ function CvDocument(): PdfDocumentElement {
                 width: '66.666%',
               }}
             >
-              <CvWorkExperience companies={cv.companies} />
+              <CvWorkExperience companies={cv.companies} color={color} />
             </View>
           </View>
 
@@ -100,7 +101,7 @@ function CvDocument(): PdfDocumentElement {
                 width: '33.333%',
               }}
             >
-              <CvOnlineCourses onlineCourses={cv.onlineCourses} />
+              <CvOnlineCourses onlineCourses={cv.onlineCourses} color={color} />
             </View>
 
             <View
@@ -111,7 +112,10 @@ function CvDocument(): PdfDocumentElement {
                 width: '66.666%',
               }}
             >
-              <CvEducation educationAchievements={cv.educationAchievements} />
+              <CvEducation
+                educationAchievements={cv.educationAchievements}
+                color={color}
+              />
             </View>
           </View>
         </View>

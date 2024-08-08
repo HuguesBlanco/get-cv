@@ -6,14 +6,18 @@ import CvListItem from '../primitives/CvListItem';
 import CvTitle1 from '../primitives/CvTitle1';
 import { PdfViewElement } from '../types';
 
-type CvEducationProps = { educationAchievements: EducationAchievement[] };
+type CvEducationProps = {
+  educationAchievements: EducationAchievement[];
+  color: string;
+};
 
 function CvEducation({
   educationAchievements,
+  color,
 }: CvEducationProps): PdfViewElement {
   return (
     <View>
-      <CvTitle1>Education</CvTitle1>
+      <CvTitle1 color={color}>Education</CvTitle1>
 
       {educationAchievements.map((achievement, index) => (
         <CvListItem

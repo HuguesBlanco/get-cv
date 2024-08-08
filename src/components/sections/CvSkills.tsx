@@ -52,15 +52,16 @@ function combineHtmlAndCss(skills: Skill[]): Skill[] {
 
 type CvSkillsProps = {
   skills: Skill[];
+  color: string;
 };
 
-function CvSkills({ skills }: CvSkillsProps): PdfViewElement {
+function CvSkills({ skills, color }: CvSkillsProps): PdfViewElement {
   const skillsWithHtmlAndCssCombined = combineHtmlAndCss(skills);
   const reducedSkills = filterSkillsForCv(skillsWithHtmlAndCssCombined);
 
   return (
     <View>
-      <CvTitle1>Skills</CvTitle1>
+      <CvTitle1 color={color}>Skills</CvTitle1>
       {reducedSkills.map((skill) => (
         <CvListItem key={skill} icon="circle" isBottomSpacingEnabled={false}>
           {skill}

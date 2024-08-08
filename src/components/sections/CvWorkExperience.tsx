@@ -7,14 +7,15 @@ import CvListItem from '../primitives/CvListItem';
 import CvTitle1 from '../primitives/CvTitle1';
 import { PdfViewElement } from '../types';
 
-type CvWorkExperienceProps = { companies: Company[] };
+type CvWorkExperienceProps = { companies: Company[]; color: string };
 
 function CvWorkExperience({
   companies,
+  color,
 }: CvWorkExperienceProps): PdfViewElement {
   return (
     <View>
-      <CvTitle1>Experience</CvTitle1>
+      <CvTitle1 color={color}>Experience</CvTitle1>
 
       {companies.map((company, index) => (
         <CvListItem

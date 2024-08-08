@@ -8,12 +8,13 @@ import { PdfViewElement } from '../types';
 
 type CvLanguagesProps = {
   languages: Language[];
+  color: string;
 };
 
-function CvLanguages({ languages }: CvLanguagesProps): PdfViewElement {
+function CvLanguages({ languages, color }: CvLanguagesProps): PdfViewElement {
   return (
     <View>
-      <CvTitle1>Languages</CvTitle1>
+      <CvTitle1 color={color}>Languages</CvTitle1>
 
       {languages.map((language, index) => (
         <CvListItem

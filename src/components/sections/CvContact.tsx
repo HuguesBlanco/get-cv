@@ -5,14 +5,14 @@ import CvListItem from '../primitives/CvListItem';
 import CvTitle1 from '../primitives/CvTitle1';
 import { PdfViewElement } from '../types';
 
-type CvContactProps = { contact: Contact };
+type CvContactProps = { contact: Contact; color: string };
 
-function CvContact({ contact }: CvContactProps): PdfViewElement {
+function CvContact({ contact, color }: CvContactProps): PdfViewElement {
   const leftSpace = '5mm';
 
   return (
     <View>
-      <CvTitle1>Contact</CvTitle1>
+      <CvTitle1 color={color}>Contact</CvTitle1>
 
       <CvListItem>
         <View style={{ flexDirection: 'row' }}>

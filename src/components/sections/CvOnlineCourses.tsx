@@ -6,14 +6,15 @@ import CvListItem from '../primitives/CvListItem';
 import CvTitle1 from '../primitives/CvTitle1';
 import { PdfViewElement } from '../types';
 
-type CvOnlineCoursesProps = { onlineCourses: OnlineCourse[] };
+type CvOnlineCoursesProps = { onlineCourses: OnlineCourse[]; color: string };
 
 function CvOnlineCourses({
   onlineCourses,
+  color,
 }: CvOnlineCoursesProps): PdfViewElement {
   return (
     <View>
-      <CvTitle1>Online courses</CvTitle1>
+      <CvTitle1 color={color}>Online courses</CvTitle1>
 
       {onlineCourses.map((course, index) => {
         return (
