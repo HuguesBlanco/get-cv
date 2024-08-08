@@ -8,7 +8,7 @@ type CvTitleProps = {
 
 function CvTitle1({ children, color }: CvTitleProps): PdfViewElement {
   return (
-    <View style={{ paddingBottom: 10 }}>
+    <View style={{ marginBottom: '4mm' }}>
       <Text style={{ color: color, fontSize: 20, textTransform: 'uppercase' }}>
         {children}
       </Text>

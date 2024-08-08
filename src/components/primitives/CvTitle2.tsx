@@ -16,7 +16,7 @@ function CvTitle2({ children, extraContent }: CvTitle2Props): PdfViewElement {
       style={{
         flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingBottom: 10,
+        marginBottom: '3mm',
       }}
     >
       <Text style={{ fontSize: 11, textTransform: 'uppercase' }}>
