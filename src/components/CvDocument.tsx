@@ -59,6 +59,7 @@ function CvDocument(): PdfDocumentElement {
                 paddingLeft: sectionPaddingX,
                 paddingRight: sectionPaddingX,
                 width: '33.333%',
+                justifyContent: 'space-between',
               }}
             >
               <CvContact contact={cv.contact} />
