@@ -37,7 +37,7 @@ function CvDocument(): PdfDocumentElement {
 
   const PARTS_MARGIN_BOTTOM = '10mm';
   const SLOTS_MARGIN_X = '5mm';
-  const COLOR = '#57799e';
+  const COLOR = '#4b6f96';
 
   return (
     <Document>

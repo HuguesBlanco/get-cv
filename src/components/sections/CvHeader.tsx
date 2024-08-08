@@ -11,15 +11,15 @@ function CvHeader({ cv, color }: CvHeaderProps): PdfViewElement {
     <View>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
         <View>
-          <Text style={{ fontSize: '21pt', letterSpacing: '5' }}>
+          <Text style={{ fontSize: '18pt', letterSpacing: '10' }}>
             {cv.name.firstName}
           </Text>
           <Text
             style={{
               color: color,
-              fontSize: '42pt',
+              fontSize: '40pt',
               fontWeight: 'light',
-              letterSpacing: '2',
+              letterSpacing: '5',
               margin: '-2pt',
               textTransform: 'uppercase',
             }}
@@ -27,7 +27,7 @@ function CvHeader({ cv, color }: CvHeaderProps): PdfViewElement {
             {cv.name.lastName}
           </Text>
           <Text
-            style={{ fontSize: '11pt', letterSpacing: '1', marginLeft: '59mm' }}
+            style={{ fontSize: '11pt', letterSpacing: '1', marginLeft: '63mm' }}
           >
             {cv.objective}
           </Text>
