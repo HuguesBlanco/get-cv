@@ -19,7 +19,7 @@ function CvListItem({
     <View
       style={{
         flexDirection: 'row',
-        ...(isBottomSpacingEnabled && { marginBottom: '4mm' }),
+        ...(isBottomSpacingEnabled && { marginBottom: '3mm' }),
       }}
     >
       {icon !== undefined && (
