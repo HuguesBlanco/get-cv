@@ -52,7 +52,13 @@ function CvDocument(): PdfDocumentElement {
       >
         <View style={{ margin: DOCUMENT_MARGIN }}>
           <View id="part-1" style={{ marginBottom: PARTS_MARGIN_BOTTOM }}>
-            <View id="slot-1">
+            <View
+              id="slot-1"
+              style={{
+                paddingLeft: SLOTS_MARGIN_X,
+                paddingRight: SLOTS_MARGIN_X,
+              }}
+            >
               <CvHeader cv={cv} color={COLOR} />
             </View>
           </View>
