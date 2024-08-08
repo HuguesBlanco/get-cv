@@ -55,8 +55,8 @@ function CvDocument(): PdfDocumentElement {
             <View
               id="slot-1"
               style={{
-                paddingLeft: SLOTS_MARGIN_X,
-                paddingRight: SLOTS_MARGIN_X,
+                marginLeft: SLOTS_MARGIN_X,
+                marginRight: SLOTS_MARGIN_X,
               }}
             >
               <CvHeader cv={cv} color={COLOR} />
@@ -71,8 +71,8 @@ function CvDocument(): PdfDocumentElement {
               id="slot-2"
               style={{
                 borderRight: `0.4mm solid ${COLOR}`,
-                paddingLeft: SLOTS_MARGIN_X,
-                paddingRight: SLOTS_MARGIN_X,
+                marginLeft: SLOTS_MARGIN_X,
+                marginRight: SLOTS_MARGIN_X,
                 width: '33.333%',
                 justifyContent: 'space-between',
               }}
@@ -87,8 +87,8 @@ function CvDocument(): PdfDocumentElement {
             <View
               id="slot-3"
               style={{
-                paddingLeft: SLOTS_MARGIN_X,
-                paddingRight: SLOTS_MARGIN_X,
+                marginLeft: SLOTS_MARGIN_X,
+                marginRight: SLOTS_MARGIN_X,
                 width: '66.666%',
               }}
             >
@@ -103,8 +103,8 @@ function CvDocument(): PdfDocumentElement {
             <View
               id="slot-4"
               style={{
-                paddingLeft: SLOTS_MARGIN_X,
-                paddingRight: SLOTS_MARGIN_X,
+                marginLeft: SLOTS_MARGIN_X,
+                marginRight: SLOTS_MARGIN_X,
                 width: '33.333%',
               }}
             >
@@ -114,8 +114,8 @@ function CvDocument(): PdfDocumentElement {
             <View
               id="slot-5"
               style={{
-                paddingLeft: SLOTS_MARGIN_X,
-                paddingRight: SLOTS_MARGIN_X,
+                marginLeft: SLOTS_MARGIN_X,
+                marginRight: SLOTS_MARGIN_X,
                 width: '66.666%',
               }}
             >
