@@ -35,6 +35,7 @@ function CvDocument(): PdfDocumentElement {
 
   Font.registerHyphenationCallback((word) => [word]);
 
+  const DOCUMENT_MARGIN = '10mm';
   const PARTS_MARGIN_BOTTOM = '10mm';
   const SLOTS_MARGIN_X = '5mm';
   const COLOR = '#4b6f96';
@@ -49,7 +50,7 @@ function CvDocument(): PdfDocumentElement {
           fontSize: '9',
         }}
       >
-        <View style={{ margin: '10mm' }}>
+        <View style={{ margin: DOCUMENT_MARGIN }}>
           <View id="part-1" style={{ marginBottom: PARTS_MARGIN_BOTTOM }}>
             <View id="slot-1">
               <CvHeader cv={cv} color={COLOR} />
