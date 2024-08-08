@@ -2,6 +2,7 @@ import { Document, Font, Page, View } from '@react-pdf/renderer';
 import { getCv } from '../services/cvService';
 import CvContact from './sections/CvContact';
 import CvEducation from './sections/CvEducation';
+import CvGithub from './sections/CvGithub';
 import CvHeader from './sections/CvHeader';
 import CvLanguages from './sections/CvLanguages';
 import CvOnlineCourses from './sections/CvOnlineCourses';
@@ -35,7 +36,10 @@ function CvDocument(): PdfDocumentElement {
 
   Font.registerHyphenationCallback((word) => [word]);
 
-  const DOCUMENT_MARGIN = '10mm';
+  const DOCUMENT_MARGIN_TOP = '8mm';
+  const DOCUMENT_MARGIN_X = '8mm';
+  const DOCUMENT_MARGIN_BOTTOM = '2mm';
+
   const PARTS_MARGIN_BOTTOM = '10mm';
   const SLOTS_MARGIN_X = '5mm';
   const COLOR = '#4b6f96';
@@ -50,7 +54,14 @@ function CvDocument(): PdfDocumentElement {
           fontSize: '9',
         }}
       >
-        <View style={{ margin: DOCUMENT_MARGIN }}>
+        <View
+          style={{
+            marginTop: DOCUMENT_MARGIN_TOP,
+            marginLeft: DOCUMENT_MARGIN_X,
+            marginRight: DOCUMENT_MARGIN_X,
+            marginBottom: DOCUMENT_MARGIN_BOTTOM,
+          }}
+        >
           <View id="part-1" style={{ marginBottom: PARTS_MARGIN_BOTTOM }}>
             <View
               id="slot-1"
@@ -123,6 +134,17 @@ function CvDocument(): PdfDocumentElement {
                 educationAchievements={cv.educationAchievements}
                 color={COLOR}
               />
+            </View>
+          </View>
+          <View id="part-4">
+            <View
+              id="slot-6"
+              style={{
+                marginLeft: SLOTS_MARGIN_X,
+                marginRight: SLOTS_MARGIN_X,
+              }}
+            >
+              <CvGithub color={COLOR} />
             </View>
           </View>
         </View>
