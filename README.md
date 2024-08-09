@@ -1,6 +1,6 @@
-# Get My CV
+# Get CV
 
-That small app generates my CV as a PDF.
+This simple app generates a PDF version of Hugues Blanco Alvarez's CV.
 
 ## Prerequisites
 
