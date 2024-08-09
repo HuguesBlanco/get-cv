@@ -12,13 +12,13 @@ This simple app generates a PDF version of Hugues Blanco Alvarez's CV.
 Clone the project
 
 ```
-git clone https://github.com/HuguesBlanco/get-my-cv.git
+git clone https://github.com/HuguesBlanco/get-cv.git
 ```
 
 Navigate to the app folder.
 
 ```
-cd get-my-cv
+cd get-cv
 ```
 
 Install dependencies.
