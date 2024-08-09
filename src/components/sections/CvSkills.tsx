@@ -15,21 +15,32 @@ function filterSkillsForCv(allSkills: Skill[]): Skill[] {
     'JavaScript',
     'Scrum',
     'Adaptability',
-    'Data marketing strategy',
-    'operational leadership',
-    'client relationship management',
-    'Project management',
-    'email marketing',
-    'retargeting',
-    'performance tracking',
-    'Graphic design',
+    'Data Marketing Strategy',
+    'Operational Leadership',
+    'Client Relationship Management',
+    'Project Management',
+    'email Marketing',
+    'Retargeting',
+    'Performance Tracking',
+    'Graphic Design',
     'Adobe Suite',
     'WordPress',
     'Creativity',
-    'layout design',
+    'Layout Design',
   ];
 
-  return allSkills.filter((skill) => !SKILLS_TO_REMOVE.includes(skill));
+  const allSkillsNormalized = SKILLS_TO_REMOVE.map((skill) =>
+    skill.toLowerCase(),
+  );
+
+  return allSkills.filter((skill) => {
+    const skillNormalized = skill.toLowerCase();
+
+    const isSkillToRemove = allSkillsNormalized.includes(skillNormalized);
+
+    if (isSkillToRemove) return false;
+    return true;
+  });
 }
 
 /**
