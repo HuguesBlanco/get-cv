@@ -1,0 +1,208 @@
+{
+  "name": {
+    "firstName": "Hugues",
+    "lastName": "Blanco Alvarez"
+  },
+  "objective": "Cherche un poste de développeur front-end",
+  "contact": {
+    "email": "contact@huguesblanco.com",
+    "phone": "+32 473 40 20 71",
+    "postalAddress": {
+      "streetNumber": "31",
+      "streetName": "Rue Sainte-Véronique",
+      "additionalAddressInfo": "boîte 33",
+      "city": "Liège",
+      "postalCode": "4000",
+      "country": "Belgique"
+    }
+  },
+  "languages": [
+    { "name": "Français", "level": "Langue maternelle" },
+    {
+      "name": "Anglais",
+      "level": "Maîtrise professionnelle\n(C1 selon le CECRL)"
+    }
+  ],
+  "skills": [
+    "JavaScript",
+    "TypeScript",
+    "React.js",
+    "Tailwind CSS",
+    "Tests unitaires",
+    "Git",
+    "Méthodologie Agile",
+    "Scrum",
+    "Adaptabilité",
+    "Communication en anglais",
+    "Stratégie de data marketing",
+    "Leadership opérationnel",
+    "Gestion de la relation client",
+    "Gestion de projets",
+    "Emailing",
+    "Retargeting",
+    "Suivi des performances",
+    "Design graphique",
+    "Suite Adobe",
+    "WordPress",
+    "HTML",
+    "CSS",
+    "Créativité",
+    "Mise en page"
+  ],
+  "companies": [
+    {
+      "name": "Easybox",
+      "description": "Fournisseur de logiciels d'entreprise",
+      "website": "www.easybox.com",
+      "location": "Gand",
+      "jobPositions": [
+        {
+          "title": "Développeur front-end",
+          "description": "Développement de l'interface utilisateur pour un logiciel ERP en SaaS en utilisant TypeScript et React.js. Création de composants avec Tailwind CSS et conception de bibliothèques JavaScript. Refactoring du code pour améliorer la modularité, la clarté et la qualité. Ajout de tests unitaires.",
+          "skills": [
+            "JavaScript",
+            "TypeScript",
+            "React.js",
+            "Tailwind CSS",
+            "Tests unitaires",
+            "Git",
+            "Méthodologie Agile",
+            "Scrum"
+          ],
+          "startDate": "2022-01-01T00:00:00.000Z",
+          "endDate": "2024-07-04T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "name": "Working Holiday",
+      "location": "Australie",
+      "jobPositions": [
+        {
+          "title": "Travail et voyage",
+          "description": "Amélioration de l'anglais et découverte de la culture locale pendant un an en Australie.",
+          "skills": ["Adaptabilité", "Communication en anglais"],
+          "startDate": "2020-03-01T00:00:00.000Z",
+          "endDate": "2021-07-01T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "name": "The Wave",
+      "description": "Agence de data marketing",
+      "website": "thewave.digital",
+      "location": "Bruxelles",
+      "jobPositions": [
+        {
+          "title": "Responsable data et email marketing",
+          "description": "Coordination des initiatives d'email marketing et d'enrichissement de données. Définition et mise en œuvre de la stratégie en collaboration avec les autres équipes. Prise en charge des clients, organisation et planification du travail.",
+          "skills": [
+            "Stratégie de data marketing",
+            "Leadership opérationnel",
+            "Gestion de la relation client"
+          ],
+          "startDate": "2018-05-01T00:00:00.000Z",
+          "endDate": "2019-12-01T00:00:00.000Z"
+        },
+        {
+          "title": "Chef de projet data et email marketing",
+          "description": "Gestion de campagnes emailing, de retargeting et de data. Conception, codage, ciblage et suivi des campagnes. Automatisation des tâches avec des scripts PHP.",
+          "skills": [
+            "Gestion de projets",
+            "Emailing",
+            "Retargeting",
+            "Suivi des performances"
+          ],
+          "startDate": "2016-02-01T00:00:00.000Z",
+          "endDate": "2018-05-01T00:00:00.000Z"
+        },
+        {
+          "title": "Web designer",
+          "description": "Conception de sites web, de présentations et de newsletters. Traduction des designs en HTML et CSS en utilisant WordPress et Qualifio.",
+          "skills": [
+            "Design graphique",
+            "Suite Adobe",
+            "WordPress",
+            "HTML",
+            "CSS"
+          ],
+          "startDate": "2015-01-01T00:00:00.000Z",
+          "endDate": "2016-02-01T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "name": "Apollo",
+      "description": "Agence de communication",
+      "website": "www.apollo-com.be",
+      "location": "Liège",
+      "jobPositions": [
+        {
+          "title": "Graphiste (Stage)",
+          "description": "Création de logos, d'icônes et de mises en page pour des affiches et des catalogues. Recherche d'idées pour des campagnes publicitaires.",
+          "skills": ["Créativité", "Design graphique", "Mise en page"],
+          "startDate": "2014-09-01T00:00:00.000Z",
+          "endDate": "2014-10-01T00:00:00.000Z"
+        }
+      ]
+    }
+  ],
+  "educationAchievements": [
+    {
+      "title": "Formation : “Designer graphique : Print et Web”",
+      "institution": "Centre de formation Corail-Forem",
+      "startDate": "2013-01-01T00:00:00.000Z",
+      "endDate": "2014-01-01T00:00:00.000Z"
+    },
+    {
+      "title": "Master en Beaux-Arts en Illustration",
+      "institution": "École des Beaux-Arts de Liège",
+      "startDate": "2011-01-01T00:00:00.000Z",
+      "endDate": "2013-01-01T00:00:00.000Z"
+    },
+    {
+      "title": "Formation : “Effets spéciaux numériques”",
+      "institution": "CGItrainer Belgique",
+      "startDate": "2010-01-01T00:00:00.000Z",
+      "endDate": "2011-01-01T00:00:00.000Z"
+    },
+    {
+      "title": "Bachelier en Beaux-Arts, spécialisation en illustration",
+      "institution": "Saint-Luc Liège",
+      "startDate": "2007-01-01T00:00:00.000Z",
+      "endDate": "2010-01-01T00:00:00.000Z"
+    },
+    {
+      "title": "École secondaire, spécialisation en sciences et mathématiques",
+      "institution": "Liège 1",
+      "startDate": "2001-01-01T00:00:00.000Z",
+      "endDate": "2007-01-01T00:00:00.000Z"
+    }
+  ],
+  "onlineCourses": [
+    {
+      "name": "Tester des applications React 16 avec Jest 26",
+      "platform": "Pluralsight",
+      "credentialId": "7d8c844b-4cde-457c-8bbc-3ced20d8a5b7",
+      "issueDate": "2022-08-01T00:00:00.000Z"
+    },
+    {
+      "name": "React pour les autres",
+      "platform": "Udemy",
+      "credentialId": "UC-f8e79852-9a1c-4c3c-abac-00d1fca133bd",
+      "issueDate": "2021-09-01T00:00:00.000Z"
+    },
+    {
+      "name": "Introduction à Git et GitHub",
+      "platform": "Coursera / Google",
+      "credentialId": "TXSN5AYYHQDQ",
+      "issueDate": "2020-11-01T00:00:00.000Z"
+    },
+    {
+      "name": "HTML, CSS et Javascript pour les développeurs web",
+      "platform": "Coursera / Université Johns Hopkins",
+      "credentialId": "KUPNURUAGWQY",
+      "issueDate": "2020-09-01T00:00:00.000Z"
+    }
+  ]
+}
