@@ -1,9 +1,9 @@
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import { useState } from 'react';
 import { Languages } from '../types';
+import SegmentedControl from '../ui/SegmentedControl';
 import CvDocument from './CvDocument';
 import CvViewer from './CvViewer';
-import SegmentedControl from './ui/SegmentedControl';
 
 function App(): JSX.Element {
   const COLOR = '#4b6f96'; // TODO: Use a common variable with the COLOR in CvDocument.
