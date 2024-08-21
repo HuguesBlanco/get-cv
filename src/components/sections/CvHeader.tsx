@@ -27,7 +27,7 @@ function CvHeader({ cv, color }: CvHeaderProps): PdfViewElement {
               fontSize: '40pt',
               fontWeight: 'light',
               letterSpacing: '2.5',
-              marginLeft: '-2',
+              marginLeft: '-2.4',
               textTransform: 'uppercase',
             }}
           >
