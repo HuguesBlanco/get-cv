@@ -7,10 +7,12 @@ type CvDownloadLinkProps = {
 };
 
 function CvDownloadLink({ language }: CvDownloadLinkProps): JSX.Element {
+  const fileName = `hugues_blanco_alvarez_cv_${language}.pdf`;
+
   return (
     <PDFDownloadLink
       document={<CvDocument language={language} />}
-      fileName="hugues_blanco_alvarez_cv.pdf"
+      fileName={fileName}
     >
       {({ loading }) => (loading ? 'Loading...' : 'Download CV')}
     </PDFDownloadLink>
