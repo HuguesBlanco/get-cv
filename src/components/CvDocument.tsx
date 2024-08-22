@@ -1,5 +1,6 @@
 import { Document, Font, Page, View } from '@react-pdf/renderer';
 import { getCv } from '../services/cvService';
+import { Languages } from '../types';
 import CvContact from './sections/CvContact';
 import CvEducation from './sections/CvEducation';
 import CvGithub from './sections/CvGithub';
@@ -10,8 +11,12 @@ import CvSkills from './sections/CvSkills';
 import CvWorkExperience from './sections/CvWorkExperience';
 import { PdfDocumentElement } from './types';
 
-function CvDocument(): PdfDocumentElement {
-  const cv = getCv();
+type CvDocumentProps = {
+  language: Languages;
+};
+
+function CvDocument({ language }: CvDocumentProps): PdfDocumentElement {
+  const cv = getCv(language);
 
   Font.register({
     family: 'Source Sans 3',

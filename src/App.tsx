@@ -25,9 +25,9 @@ function App(): JSX.Element {
         />
       </div>
       <div>
-        <CvDownloadLink />
+        <CvDownloadLink language={language} />
       </div>
-      <CvViewer />
+      <CvViewer language={language} />
     </>
   );
 }
