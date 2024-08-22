@@ -58,7 +58,7 @@
       "jobPositions": [
         {
           "title": "Développeur front-end",
-          "description": "Développement de l'interface utilisateur pour un logiciel ERP en SaaS en utilisant TypeScript et React.js. Création de composants avec Tailwind CSS et conception de bibliothèques JavaScript. Refactoring du code pour améliorer la modularité, la clarté et la qualité. Ajout de tests unitaires.",
+          "description": "Développement de l'interface utilisateur d'un ERP SaaS avec TypeScript, React.js et Tailwind CSS. Conception de bibliothèques JavaScript et refactoring pour améliorer la modularité et la qualité du code. Ajout de tests unitaires pour garantir la stabilité.",
           "skills": [
             "JavaScript",
             "TypeScript",
@@ -80,7 +80,7 @@
       "jobPositions": [
         {
           "title": "Travail et voyage",
-          "description": "Amélioration de l'anglais et découverte de la culture locale pendant un an en Australie.",
+          "description": "Amélioration de l'anglais et découverte de la culture australienne.",
           "skills": ["Adaptabilité", "Communication en anglais"],
           "startDate": "2020-03-01T00:00:00.000Z",
           "endDate": "2021-07-01T00:00:00.000Z"
