@@ -1,5 +1,6 @@
 import { View } from '@react-pdf/renderer';
 import { Skill } from '../../services/cvServiceTypes';
+import { Languages } from '../../types';
 import CvListItem from '../primitives/CvListItem';
 import CvTitle1 from '../primitives/CvTitle1';
 import { PdfViewElement } from '../types';
@@ -10,24 +11,41 @@ import { PdfViewElement } from '../types';
  * @param allSkills The complete list of skills from the original data.
  * @returns A list of skills excluding the predefined set of skills to remove.
  */
-function filterSkillsForCv(allSkills: Skill[]): Skill[] {
-  const skillsToRemove: string[] = [
-    'Scrum',
-    'Adaptability',
-    'Data Marketing Strategy',
-    'Operational Leadership',
-    'Client Relationship Management',
-    'Project Management',
-    'email Marketing',
-    'Retargeting',
-    'Performance Tracking',
-    'Graphic Design',
-    'Adobe Suite',
-    'WordPress',
-    'Creativity',
-    'Layout Design',
-  ];
-
+function filterSkillsForCv(allSkills: Skill[], language: Languages): Skill[] {
+  const skillsToRemove: string[] =
+    language === Languages.ENGLISH
+      ? [
+          'Scrum',
+          'Adaptability',
+          'Data Marketing Strategy',
+          'Operational Leadership',
+          'Client Relationship Management',
+          'Project Management',
+          'email Marketing',
+          'Retargeting',
+          'Performance Tracking',
+          'Graphic Design',
+          'Adobe Suite',
+          'WordPress',
+          'Creativity',
+          'Layout Design',
+        ]
+      : [
+          'Scrum',
+          'Adaptabilité',
+          'Stratégie de data marketing',
+          'Leadership opérationnel',
+          'Gestion de la relation client',
+          'Gestion de projets',
+          'Marketing email',
+          'Retargeting',
+          'Suivi des performances',
+          'Design graphique',
+          'Suite Adobe',
+          'WordPress',
+          'Créativité',
+          'Mise en page',
+        ];
   const normalizedSkillsToRemove = skillsToRemove.map((skill) =>
     skill.toLowerCase(),
   );
@@ -67,11 +85,12 @@ function combineSkills(skills: Skill[]): Skill[] {
 type CvSkillsProps = {
   skills: Skill[];
   color: string;
+  language: Languages;
 };
 
-function CvSkills({ skills, color }: CvSkillsProps): PdfViewElement {
+function CvSkills({ skills, color, language }: CvSkillsProps): PdfViewElement {
   const combinedSkills = combineSkills(skills);
-  const filteredSkillsForCv = filterSkillsForCv(combinedSkills);
+  const filteredSkillsForCv = filterSkillsForCv(combinedSkills, language);
 
   return (
     <View>

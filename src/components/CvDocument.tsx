@@ -95,7 +95,7 @@ function CvDocument({ language }: CvDocumentProps): PdfDocumentElement {
             >
               <CvContact contact={cv.contact} color={COLOR} />
 
-              <CvSkills skills={cv.skills} color={COLOR} />
+              <CvSkills skills={cv.skills} color={COLOR} language={language} />
 
               <CvLanguages languages={cv.languages} color={COLOR} />
             </View>
