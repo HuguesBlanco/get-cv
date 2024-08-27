@@ -149,7 +149,7 @@ function CvDocument({ language }: CvDocumentProps): PdfDocumentElement {
                 marginRight: SLOTS_MARGIN_X,
               }}
             >
-              <CvGithub color={COLOR} />
+              <CvGithub language={language} color={COLOR} />
             </View>
           </View>
         </View>
