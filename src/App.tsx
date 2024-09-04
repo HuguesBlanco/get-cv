@@ -2,12 +2,16 @@ import { useState } from 'react';
 import CvDownloadLink from './components/CvDownloadLink';
 import CvViewer from './components/CvViewer';
 import { Languages } from './types';
+import Checkbox from './ui/Checkbox';
 import SegmentedControl from './ui/SegmentedControl';
 
 function App(): JSX.Element {
   const COLOR = '#4b6f96'; // TODO: Use a common variable with the COLOR in CvDocument.
 
   const [language, setLanguage] = useState<Languages>(Languages.ENGLISH);
+
+  const [isCvIncluded, setIsCvIncluded] = useState(true);
+  const [isCoverLetterIncluded, setIsCoverLetterIncluded] = useState(true);
 
   return (
     <div
@@ -34,6 +38,23 @@ function App(): JSX.Element {
             color={COLOR}
           />
         </div>
+
+        <div>
+          <Checkbox
+            label="CV"
+            isChecked={isCvIncluded}
+            onChange={setIsCvIncluded}
+          />
+        </div>
+
+        <div>
+          <Checkbox
+            label="Cover letter"
+            isChecked={isCoverLetterIncluded}
+            onChange={setIsCoverLetterIncluded}
+          />
+        </div>
+
         <div>
           <CvDownloadLink language={language} />
         </div>
