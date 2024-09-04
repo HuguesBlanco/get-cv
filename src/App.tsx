@@ -10,25 +10,39 @@ function App(): JSX.Element {
   const [language, setLanguage] = useState<Languages>(Languages.ENGLISH);
 
   return (
-    <>
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
+        gap: '20px',
+        padding: '20px',
+        maxWidth: '1200px',
+        margin: '0 auto',
+      }}
+    >
       <div>
-        <SegmentedControl
-          options={[
-            { label: 'English', value: Languages.ENGLISH },
-            { label: 'French', value: Languages.FRENCH },
-          ]}
-          selectedValue={language}
-          onChange={(value) => {
-            setLanguage(value);
-          }}
-          color={COLOR}
-        />
+        <div>
+          <SegmentedControl
+            options={[
+              { label: 'English', value: Languages.ENGLISH },
+              { label: 'French', value: Languages.FRENCH },
+            ]}
+            selectedValue={language}
+            onChange={(value) => {
+              setLanguage(value);
+            }}
+            color={COLOR}
+          />
+        </div>
+        <div>
+          <CvDownloadLink language={language} />
+        </div>
       </div>
+
       <div>
-        <CvDownloadLink language={language} />
+        <CvViewer language={language} />
       </div>
-      <CvViewer language={language} />
-    </>
+    </div>
   );
 }
 
