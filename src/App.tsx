@@ -24,40 +24,32 @@ function App(): JSX.Element {
         margin: '0 auto',
       }}
     >
-      <div>
-        <div>
-          <SegmentedControl
-            options={[
-              { label: 'English', value: Languages.ENGLISH },
-              { label: 'French', value: Languages.FRENCH },
-            ]}
-            selectedValue={language}
-            onChange={(value) => {
-              setLanguage(value);
-            }}
-            color={COLOR}
-          />
-        </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+        <SegmentedControl
+          options={[
+            { label: 'English', value: Languages.ENGLISH },
+            { label: 'French', value: Languages.FRENCH },
+          ]}
+          selectedValue={language}
+          onChange={(value) => {
+            setLanguage(value);
+          }}
+          color={COLOR}
+        />
 
-        <div>
-          <Checkbox
-            label="CV"
-            isChecked={isCvIncluded}
-            onChange={setIsCvIncluded}
-          />
-        </div>
+        <Checkbox
+          label="CV"
+          isChecked={isCvIncluded}
+          onChange={setIsCvIncluded}
+        />
 
-        <div>
-          <Checkbox
-            label="Cover letter"
-            isChecked={isCoverLetterIncluded}
-            onChange={setIsCoverLetterIncluded}
-          />
-        </div>
+        <Checkbox
+          label="Cover letter"
+          isChecked={isCoverLetterIncluded}
+          onChange={setIsCoverLetterIncluded}
+        />
 
-        <div>
-          <CvDownloadLink language={language} />
-        </div>
+        <CvDownloadLink language={language} />
       </div>
 
       <div>
