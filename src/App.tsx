@@ -53,7 +53,11 @@ function App(): JSX.Element {
       </div>
 
       <div>
-        <CvViewer language={language} />
+        <CvViewer
+          language={language}
+          isCvIncluded={isCvIncluded}
+          isCoverLetterIncluded={isCoverLetterIncluded}
+        />
       </div>
     </div>
   );

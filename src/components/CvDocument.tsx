@@ -1,4 +1,4 @@
-import { Document, Font, Page, View } from '@react-pdf/renderer';
+import { Document, Font, Page, Text, View } from '@react-pdf/renderer';
 import { getCv } from '../services/cvService';
 import { Languages } from '../types';
 import CvContact from './sections/CvContact';
@@ -13,9 +13,15 @@ import { PdfDocumentElement } from './types';
 
 type CvDocumentProps = {
   language: Languages;
+  isCvIncluded: boolean;
+  isCoverLetterIncluded: boolean;
 };
 
-function CvDocument({ language }: CvDocumentProps): PdfDocumentElement {
+function CvDocument({
+  language,
+  isCvIncluded,
+  isCoverLetterIncluded,
+}: CvDocumentProps): PdfDocumentElement {
   const cv = getCv(language);
 
   Font.register({
@@ -51,109 +57,131 @@ function CvDocument({ language }: CvDocumentProps): PdfDocumentElement {
 
   return (
     <Document>
-      <Page
-        size="A4"
-        // Note: It seems that applying the following styles to the <Document> instead of the <Page> causes some bugs with the font size.
-        style={{
-          fontFamily: 'Source Sans 3',
-          fontSize: '9',
-        }}
-      >
-        <View
+      {isCvIncluded && (
+        <Page
+          size="A4"
+          // Note: It seems that applying the following styles to the <Document> instead of the <Page> causes some bugs with the font size.
           style={{
-            marginTop: DOCUMENT_MARGIN_TOP,
-            marginLeft: DOCUMENT_MARGIN_X,
-            marginRight: DOCUMENT_MARGIN_X,
-            marginBottom: DOCUMENT_MARGIN_BOTTOM,
+            fontFamily: 'Source Sans 3',
+            fontSize: '9',
           }}
         >
-          <View id="part-1" style={{ marginBottom: PARTS_MARGIN_BOTTOM }}>
-            <View
-              id="slot-1"
-              style={{
-                marginLeft: SLOTS_MARGIN_X,
-                marginRight: SLOTS_MARGIN_X,
-              }}
-            >
-              <CvHeader cv={cv} color={COLOR} />
-            </View>
-          </View>
-
           <View
-            id="part-2"
-            style={{ flexDirection: 'row', marginBottom: PARTS_MARGIN_BOTTOM }}
+            style={{
+              marginTop: DOCUMENT_MARGIN_TOP,
+              marginLeft: DOCUMENT_MARGIN_X,
+              marginRight: DOCUMENT_MARGIN_X,
+              marginBottom: DOCUMENT_MARGIN_BOTTOM,
+            }}
           >
-            <View
-              id="slot-2"
-              style={{
-                borderRight: `0.4mm solid ${COLOR}`,
-                marginLeft: SLOTS_MARGIN_X,
-                marginRight: SLOTS_MARGIN_X,
-                width: '33.333%',
-                justifyContent: 'space-between',
-              }}
-            >
-              <CvContact contact={cv.contact} color={COLOR} />
-
-              <CvSkills skills={cv.skills} color={COLOR} language={language} />
-
-              <CvLanguages languages={cv.languages} color={COLOR} />
+            <View id="part-1" style={{ marginBottom: PARTS_MARGIN_BOTTOM }}>
+              <View
+                id="slot-1"
+                style={{
+                  marginLeft: SLOTS_MARGIN_X,
+                  marginRight: SLOTS_MARGIN_X,
+                }}
+              >
+                <CvHeader cv={cv} color={COLOR} />
+              </View>
             </View>
 
             <View
-              id="slot-3"
+              id="part-2"
               style={{
-                marginLeft: SLOTS_MARGIN_X,
-                marginRight: SLOTS_MARGIN_X,
-                width: '66.666%',
+                flexDirection: 'row',
+                marginBottom: PARTS_MARGIN_BOTTOM,
               }}
             >
-              <CvWorkExperience companies={cv.companies} color={COLOR} />
+              <View
+                id="slot-2"
+                style={{
+                  borderRight: `0.4mm solid ${COLOR}`,
+                  marginLeft: SLOTS_MARGIN_X,
+                  marginRight: SLOTS_MARGIN_X,
+                  width: '33.333%',
+                  justifyContent: 'space-between',
+                }}
+              >
+                <CvContact contact={cv.contact} color={COLOR} />
+
+                <CvSkills
+                  skills={cv.skills}
+                  color={COLOR}
+                  language={language}
+                />
+
+                <CvLanguages languages={cv.languages} color={COLOR} />
+              </View>
+
+              <View
+                id="slot-3"
+                style={{
+                  marginLeft: SLOTS_MARGIN_X,
+                  marginRight: SLOTS_MARGIN_X,
+                  width: '66.666%',
+                }}
+              >
+                <CvWorkExperience companies={cv.companies} color={COLOR} />
+              </View>
+            </View>
+
+            <View
+              id="part-3"
+              style={{
+                flexDirection: 'row',
+                marginBottom: PARTS_MARGIN_BOTTOM,
+              }}
+            >
+              <View
+                id="slot-4"
+                style={{
+                  marginLeft: SLOTS_MARGIN_X,
+                  marginRight: SLOTS_MARGIN_X,
+                  width: '33.333%',
+                }}
+              >
+                <CvOnlineCourses
+                  onlineCourses={cv.onlineCourses}
+                  color={COLOR}
+                />
+              </View>
+
+              <View
+                id="slot-5"
+                style={{
+                  marginLeft: SLOTS_MARGIN_X,
+                  marginRight: SLOTS_MARGIN_X,
+                  width: '66.666%',
+                }}
+              >
+                <CvEducation
+                  educationAchievements={cv.educationAchievements}
+                  color={COLOR}
+                />
+              </View>
+            </View>
+            <View id="part-4">
+              <View
+                id="slot-6"
+                style={{
+                  marginLeft: SLOTS_MARGIN_X,
+                  marginRight: SLOTS_MARGIN_X,
+                }}
+              >
+                <CvGithub language={language} color={COLOR} />
+              </View>
             </View>
           </View>
-
-          <View
-            id="part-3"
-            style={{ flexDirection: 'row', marginBottom: PARTS_MARGIN_BOTTOM }}
-          >
-            <View
-              id="slot-4"
-              style={{
-                marginLeft: SLOTS_MARGIN_X,
-                marginRight: SLOTS_MARGIN_X,
-                width: '33.333%',
-              }}
-            >
-              <CvOnlineCourses onlineCourses={cv.onlineCourses} color={COLOR} />
-            </View>
-
-            <View
-              id="slot-5"
-              style={{
-                marginLeft: SLOTS_MARGIN_X,
-                marginRight: SLOTS_MARGIN_X,
-                width: '66.666%',
-              }}
-            >
-              <CvEducation
-                educationAchievements={cv.educationAchievements}
-                color={COLOR}
-              />
-            </View>
+        </Page>
+      )}
+      {isCoverLetterIncluded && (
+        <Page>
+          <View>
+            <Text>Cover letter</Text>
           </View>
-          <View id="part-4">
-            <View
-              id="slot-6"
-              style={{
-                marginLeft: SLOTS_MARGIN_X,
-                marginRight: SLOTS_MARGIN_X,
-              }}
-            >
-              <CvGithub language={language} color={COLOR} />
-            </View>
-          </View>
-        </View>
-      </Page>
+        </Page>
+      )}
     </Document>
   );
 }

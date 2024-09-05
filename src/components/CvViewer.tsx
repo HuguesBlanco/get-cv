@@ -5,12 +5,22 @@ import { PdfViewerElement } from './types';
 
 type CvViewerProps = {
   language: Languages;
+  isCvIncluded: boolean;
+  isCoverLetterIncluded: boolean;
 };
 
-function CvViewer({ language }: CvViewerProps): PdfViewerElement {
+function CvViewer({
+  language,
+  isCvIncluded,
+  isCoverLetterIncluded,
+}: CvViewerProps): PdfViewerElement {
   return (
     <PDFViewer width="800px" height="1131.37px">
-      <CvDocument language={language} />
+      <CvDocument
+        language={language}
+        isCvIncluded={isCvIncluded}
+        isCoverLetterIncluded={isCoverLetterIncluded}
+      />
     </PDFViewer>
   );
 }
