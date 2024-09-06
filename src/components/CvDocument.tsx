@@ -1,4 +1,5 @@
 import { Document, Font, Page, Text, View } from '@react-pdf/renderer';
+import { registerFont } from '../Font';
 import { getCv } from '../services/cvService';
 import { Languages } from '../types';
 import CvContact from './sections/CvContact';
@@ -24,26 +25,7 @@ function CvDocument({
 }: CvDocumentProps): PdfDocumentElement {
   const cv = getCv(language);
 
-  Font.register({
-    family: 'Source Sans 3',
-    fonts: [
-      {
-        src: 'src/assets/SourceSans3-Light.ttf',
-        fontStyle: 'normal',
-        fontWeight: 'light',
-      },
-      {
-        src: 'src/assets/SourceSans3-Regular.ttf',
-        fontStyle: 'normal',
-        fontWeight: 'normal',
-      },
-      {
-        src: 'src/assets/SourceSans3-Bold.ttf',
-        fontStyle: 'normal',
-        fontWeight: 'bold',
-      },
-    ],
-  });
+  registerFont();
 
   Font.registerHyphenationCallback((word) => [word]);
 
