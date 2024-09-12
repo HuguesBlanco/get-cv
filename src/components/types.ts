@@ -1,6 +1,8 @@
 import {
   Document,
   DocumentProps,
+  Page,
+  PageProps,
   PDFViewer,
   PDFViewerProps,
   Svg,
@@ -29,6 +31,13 @@ export type PdfDocumentElement = ReactElement<
  * Note: This type is mainly for informational purposes. TypeScript treats all JSX return types as JSX.Element, so it will not enforce this type during compilation.
  */
 export type PdfViewerElement = ReactElement<PDFViewerProps, typeof PDFViewer>;
+
+/**
+ * Represents a `<Page>` element from the react-pdf library.
+ *
+ * Note: This type is mainly for informational purposes. TypeScript treats all JSX return types as JSX.Element, so it will not enforce this type during compilation.
+ */
+export type PdfPageElement = ReactElement<PageProps, typeof Page>;
 
 /**
  * Represents a `<View>` element from the react-pdf library.
