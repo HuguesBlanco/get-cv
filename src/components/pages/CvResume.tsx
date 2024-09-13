@@ -57,7 +57,7 @@ function CvResume({ cv, language, color }: CvResumeProps): PdfPageElement {
         </CvSlot>
       </CvPart>
 
-      <CvPart>
+      <CvPart isMarginBottomEnabled={false}>
         <CvSlot>
           <CvGithub language={language} color={color} />
         </CvSlot>

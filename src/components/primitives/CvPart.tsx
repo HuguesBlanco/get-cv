@@ -8,18 +8,21 @@ type CvPartProps = {
     | PdfTextElement
     | PdfTextElement[];
   layoutDirection?: 'vertical' | 'horizontal';
+  isMarginBottomEnabled?: boolean;
 };
 
 function CvPart({
   children,
   layoutDirection = 'vertical',
+  isMarginBottomEnabled = true,
 }: CvPartProps): PdfViewElement {
   const flexDirection = layoutDirection === 'vertical' ? 'column' : 'row';
+  const marginBottom = isMarginBottomEnabled ? '8mm' : 0;
 
   return (
     <View
       style={{
-        marginBottom: '8mm',
+        marginBottom,
         flexDirection,
       }}
     >
