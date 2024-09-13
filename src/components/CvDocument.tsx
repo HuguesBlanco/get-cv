@@ -1,8 +1,8 @@
-import { Document, Font, Text } from '@react-pdf/renderer';
+import { Document, Font } from '@react-pdf/renderer';
 import { getCv } from '../services/cvService';
 import { Languages } from '../types';
+import CvCoverLetter from './pages/CvCoverLetter';
 import CvResume from './pages/CvResume';
-import CvPage from './primitives/CvPage';
 import { PdfDocumentElement } from './types';
 
 type CvDocumentProps = {
@@ -25,11 +25,7 @@ function CvDocument({
   return (
     <Document>
       {isCvIncluded && <CvResume cv={cv} language={language} color={COLOR} />}
-      {isCoverLetterIncluded && (
-        <CvPage>
-          <Text>Cover letter</Text>
-        </CvPage>
-      )}
+      {isCoverLetterIncluded && <CvCoverLetter />}
     </Document>
   );
 }
