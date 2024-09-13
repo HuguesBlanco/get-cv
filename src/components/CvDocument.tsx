@@ -2,6 +2,7 @@ import { Document, Font, Text, View } from '@react-pdf/renderer';
 import { getCv } from '../services/cvService';
 import { Languages } from '../types';
 import CvPage from './primitives/CvPage';
+import CvPart from './primitives/CvPart';
 import CvContact from './sections/CvContact';
 import CvEducation from './sections/CvEducation';
 import CvGithub from './sections/CvGithub';
@@ -27,7 +28,6 @@ function CvDocument({
 
   Font.registerHyphenationCallback((word) => [word]);
 
-  const PARTS_MARGIN_BOTTOM = '10mm';
   const SLOTS_MARGIN_X = '5mm';
   const COLOR = '#4b6f96';
 
@@ -35,7 +35,7 @@ function CvDocument({
     <Document>
       {isCvIncluded && (
         <CvPage>
-          <View id="part-1" style={{ marginBottom: PARTS_MARGIN_BOTTOM }}>
+          <CvPart>
             <View
               id="slot-1"
               style={{
@@ -45,15 +45,9 @@ function CvDocument({
             >
               <CvHeader cv={cv} color={COLOR} />
             </View>
-          </View>
+          </CvPart>
 
-          <View
-            id="part-2"
-            style={{
-              flexDirection: 'row',
-              marginBottom: PARTS_MARGIN_BOTTOM,
-            }}
-          >
+          <CvPart layoutDirection="horizontal">
             <View
               id="slot-2"
               style={{
@@ -81,15 +75,9 @@ function CvDocument({
             >
               <CvWorkExperience companies={cv.companies} color={COLOR} />
             </View>
-          </View>
+          </CvPart>
 
-          <View
-            id="part-3"
-            style={{
-              flexDirection: 'row',
-              marginBottom: PARTS_MARGIN_BOTTOM,
-            }}
-          >
+          <CvPart layoutDirection="horizontal">
             <View
               id="slot-4"
               style={{
@@ -114,8 +102,9 @@ function CvDocument({
                 color={COLOR}
               />
             </View>
-          </View>
-          <View id="part-4">
+          </CvPart>
+
+          <CvPart>
             <View
               id="slot-6"
               style={{
@@ -125,7 +114,7 @@ function CvDocument({
             >
               <CvGithub language={language} color={COLOR} />
             </View>
-          </View>
+          </CvPart>
         </CvPage>
       )}
       {isCoverLetterIncluded && (
