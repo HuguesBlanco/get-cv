@@ -54,6 +54,7 @@ function CvPage({ children }: CvPageProps): PdfPageElement {
           marginLeft: '8mm',
           marginRight: '8mm',
           marginBottom: '2mm',
+          flexGrow: 1,
         }}
       >
         {children}

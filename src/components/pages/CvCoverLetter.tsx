@@ -16,7 +16,7 @@ function CvCoverLetter({ color }: CvCoverLetterProps): PdfPageElement {
         </CvSlot>
       </CvPart>
 
-      <CvPart layoutDirection="horizontal">
+      <CvPart layoutDirection="horizontal" isExpanded>
         <CvSlot
           widthPercentage={33.333}
           isBorderRightVisible
