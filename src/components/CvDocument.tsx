@@ -25,7 +25,7 @@ function CvDocument({
   return (
     <Document>
       {isCvIncluded && <CvResume cv={cv} language={language} color={COLOR} />}
-      {isCoverLetterIncluded && <CvCoverLetter />}
+      {isCoverLetterIncluded && <CvCoverLetter color={COLOR} />}
     </Document>
   );
 }
