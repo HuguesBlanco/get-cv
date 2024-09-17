@@ -1,10 +1,21 @@
 import { Image, Text, View } from '@react-pdf/renderer';
-import { Cv } from '../../services/cvServiceTypes';
 import { PdfViewElement } from '../types';
 
-type CvHeaderProps = { cv: Cv; color: string };
+type CvHeaderProps = {
+  preTitle: string;
+  title: string;
+  imageSource?: string;
+  tagline: string;
+  color: string;
+};
 
-function CvHeader({ cv, color }: CvHeaderProps): PdfViewElement {
+function CvHeader({
+  title,
+  preTitle,
+  tagline,
+  imageSource,
+  color,
+}: CvHeaderProps): PdfViewElement {
   const IMAGE_SIZE = '33mm';
 
   return (
@@ -19,7 +30,7 @@ function CvHeader({ cv, color }: CvHeaderProps): PdfViewElement {
               textTransform: 'uppercase',
             }}
           >
-            {cv.name.firstName}
+            {preTitle}
           </Text>
           <Text
             style={{
@@ -31,7 +42,7 @@ function CvHeader({ cv, color }: CvHeaderProps): PdfViewElement {
               textTransform: 'uppercase',
             }}
           >
-            {cv.name.lastName}
+            {title}
           </Text>
           <Text
             style={{
@@ -40,10 +51,10 @@ function CvHeader({ cv, color }: CvHeaderProps): PdfViewElement {
               marginLeft: '58mm',
             }}
           >
-            {cv.objective}
+            {tagline}
           </Text>
         </View>
-        <View>
+        {imageSource !== undefined && (
           <View
             style={{
               backgroundColor: color,
@@ -53,7 +64,7 @@ function CvHeader({ cv, color }: CvHeaderProps): PdfViewElement {
             }}
           >
             <Image
-              src={'src/assets/photo-cv.jpg'}
+              src={imageSource}
               style={{
                 width: IMAGE_SIZE,
                 height: IMAGE_SIZE,
@@ -62,7 +73,7 @@ function CvHeader({ cv, color }: CvHeaderProps): PdfViewElement {
               }}
             />
           </View>
-        </View>
+        )}
       </View>
     </View>
   );

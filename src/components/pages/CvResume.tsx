@@ -1,12 +1,12 @@
 import { Cv } from '../../services/cvServiceTypes';
 import { Languages } from '../../types';
+import CvHeader from '../primitives/CvHeader';
 import CvPage from '../primitives/CvPage';
 import CvPart from '../primitives/CvPart';
 import CvSlot from '../primitives/CvSlot';
 import CvContact from '../sections/CvContact';
 import CvEducation from '../sections/CvEducation';
 import CvGithub from '../sections/CvGithub';
-import CvHeader from '../sections/CvHeader';
 import CvLanguages from '../sections/CvLanguages';
 import CvOnlineCourses from '../sections/CvOnlineCourses';
 import CvSkills from '../sections/CvSkills';
@@ -24,7 +24,13 @@ function CvResume({ cv, language, color }: CvResumeProps): PdfPageElement {
     <CvPage>
       <CvPart>
         <CvSlot>
-          <CvHeader cv={cv} color={color} />
+          <CvHeader
+            title={cv.name.lastName}
+            preTitle={cv.name.firstName}
+            tagline={cv.objective}
+            imageSource={'src/assets/photo-cv.jpg'}
+            color={color}
+          />
         </CvSlot>
       </CvPart>
 
