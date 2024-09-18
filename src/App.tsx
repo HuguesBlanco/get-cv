@@ -49,7 +49,11 @@ function App(): JSX.Element {
           onChange={setIsCoverLetterIncluded}
         />
 
-        <CvDownloadLink language={language} />
+        <CvDownloadLink
+          language={language}
+          isCvIncluded={isCvIncluded}
+          isCoverLetterIncluded={isCoverLetterIncluded}
+        />
       </div>
 
       <div>

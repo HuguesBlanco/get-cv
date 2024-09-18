@@ -4,14 +4,26 @@ import CvDocument from './CvDocument';
 
 type CvDownloadLinkProps = {
   language: Languages;
+  isCvIncluded: boolean;
+  isCoverLetterIncluded: boolean;
 };
 
-function CvDownloadLink({ language }: CvDownloadLinkProps): JSX.Element {
+function CvDownloadLink({
+  language,
+  isCvIncluded,
+  isCoverLetterIncluded,
+}: CvDownloadLinkProps): JSX.Element {
   const fileName = `hugues_blanco_alvarez_cv_${language}.pdf`;
 
   return (
     <PDFDownloadLink
-      document={<CvDocument language={language} />}
+      document={
+        <CvDocument
+          language={language}
+          isCvIncluded={isCvIncluded}
+          isCoverLetterIncluded={isCoverLetterIncluded}
+        />
+      }
       fileName={fileName}
     >
       {({ loading }) => (loading ? 'Loading...' : 'Download CV')}
