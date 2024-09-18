@@ -10,23 +10,23 @@ type CvDocumentProps = {
   language: Languages;
   cv: Cv | null;
   coverLetter: CoverLetter | null;
+  color: string;
 };
 
 function CvDocument({
   language,
   cv,
   coverLetter,
+  color,
 }: CvDocumentProps): PdfDocumentElement {
   Font.registerHyphenationCallback((word) => [word]);
 
-  const COLOR = '#4b6f96';
-
   return (
     <Document>
-      {cv !== null && <CvResume cv={cv} language={language} color={COLOR} />}
+      {cv !== null && <CvResume cv={cv} language={language} color={color} />}
       {coverLetter !== null && (
         <CvCoverLetter
-          color={COLOR}
+          color={color}
           language={language}
           coverLetter={coverLetter}
         />

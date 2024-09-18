@@ -9,7 +9,7 @@ import Checkbox from './ui/Checkbox';
 import SegmentedControl from './ui/SegmentedControl';
 
 function App(): JSX.Element {
-  const COLOR = '#4b6f96'; // TODO: Use a common variable with the COLOR in CvDocument.
+  const COLOR = '#4b6f96';
 
   const [language, setLanguage] = useState<Languages>(Languages.ENGLISH);
 
@@ -56,13 +56,23 @@ function App(): JSX.Element {
         />
 
         <CvDownloadLink language={language}>
-          <CvDocument language={language} cv={cv} coverLetter={coverLetter} />
+          <CvDocument
+            language={language}
+            cv={cv}
+            coverLetter={coverLetter}
+            color={COLOR}
+          />
         </CvDownloadLink>
       </div>
 
       <div>
         <CvViewer>
-          <CvDocument language={language} cv={cv} coverLetter={coverLetter} />
+          <CvDocument
+            language={language}
+            cv={cv}
+            coverLetter={coverLetter}
+            color={COLOR}
+          />
         </CvViewer>
       </div>
     </div>
