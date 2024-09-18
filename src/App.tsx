@@ -7,6 +7,7 @@ import { getCv } from './services/cvService';
 import { Languages } from './types';
 import Checkbox from './ui/Checkbox';
 import SegmentedControl from './ui/SegmentedControl';
+import TextInput from './ui/TextInput';
 
 function App(): JSX.Element {
   const COLOR = '#4b6f96';
@@ -18,6 +19,8 @@ function App(): JSX.Element {
 
   const [isCoverLetterIncluded, setIsCoverLetterIncluded] = useState(true);
   const coverLetter = isCoverLetterIncluded ? getCoverLetter(language) : null;
+
+  const [formJobPosition, setFormJobPosition] = useState('');
 
   return (
     <div
@@ -53,6 +56,12 @@ function App(): JSX.Element {
           label="Cover letter"
           isChecked={isCoverLetterIncluded}
           onChange={setIsCoverLetterIncluded}
+        />
+
+        <TextInput
+          label="Job position"
+          value={formJobPosition}
+          onChange={setFormJobPosition}
         />
 
         <CvDownloadLink language={language}>
