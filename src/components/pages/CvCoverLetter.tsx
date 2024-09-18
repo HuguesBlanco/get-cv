@@ -1,5 +1,6 @@
 import { Text } from '@react-pdf/renderer';
 import { CoverLetter } from '../../services/coverletterServiceTypes';
+import { Cv } from '../../services/cvServiceTypes';
 import { Languages } from '../../types';
 import CvHeader from '../primitives/CvHeader';
 import CvPage from '../primitives/CvPage';
@@ -8,19 +9,19 @@ import CvSlot from '../primitives/CvSlot';
 import { PdfPageElement } from '../types';
 
 type CvCoverLetterProps = {
+  cv: Cv;
   coverLetter: CoverLetter;
   language: Languages;
   color: string;
 };
 function CvCoverLetter({
+  cv,
   coverLetter,
   language,
   color,
 }: CvCoverLetterProps): PdfPageElement {
   const candidateLabel =
     language === Languages.ENGLISH ? 'Candidate' : 'Candidat';
-  const jobTitle = coverLetter.positionAppliedFor;
-  const headline = coverLetter.headline;
 
   return (
     <CvPage>
@@ -28,8 +29,8 @@ function CvCoverLetter({
         <CvSlot>
           <CvHeader
             preTitle={candidateLabel}
-            title={jobTitle}
-            tagline={headline}
+            title={cv.targetPosition}
+            tagline={coverLetter.headline}
             color={color}
           />
         </CvSlot>

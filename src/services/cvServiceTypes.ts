@@ -57,6 +57,7 @@ export type OnlineCourse = {
 
 export type Cv = {
   name: Name;
+  targetPosition: string;
   objective: string;
   contact: Contact;
   languages: Language[];

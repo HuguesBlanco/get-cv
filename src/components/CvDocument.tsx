@@ -8,14 +8,18 @@ import { PdfDocumentElement } from './types';
 
 type CvDocumentProps = {
   language: Languages;
-  cv: Cv | null;
-  coverLetter: CoverLetter | null;
+  cv: Cv;
+  coverLetter: CoverLetter;
+  isCvIncluded: boolean;
+  isCoverLetterIncluded: boolean;
   color: string;
 };
 
 function CvDocument({
   language,
+  isCvIncluded,
   cv,
+  isCoverLetterIncluded,
   coverLetter,
   color,
 }: CvDocumentProps): PdfDocumentElement {
@@ -23,9 +27,10 @@ function CvDocument({
 
   return (
     <Document>
-      {cv !== null && <CvResume cv={cv} language={language} color={color} />}
-      {coverLetter !== null && (
+      {isCvIncluded && <CvResume cv={cv} language={language} color={color} />}
+      {isCoverLetterIncluded && (
         <CvCoverLetter
+          cv={cv}
           color={color}
           language={language}
           coverLetter={coverLetter}

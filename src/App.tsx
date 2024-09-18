@@ -15,12 +15,23 @@ function App(): JSX.Element {
   const [language, setLanguage] = useState<Languages>(Languages.ENGLISH);
 
   const [isCvIncluded, setIsCvIncluded] = useState(true);
-  const cv = isCvIncluded ? getCv(language) : null;
-
   const [isCoverLetterIncluded, setIsCoverLetterIncluded] = useState(true);
-  const coverLetter = isCoverLetterIncluded ? getCoverLetter(language) : null;
+
+  const cv = getCv(language);
+  const coverLetter = getCoverLetter(language);
 
   const [formJobPosition, setFormJobPosition] = useState('');
+
+  const documentComponent = (
+    <CvDocument
+      language={language}
+      cv={cv}
+      coverLetter={coverLetter}
+      isCvIncluded
+      isCoverLetterIncluded
+      color={COLOR}
+    />
+  );
 
   return (
     <div
@@ -64,25 +75,11 @@ function App(): JSX.Element {
           onChange={setFormJobPosition}
         />
 
-        <CvDownloadLink language={language}>
-          <CvDocument
-            language={language}
-            cv={cv}
-            coverLetter={coverLetter}
-            color={COLOR}
-          />
-        </CvDownloadLink>
+        <CvDownloadLink language={language}>{documentComponent}</CvDownloadLink>
       </div>
 
       <div>
-        <CvViewer>
-          <CvDocument
-            language={language}
-            cv={cv}
-            coverLetter={coverLetter}
-            color={COLOR}
-          />
-        </CvViewer>
+        <CvViewer>{documentComponent}</CvViewer>
       </div>
     </div>
   );

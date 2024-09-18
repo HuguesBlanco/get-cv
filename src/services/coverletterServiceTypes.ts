@@ -1,5 +1,4 @@
 export type CoverLetter = {
-  positionAppliedFor: string;
   headline: string;
   greeting: string;
   body: Paragraph[];
