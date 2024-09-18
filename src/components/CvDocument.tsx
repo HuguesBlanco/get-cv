@@ -1,4 +1,5 @@
 import { Document, Font } from '@react-pdf/renderer';
+import { getCoverLetter } from '../services/coverLetterService';
 import { getCv } from '../services/cvService';
 import { Languages } from '../types';
 import CvCoverLetter from './pages/CvCoverLetter';
@@ -17,6 +18,7 @@ function CvDocument({
   isCoverLetterIncluded,
 }: CvDocumentProps): PdfDocumentElement {
   const cv = getCv(language);
+  const coverLetter = getCoverLetter(language);
 
   Font.registerHyphenationCallback((word) => [word]);
 
@@ -25,7 +27,13 @@ function CvDocument({
   return (
     <Document>
       {isCvIncluded && <CvResume cv={cv} language={language} color={COLOR} />}
-      {isCoverLetterIncluded && <CvCoverLetter color={COLOR} />}
+      {isCoverLetterIncluded && (
+        <CvCoverLetter
+          color={COLOR}
+          language={language}
+          coverLetter={coverLetter}
+        />
+      )}
     </Document>
   );
 }
