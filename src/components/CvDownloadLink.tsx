@@ -1,31 +1,20 @@
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import { Languages } from '../types';
-import CvDocument from './CvDocument';
+import { PdfDocumentElement } from './types';
 
 type CvDownloadLinkProps = {
+  children: PdfDocumentElement;
   language: Languages;
-  isCvIncluded: boolean;
-  isCoverLetterIncluded: boolean;
 };
 
 function CvDownloadLink({
   language,
-  isCvIncluded,
-  isCoverLetterIncluded,
+  children,
 }: CvDownloadLinkProps): JSX.Element {
   const fileName = `hugues_blanco_alvarez_cv_${language}.pdf`;
 
   return (
-    <PDFDownloadLink
-      document={
-        <CvDocument
-          language={language}
-          isCvIncluded={isCvIncluded}
-          isCoverLetterIncluded={isCoverLetterIncluded}
-        />
-      }
-      fileName={fileName}
-    >
+    <PDFDownloadLink document={children} fileName={fileName}>
       {({ loading }) => (loading ? 'Loading...' : 'Download CV')}
     </PDFDownloadLink>
   );

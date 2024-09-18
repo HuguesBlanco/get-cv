@@ -1,26 +1,14 @@
 import { PDFViewer } from '@react-pdf/renderer';
-import { Languages } from '../types';
-import CvDocument from './CvDocument';
-import { PdfViewerElement } from './types';
+import { PdfDocumentElement, PdfViewerElement } from './types';
 
 type CvViewerProps = {
-  language: Languages;
-  isCvIncluded: boolean;
-  isCoverLetterIncluded: boolean;
+  children: PdfDocumentElement;
 };
 
-function CvViewer({
-  language,
-  isCvIncluded,
-  isCoverLetterIncluded,
-}: CvViewerProps): PdfViewerElement {
+function CvViewer({ children }: CvViewerProps): PdfViewerElement {
   return (
     <PDFViewer width="800px" height="1131.37px">
-      <CvDocument
-        language={language}
-        isCvIncluded={isCvIncluded}
-        isCoverLetterIncluded={isCoverLetterIncluded}
-      />
+      {children}
     </PDFViewer>
   );
 }
