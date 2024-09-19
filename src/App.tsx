@@ -8,6 +8,7 @@ import { Languages } from './types';
 import Checkbox from './ui/Checkbox';
 import SegmentedControl from './ui/SegmentedControl';
 import TextInput from './ui/TextInput';
+import Textarea from './ui/Textarea';
 
 function App(): JSX.Element {
   const COLOR = '#4b6f96';
@@ -21,6 +22,7 @@ function App(): JSX.Element {
   const coverLetter = getCoverLetter(language);
 
   const [formJobPosition, setFormJobPosition] = useState('');
+  const [coverLetterBody, setCoverLetterBody] = useState('');
 
   const documentComponent = (
     <CvDocument
@@ -73,6 +75,12 @@ function App(): JSX.Element {
           label="Job position"
           value={formJobPosition}
           onChange={setFormJobPosition}
+        />
+
+        <Textarea
+          label="Cover letter body"
+          value={coverLetterBody}
+          onChange={setCoverLetterBody}
         />
 
         <CvDownloadLink language={language}>{documentComponent}</CvDownloadLink>
