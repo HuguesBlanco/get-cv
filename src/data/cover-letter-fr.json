@@ -2,79 +2,58 @@
   "headline": "Dédié à un code propre, lisible et sans bogues.",
   "greeting": "Bonjour,",
   "body": [
-    {
-      "type": "paragraph",
-      "content": [
-        {
-          "type": "text",
-          "content": [
-            "Je vous contacte pour postuler au poste d'ingénieur front-end. Bien que je n'aie pas suivi une formation traditionnelle en informatique, j'ai acquis les compétences nécessaires pour créer des interfaces utilisateur soignées et fiables."
-          ]
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "content": [
-        {
-          "type": "text",
-          "content": [
-            "Mon parcours est non conventionnel, ce qui met en évidence ma capacité à m'adapter et à apprendre rapidement :"
-          ]
-        },
-        {
-          "type": "bulletList",
-          "content": [
-            "J'ai poursuivi des études artistiques, y compris l'illustration, une année de formation en effets spéciaux numériques et enfin un programme de design graphique.",
-            "J'ai travaillé pendant cinq ans dans une agence de marketing de données et d'emailing, où j'ai progressé jusqu'au poste de responsable du marketing de données et de l'emailing.",
-            "Conscient de la nécessité d'améliorer mon anglais, j'ai décidé de relever ce défi en déménageant en Australie. Là-bas, avec plus de temps libre, j'ai repensé mes objectifs de carrière et me suis formé pour devenir développeur. J'ai appris JavaScript et le framework React.",
-            "À mon retour en Belgique, j'ai appliqué cette formation en travaillant pendant deux ans et demi en tant que développeur front-end, contribuant au développement de l'interface d'un logiciel ERP SaaS."
-          ]
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "content": [
-        {
-          "type": "text",
-          "content": [
-            "Ce parcours atypique témoigne de mes capacités à résoudre des problèmes, à apprendre rapidement et à m'adapter. Je suis convaincu que ces qualités me permettront de contribuer efficacement à votre équipe en trouvant des solutions aux défis que nous pourrions rencontrer ensemble."
-          ]
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "content": [
-        {
-          "type": "text",
-          "content": [
-            "De plus, malgré mon parcours autodidacte, je suis méticuleux et engagé à écrire du code propre, lisible et sans bogues."
-          ]
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "content": [
-        {
-          "type": "text",
-          "content": [
-            "Je suis impatient de saisir l'opportunité de discuter de la manière dont je peux contribuer à votre entreprise."
-          ]
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "content": [
-        {
-          "type": "text",
-          "content": ["Merci de considérer ma candidature."]
-        }
-      ]
-    }
+    [
+      {
+        "type": "text",
+        "content": "Je vous contacte pour postuler au poste d'ingénieur front-end. Bien que je n'aie pas suivi une formation traditionnelle en informatique, j'ai acquis les compétences nécessaires pour créer des interfaces utilisateur soignées et fiables."
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "Mon parcours est non conventionnel, ce qui met en évidence ma capacité à m'adapter et à apprendre rapidement :"
+      },
+      {
+        "type": "bulletPoint",
+        "content": "J'ai poursuivi des études artistiques, y compris l'illustration, une année de formation en effets spéciaux numériques et enfin un programme de design graphique."
+      },
+      {
+        "type": "bulletPoint",
+        "content": "J'ai travaillé pendant cinq ans dans une agence de marketing de données et d'emailing, où j'ai progressé jusqu'au poste de responsable du marketing de données et de l'emailing."
+      },
+      {
+        "type": "bulletPoint",
+        "content": "Conscient de la nécessité d'améliorer mon anglais, j'ai décidé de relever ce défi en déménageant en Australie. Là-bas, avec plus de temps libre, j'ai repensé mes objectifs de carrière et me suis formé pour devenir développeur. J'ai appris JavaScript et le framework React."
+      },
+      {
+        "type": "bulletPoint",
+        "content": "À mon retour en Belgique, j'ai appliqué cette formation en travaillant pendant deux ans et demi en tant que développeur front-end, contribuant au développement de l'interface d'un logiciel ERP SaaS."
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "Ce parcours atypique témoigne de mes capacités à résoudre des problèmes, à apprendre rapidement et à m'adapter. Je suis convaincu que ces qualités me permettront de contribuer efficacement à votre équipe en trouvant des solutions aux défis que nous pourrions rencontrer ensemble."
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "De plus, malgré mon parcours autodidacte, je suis méticuleux et engagé à écrire du code propre, lisible et sans bogues."
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "Je suis impatient de saisir l'opportunité de discuter de la manière dont je peux contribuer à votre entreprise."
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "Merci de considérer ma candidature."
+      }
+    ]
   ],
   "closing": "Cordialement,",
   "signature": "Hugues Blanco Alvarez"

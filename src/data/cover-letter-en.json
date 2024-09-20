@@ -2,79 +2,58 @@
   "headline": "Dedicated to clean, readable, and bug-free code.",
   "greeting": "Hello,",
   "body": [
-    {
-      "type": "paragraph",
-      "content": [
-        {
-          "type": "text",
-          "content": [
-            "I am reaching out to apply for the front-end engineer position. Although I did not follow a traditional computer science education, I have acquired the necessary skills to create polished and reliable user interfaces."
-          ]
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "content": [
-        {
-          "type": "text",
-          "content": [
-            "My background is unconventional, which highlights my ability to adapt and learn quickly:"
-          ]
-        },
-        {
-          "type": "bulletList",
-          "content": [
-            "I pursued artistic studies, including illustration, a year of training in digital special effects, and finally, a graphic design program.",
-            "I worked for five years in a data marketing and emailing agency, where I advanced to the position of head of data marketing and emailing.",
-            "Aware of the need to improve my English, I decided to tackle this challenge by moving to Australia. While there, with more time on my hands, I rethought my career goals and trained to become a developer. I learned JavaScript and the React framework.",
-            "Upon returning to Belgium, I applied this training by working for two and a half years as a front-end developer, contributing to the development of a SaaS ERP software interface."
-          ]
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "content": [
-        {
-          "type": "text",
-          "content": [
-            "This atypical journey is a testament to my problem-solving abilities, quick learning, and adaptability. I am confident that these qualities will enable me to effectively contribute to your team by finding solutions to the challenges we may face together."
-          ]
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "content": [
-        {
-          "type": "text",
-          "content": [
-            "Furthermore, despite my self-taught background, I am meticulous and committed to writing clean, readable, and bug-free code."
-          ]
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "content": [
-        {
-          "type": "text",
-          "content": [
-            "I am looking forward to the opportunity to discuss how I can contribute to your company."
-          ]
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "content": [
-        {
-          "type": "text",
-          "content": ["Thank you for considering my application."]
-        }
-      ]
-    }
+    [
+      {
+        "type": "text",
+        "content": "I am reaching out to apply for the front-end engineer position. Although I did not follow a traditional computer science education, I have acquired the necessary skills to create polished and reliable user interfaces."
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "My background is unconventional, which highlights my ability to adapt and learn quickly:"
+      },
+      {
+        "type": "bulletPoint",
+        "content": "I pursued artistic studies, including illustration, a year of training in digital special effects, and finally, a graphic design program."
+      },
+      {
+        "type": "bulletPoint",
+        "content": "I worked for five years in a data marketing and emailing agency, where I advanced to the position of head of data marketing and emailing."
+      },
+      {
+        "type": "bulletPoint",
+        "content": "Aware of the need to improve my English, I decided to tackle this challenge by moving to Australia. While there, with more time on my hands, I rethought my career goals and trained to become a developer. I learned JavaScript and the React framework."
+      },
+      {
+        "type": "bulletPoint",
+        "content": "Upon returning to Belgium, I applied this training by working for two and a half years as a front-end developer, contributing to the development of a SaaS ERP software interface."
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "This atypical journey is a testament to my problem-solving abilities, quick learning, and adaptability. I am confident that these qualities will enable me to effectively contribute to your team by finding solutions to the challenges we may face together."
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "Furthermore, despite my self-taught background, I am meticulous and committed to writing clean, readable, and bug-free code."
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "I am looking forward to the opportunity to discuss how I can contribute to your company."
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "content": "Thank you for considering my application."
+      }
+    ]
   ],
   "closing": "Sincerely,",
   "signature": "Hugues Blanco Alvarez"
