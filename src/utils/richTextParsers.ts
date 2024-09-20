@@ -40,3 +40,20 @@ export function convertMarkupToParagraphs(markup: string): Paragraph[] {
     .split(PARAGRAPH_SEPARATOR_SEQUENCE)
     .map(convertMarkupParagraphToSegments);
 }
+
+function convertSegmentToMarkup(segment: Segment): string {
+  if (segment.type === 'bulletPoint') {
+    return BULLET_POINT_SEQUENCE + segment.content;
+  }
+  return segment.content;
+}
+
+export function convertParagraphsToMarkup(paragraphs: Paragraph[]): string {
+  return paragraphs
+    .map((paragraph) =>
+      paragraph
+        .map((segment) => convertSegmentToMarkup(segment))
+        .join(LINE_BREAK_SEQUENCE),
+    )
+    .join(PARAGRAPH_SEPARATOR_SEQUENCE);
+}
