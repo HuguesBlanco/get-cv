@@ -1,8 +1,7 @@
 import {
-  BulletPointSegment,
   Paragraph,
   Segment,
-  TextSegment,
+  SegmentType,
 } from '../services/coverletterServiceTypes';
 
 // These constants define the character sequences used in the custom markup language.
@@ -15,15 +14,15 @@ function convertMarkupSegmentToSegment(markupSegment: string): Segment {
     const cleanedBulletPoint = markupSegment.slice(
       BULLET_POINT_SEQUENCE.length,
     );
-    const bulletPointSegment: BulletPointSegment = {
-      type: 'bulletPoint',
+    const bulletPointSegment: Segment = {
+      type: SegmentType.BULLET_POINT,
       content: cleanedBulletPoint,
     };
     return bulletPointSegment;
   }
 
-  const textSegment: TextSegment = {
-    type: 'text',
+  const textSegment: Segment = {
+    type: SegmentType.TEXT,
     content: markupSegment,
   };
   return textSegment;
@@ -42,7 +41,7 @@ export function convertMarkupToParagraphs(markup: string): Paragraph[] {
 }
 
 function convertSegmentToMarkup(segment: Segment): string {
-  if (segment.type === 'bulletPoint') {
+  if (segment.type === SegmentType.BULLET_POINT) {
     return BULLET_POINT_SEQUENCE + segment.content;
   }
   return segment.content;

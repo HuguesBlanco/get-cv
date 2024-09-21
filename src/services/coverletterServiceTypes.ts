@@ -1,14 +1,12 @@
-export type TextSegment = {
-  type: 'text';
+export enum SegmentType {
+  TEXT = 'text',
+  BULLET_POINT = 'bullet_point',
+}
+
+export type Segment = {
+  type: SegmentType;
   content: string;
 };
-
-export type BulletPointSegment = {
-  type: 'bulletPoint';
-  content: string;
-};
-
-export type Segment = TextSegment | BulletPointSegment;
 
 export type Paragraph = Segment[];
 

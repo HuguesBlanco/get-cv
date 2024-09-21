@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { Paragraph } from '../services/coverletterServiceTypes';
+import { Paragraph, SegmentType } from '../services/coverletterServiceTypes';
 import { convertMarkupToParagraphs } from './richTextParsers';
 
 describe('Tests of convertMarkupToParagraphs function', () => {
@@ -8,7 +8,7 @@ describe('Tests of convertMarkupToParagraphs function', () => {
     const result = convertMarkupToParagraphs(markup);
 
     const expected: Paragraph[] = [
-      [{ type: 'text', content: 'This is a single paragraph.' }],
+      [{ type: SegmentType.TEXT, content: 'This is a single paragraph.' }],
     ];
 
     expect(result).toEqual(expected);
@@ -19,8 +19,8 @@ describe('Tests of convertMarkupToParagraphs function', () => {
     const result = convertMarkupToParagraphs(markup);
 
     const expected: Paragraph[] = [
-      [{ type: 'text', content: 'First paragraph.' }],
-      [{ type: 'text', content: 'Second paragraph.' }],
+      [{ type: SegmentType.TEXT, content: 'First paragraph.' }],
+      [{ type: SegmentType.TEXT, content: 'Second paragraph.' }],
     ];
 
     expect(result).toEqual(expected);
@@ -33,11 +33,11 @@ describe('Tests of convertMarkupToParagraphs function', () => {
 
     const expected: Paragraph[] = [
       [
-        { type: 'text', content: 'First paragraph.' },
-        { type: 'bulletPoint', content: 'First bullet point' },
-        { type: 'bulletPoint', content: 'Second bullet point' },
+        { type: SegmentType.TEXT, content: 'First paragraph.' },
+        { type: SegmentType.BULLET_POINT, content: 'First bullet point' },
+        { type: SegmentType.BULLET_POINT, content: 'Second bullet point' },
       ],
-      [{ type: 'text', content: 'Second paragraph.' }],
+      [{ type: SegmentType.TEXT, content: 'Second paragraph.' }],
     ];
 
     expect(result).toEqual(expected);
@@ -47,7 +47,7 @@ describe('Tests of convertMarkupToParagraphs function', () => {
     const markup = '';
     const result = convertMarkupToParagraphs(markup);
 
-    const expected: Paragraph[] = [[{ type: 'text', content: '' }]];
+    const expected: Paragraph[] = [[{ type: SegmentType.TEXT, content: '' }]];
 
     expect(result).toEqual(expected);
   });
@@ -57,9 +57,9 @@ describe('Tests of convertMarkupToParagraphs function', () => {
     const result = convertMarkupToParagraphs(markup);
 
     const expected: Paragraph[] = [
-      [{ type: 'text', content: '' }],
-      [{ type: 'text', content: '' }],
-      [{ type: 'text', content: '' }],
+      [{ type: SegmentType.TEXT, content: '' }],
+      [{ type: SegmentType.TEXT, content: '' }],
+      [{ type: SegmentType.TEXT, content: '' }],
     ];
 
     expect(result).toEqual(expected);
@@ -71,10 +71,15 @@ describe('Tests of convertMarkupToParagraphs function', () => {
     const result = convertMarkupToParagraphs(markup);
 
     const expected: Paragraph[] = [
-      [{ type: 'text', content: '   First paragraph with leading spaces.   ' }],
       [
         {
-          type: 'text',
+          type: SegmentType.TEXT,
+          content: '   First paragraph with leading spaces.   ',
+        },
+      ],
+      [
+        {
+          type: SegmentType.TEXT,
           content: '   - Not a bullet point as there is spaces before   ',
         },
       ],
@@ -90,12 +95,12 @@ describe('Tests of convertMarkupToParagraphs function', () => {
 
     const expected: Paragraph[] = [
       [
-        { type: 'text', content: 'Text before bullets.' },
-        { type: 'bulletPoint', content: 'Bullet 1' },
-        { type: 'bulletPoint', content: 'Bullet 2' },
+        { type: SegmentType.TEXT, content: 'Text before bullets.' },
+        { type: SegmentType.BULLET_POINT, content: 'Bullet 1' },
+        { type: SegmentType.BULLET_POINT, content: 'Bullet 2' },
       ],
-      [{ type: 'text', content: 'Another paragraph.' }],
-      [{ type: 'bulletPoint', content: 'Bullet 3' }],
+      [{ type: SegmentType.TEXT, content: 'Another paragraph.' }],
+      [{ type: SegmentType.BULLET_POINT, content: 'Bullet 3' }],
     ];
 
     expect(result).toEqual(expected);
@@ -107,8 +112,11 @@ describe('Tests of convertMarkupToParagraphs function', () => {
 
     const expected: Paragraph[] = [
       [
-        { type: 'text', content: 'Paragraph text' },
-        { type: 'bulletPoint', content: 'Bullet point immediately after' },
+        { type: SegmentType.TEXT, content: 'Paragraph text' },
+        {
+          type: SegmentType.BULLET_POINT,
+          content: 'Bullet point immediately after',
+        },
       ],
     ];
 
@@ -121,8 +129,8 @@ describe('Tests of convertMarkupToParagraphs function', () => {
 
     const expected: Paragraph[] = [
       [
-        { type: 'bulletPoint', content: 'Bullet point one' },
-        { type: 'bulletPoint', content: 'Bullet point two' },
+        { type: SegmentType.BULLET_POINT, content: 'Bullet point one' },
+        { type: SegmentType.BULLET_POINT, content: 'Bullet point two' },
       ],
     ];
 
@@ -137,10 +145,13 @@ describe('Tests of convertMarkupToParagraphs function', () => {
     const expected: Paragraph[] = [
       [
         {
-          type: 'text',
+          type: SegmentType.TEXT,
           content: 'This is a paragraph with special characters: @#$%^&*',
         },
-        { type: 'bulletPoint', content: 'Bullet with characters: !@#' },
+        {
+          type: SegmentType.BULLET_POINT,
+          content: 'Bullet with characters: !@#',
+        },
       ],
     ];
 
@@ -153,16 +164,16 @@ describe('Tests of convertMarkupToParagraphs function', () => {
     const result = convertMarkupToParagraphs(markup);
 
     const expected: Paragraph[] = [
-      [{ type: 'text', content: 'First paragraph.' }],
+      [{ type: SegmentType.TEXT, content: 'First paragraph.' }],
       [
-        { type: 'text', content: '' },
-        { type: 'text', content: 'Second paragraph.' },
+        { type: SegmentType.TEXT, content: '' },
+        { type: SegmentType.TEXT, content: 'Second paragraph.' },
       ],
       [
-        { type: 'text', content: '' },
-        { type: 'bulletPoint', content: 'Bullet 1' },
+        { type: SegmentType.TEXT, content: '' },
+        { type: SegmentType.BULLET_POINT, content: 'Bullet 1' },
       ],
-      [{ type: 'bulletPoint', content: 'Bullet 2' }],
+      [{ type: SegmentType.BULLET_POINT, content: 'Bullet 2' }],
     ];
 
     expect(result).toEqual(expected);
@@ -174,9 +185,9 @@ describe('Tests of convertMarkupToParagraphs function', () => {
 
     const expected: Paragraph[] = [
       [
-        { type: 'text', content: 'First paragraph.' },
-        { type: 'text', content: ' - Indented bullet' },
-        { type: 'bulletPoint', content: 'Regular bullet' },
+        { type: SegmentType.TEXT, content: 'First paragraph.' },
+        { type: SegmentType.TEXT, content: ' - Indented bullet' },
+        { type: SegmentType.BULLET_POINT, content: 'Regular bullet' },
       ],
     ];
 
@@ -189,10 +200,10 @@ describe('Tests of convertMarkupToParagraphs function', () => {
 
     const expected: Paragraph[] = [
       [
-        { type: 'bulletPoint', content: '' },
-        { type: 'bulletPoint', content: 'Second bullet point' },
+        { type: SegmentType.BULLET_POINT, content: '' },
+        { type: SegmentType.BULLET_POINT, content: 'Second bullet point' },
       ],
-      [{ type: 'bulletPoint', content: '' }],
+      [{ type: SegmentType.BULLET_POINT, content: '' }],
     ];
 
     expect(result).toEqual(expected);
