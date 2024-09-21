@@ -9,6 +9,7 @@ import Checkbox from './ui/Checkbox';
 import SegmentedControl from './ui/SegmentedControl';
 import TextInput from './ui/TextInput';
 import Textarea from './ui/Textarea';
+import { convertParagraphsToMarkup } from './utils/richTextParsers';
 
 function App(): JSX.Element {
   const COLOR = '#4b6f96';
@@ -22,7 +23,9 @@ function App(): JSX.Element {
   const coverLetter = getCoverLetter(language);
 
   const [formJobPosition, setFormJobPosition] = useState('');
-  const [coverLetterBody, setCoverLetterBody] = useState('');
+  const [coverLetterBody, setCoverLetterBody] = useState(
+    convertParagraphsToMarkup(coverLetter.body),
+  );
 
   const documentComponent = (
     <CvDocument
