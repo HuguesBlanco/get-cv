@@ -14,19 +14,19 @@
         "content": "Mon parcours est non conventionnel, ce qui met en évidence ma capacité à m'adapter et à apprendre rapidement :"
       },
       {
-        "type": "bulletPoint",
+        "type": "bullet_point",
         "content": "J'ai poursuivi des études artistiques, y compris l'illustration, une année de formation en effets spéciaux numériques et enfin un programme de design graphique."
       },
       {
-        "type": "bulletPoint",
+        "type": "bullet_point",
         "content": "J'ai travaillé pendant cinq ans dans une agence de marketing de données et d'emailing, où j'ai progressé jusqu'au poste de responsable du marketing de données et de l'emailing."
       },
       {
-        "type": "bulletPoint",
+        "type": "bullet_point",
         "content": "Conscient de la nécessité d'améliorer mon anglais, j'ai décidé de relever ce défi en déménageant en Australie. Là-bas, avec plus de temps libre, j'ai repensé mes objectifs de carrière et me suis formé pour devenir développeur. J'ai appris JavaScript et le framework React."
       },
       {
-        "type": "bulletPoint",
+        "type": "bullet_point",
         "content": "À mon retour en Belgique, j'ai appliqué cette formation en travaillant pendant deux ans et demi en tant que développeur front-end, contribuant au développement de l'interface d'un logiciel ERP SaaS."
       }
     ],

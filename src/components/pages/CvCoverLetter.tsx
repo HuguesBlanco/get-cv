@@ -6,6 +6,7 @@ import CvHeader from '../primitives/CvHeader';
 import CvPage from '../primitives/CvPage';
 import CvPart from '../primitives/CvPart';
 import CvSlot from '../primitives/CvSlot';
+import CvText from '../primitives/CvText';
 import { PdfPageElement } from '../types';
 
 type CvCoverLetterProps = {
@@ -45,8 +46,8 @@ function CvCoverLetter({
           <Text>From to</Text>
         </CvSlot>
 
-        <CvSlot widthPercentage={33.333}>
-          <Text>Text</Text>
+        <CvSlot widthPercentage={66.666}>
+          <CvText structuredText={coverLetter.body} />
         </CvSlot>
       </CvPart>
     </CvPage>

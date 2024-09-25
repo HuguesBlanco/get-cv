@@ -7,12 +7,14 @@ import { Icon } from './types';
 type CvListItemProps = {
   children: string | PdfViewElement | PdfTextElement;
   icon?: Icon;
+  isTopSpacingEnabled?: boolean;
   isBottomSpacingEnabled?: boolean;
 };
 
 function CvListItem({
   children,
   icon,
+  isTopSpacingEnabled = false,
   isBottomSpacingEnabled = true,
 }: CvListItemProps): PdfViewElement {
   return (
@@ -20,10 +22,11 @@ function CvListItem({
       style={{
         flexDirection: 'row',
         ...(isBottomSpacingEnabled && { marginBottom: '3mm' }),
+        ...(isTopSpacingEnabled && { marginTop: '3mm' }),
       }}
     >
       {icon !== undefined && (
-        <View style={{ width: '5mm', justifyContent: 'center' }}>
+        <View style={{ width: '5mm', paddingTop: '1.35mm' }}>
           <CvIcon icon={icon} size={5} />
         </View>
       )}
