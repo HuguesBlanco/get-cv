@@ -2,21 +2,22 @@ import { View } from '@react-pdf/renderer';
 import { Paragraph } from '../../services/coverletterServiceTypes';
 import { PdfViewElement } from '../types';
 import CvParagraph from './CvParagraph';
+import CvTextSections from './CvTextSections';
 
-type CvTextProps = {
+type CvTextBodyProps = {
   structuredText: Paragraph[]; // TODO: Decouple from service types.
 };
 
-function CvText({ structuredText }: CvTextProps): PdfViewElement {
+function CvTextBody({ structuredText }: CvTextBodyProps): PdfViewElement {
   return (
     <View>
       {structuredText.map((paragraph, paragraphIndex) => (
-        <View key={paragraphIndex} style={{ marginBottom: '8mm' }}>
-          <CvParagraph paragraph={paragraph} />
-        </View>
+        <CvParagraph key={paragraphIndex}>
+          <CvTextSections paragraph={paragraph} />
+        </CvParagraph>
       ))}
     </View>
   );
 }
 
-export default CvText;
+export default CvTextBody;

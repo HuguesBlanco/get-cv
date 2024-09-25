@@ -1,37 +1,16 @@
 import { Text, View } from '@react-pdf/renderer';
-import { Paragraph, SegmentType } from '../../services/coverletterServiceTypes';
-import { PdfViewElement } from '../types';
-import CvListItem from './CvListItem';
+import { isString } from '../../utils/typeChecks';
+import { PdfTextElement, PdfViewElement } from '../types';
 
-type ParagraphProps = {
-  paragraph: Paragraph; // TODO: Decouple from service types.
+type CvParagraphProps = {
+  children: PdfViewElement | PdfTextElement | string;
 };
 
-function CvParagraph({ paragraph }: ParagraphProps): PdfViewElement {
+function CvParagraph({ children }: CvParagraphProps): PdfViewElement {
+  console.log('children', children);
   return (
-    <View>
-      {paragraph.map((section, sectionIndex, allSections) => {
-        if (section.type === SegmentType.BULLET_POINT) {
-          const previousSection = allSections[sectionIndex - 1];
-          const isPreviousSectionParagraph =
-            previousSection?.type === SegmentType.TEXT;
-
-          const isLastSegment = sectionIndex === allSections.length - 1;
-
-          return (
-            <CvListItem
-              key={sectionIndex}
-              icon="circle"
-              isTopSpacingEnabled={isPreviousSectionParagraph}
-              isBottomSpacingEnabled={!isLastSegment}
-            >
-              {section.content}
-            </CvListItem>
-          );
-        }
-
-        return <Text key={sectionIndex}>{section.content}</Text>;
-      })}
+    <View style={{ marginBottom: '8mm' }}>
+      {isString(children) ? <Text>{children}</Text> : children}
     </View>
   );
 }
