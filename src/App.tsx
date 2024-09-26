@@ -9,7 +9,10 @@ import Checkbox from './ui/Checkbox';
 import SegmentedControl from './ui/SegmentedControl';
 import TextInput from './ui/TextInput';
 import Textarea from './ui/Textarea';
-import { convertParagraphsToMarkup } from './utils/richTextParsers';
+import {
+  convertMarkupToParagraphs,
+  convertParagraphsToMarkup,
+} from './utils/richTextParsers';
 
 function App(): JSX.Element {
   const COLOR = '#4b6f96';
@@ -20,12 +23,17 @@ function App(): JSX.Element {
   const [isCoverLetterIncluded, setIsCoverLetterIncluded] = useState(true);
 
   const cv = getCv(language);
-  const coverLetter = getCoverLetter(language);
+  const initialCoverLetter = getCoverLetter(language);
 
   const [formJobPosition, setFormJobPosition] = useState('');
-  const [coverLetterBody, setCoverLetterBody] = useState(
-    convertParagraphsToMarkup(coverLetter.body),
+  const [coverLetterBodyMarkup, setCoverLetterBodyMarkup] = useState(
+    convertParagraphsToMarkup(initialCoverLetter.body),
   );
+
+  const coverLetter = {
+    ...initialCoverLetter,
+    body: convertMarkupToParagraphs(coverLetterBodyMarkup),
+  };
 
   const documentComponent = (
     <CvDocument
@@ -82,8 +90,8 @@ function App(): JSX.Element {
 
         <Textarea
           label="Cover letter body"
-          value={coverLetterBody}
-          onChange={setCoverLetterBody}
+          value={coverLetterBodyMarkup}
+          onChange={setCoverLetterBodyMarkup}
         />
 
         <CvDownloadLink language={language}>{documentComponent}</CvDownloadLink>
