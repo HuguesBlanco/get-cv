@@ -40,8 +40,8 @@ function App(): JSX.Element {
       language={language}
       cv={cv}
       coverLetter={coverLetter}
-      isCvIncluded
-      isCoverLetterIncluded
+      isCvIncluded={isCvIncluded}
+      isCoverLetterIncluded={isCoverLetterIncluded}
       color={COLOR}
     />
   );
