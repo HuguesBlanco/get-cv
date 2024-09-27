@@ -1,18 +1,18 @@
 import { useState } from 'react';
-import CvDocument from './components/CvDocument';
-import CvDownloadLink from './components/CvDownloadLink';
-import CvViewer from './components/CvViewer';
+import { Languages } from './appTypes';
+import CvDocument from './cv/CvDocument';
+import CvDownloadLink from './cv/CvDownloadLink';
+import CvViewer from './cv/CvViewer';
+import {
+  convertMarkupToParagraphs,
+  convertParagraphsToMarkup,
+} from './libs/richTextParsers';
 import { getCoverLetter } from './services/coverLetterService';
 import { getCv } from './services/cvService';
-import { Languages } from './types';
 import Checkbox from './ui/Checkbox';
 import SegmentedControl from './ui/SegmentedControl';
 import TextInput from './ui/TextInput';
 import Textarea from './ui/Textarea';
-import {
-  convertMarkupToParagraphs,
-  convertParagraphsToMarkup,
-} from './utils/richTextParsers';
 
 function App(): JSX.Element {
   const COLOR = '#4b6f96';
