@@ -1,10 +1,16 @@
+import React from 'react';
+
 type CheckboxProps = {
   label: string;
   isChecked: boolean;
   onChange: (checked: boolean) => void;
 };
 
-function Checkbox({ label, isChecked, onChange }: CheckboxProps): JSX.Element {
+function Checkbox({
+  label,
+  isChecked,
+  onChange,
+}: CheckboxProps): React.JSX.Element {
   const handleCheckboxChange = (): void => {
     onChange(!isChecked);
   };

@@ -1,3 +1,5 @@
+import React from 'react';
+
 type SegmentedControlButtonProps<T> = {
   label: string;
   value: T;
@@ -12,7 +14,7 @@ function SegmentedControlButton<T>({
   isSelected,
   onSelect,
   color,
-}: SegmentedControlButtonProps<T>): JSX.Element {
+}: SegmentedControlButtonProps<T>): React.JSX.Element {
   const backgroundColor = isSelected ? color : 'transparent';
   const textColor = isSelected ? '#ffffff' : color;
 
@@ -50,7 +52,7 @@ function SegmentedControl<T>({
   selectedValue,
   onChange,
   color,
-}: SegmentedControlProps<T>): JSX.Element {
+}: SegmentedControlProps<T>): React.JSX.Element {
   return (
     <div
       style={{

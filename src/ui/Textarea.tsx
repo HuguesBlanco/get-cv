@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import React, { ChangeEvent } from 'react';
 
 type TextareaProps = {
   label: string;
@@ -6,7 +6,11 @@ type TextareaProps = {
   onChange: (value: string) => void;
 };
 
-function Textarea({ label, value, onChange }: TextareaProps): JSX.Element {
+function Textarea({
+  label,
+  value,
+  onChange,
+}: TextareaProps): React.JSX.Element {
   const FOCUS_BORDER_COLOR = '#3b82f6';
   const HOVER_BORDER_COLOR = '#9ca3af';
   const BASE_BORDER_COLOR = '#d1d5db';

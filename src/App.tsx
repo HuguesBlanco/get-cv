@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Languages } from './appTypes';
 import CvDocument from './cv/CvDocument';
 import CvDownloadLink from './cv/CvDownloadLink';
@@ -14,7 +14,7 @@ import SegmentedControl from './ui/SegmentedControl';
 import TextInput from './ui/TextInput';
 import Textarea from './ui/Textarea';
 
-function App(): JSX.Element {
+function App(): React.JSX.Element {
   const COLOR = '#4b6f96';
 
   const [language, setLanguage] = useState<Languages>(Languages.ENGLISH);
