@@ -79,7 +79,3 @@ In the project directory, you can run the following scripts:
 | `npm run test`       | Runs all unit tests using Vitest.                                                                                                                                                                                                                             |
 | `npm run build`      | Builds the application for production. This script compiles the TypeScript code and bundles the application with Vite. The output will be in the `dist` folder.                                                                                               |
 | `npm run preview`    | Serves the production build locally. This is useful for testing the production build before deploying. **Note**: You must run `npm run build` beforehand.                                                                                                     |
-
-## To Do Note
-
-Once `typescript-eslint` version 8 is released, update ESLint to version 9.
