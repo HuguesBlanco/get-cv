@@ -16,11 +16,9 @@ function CvDownloadLink({
 
   return (
     <PDFDownloadLink document={children} fileName={fileName}>
-      <>
-        {({ loading }: { loading: boolean }) =>
-          loading ? 'Loading...' : 'Download CV'
-        }
-      </>
+      {({ loading }: { loading: boolean }) =>
+        loading ? 'Loading...' : 'Download CV'
+      }
     </PDFDownloadLink>
   );
 }
