@@ -1,5 +1,5 @@
 import { Font, Text, View } from '@react-pdf/renderer';
-import { toPascalCase } from '../libs/caseUtils';
+import asemKandisUrl from '../assets/fonts/AsemKandis-Regular.ttf';
 import { PdfViewElement } from '../types/pdfTypes';
 
 type CvSignatureProps = {
@@ -17,7 +17,7 @@ function CvSignature({ children }: CvSignatureProps): PdfViewElement {
       family: FONT_FAMILY,
       fonts: [
         {
-          src: `src/assets/${toPascalCase(FONT_FAMILY)}-Regular.ttf`,
+          src: asemKandisUrl,
           fontStyle: 'normal',
           fontWeight: 'normal',
         },

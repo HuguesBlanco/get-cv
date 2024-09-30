@@ -1,3 +1,4 @@
+import photoUrl from '../assets/photo-cv.jpg';
 import CvHeader from '../primitives/CvHeader';
 import CvPage from '../primitives/CvPage';
 import CvPart from '../primitives/CvPart';
@@ -27,7 +28,7 @@ function CvResume({ cv, language, color }: CvResumeProps): PdfPageElement {
             title={cv.name.lastName}
             preTitle={cv.name.firstName}
             tagline={cv.objective}
-            imageSource={'src/assets/photo-cv.jpg'}
+            imageSource={photoUrl}
             color={color}
           />
         </CvSlot>

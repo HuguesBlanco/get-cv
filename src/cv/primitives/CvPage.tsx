@@ -1,5 +1,7 @@
 import { Font, Page, View } from '@react-pdf/renderer';
-import { toPascalCase } from '../libs/caseUtils';
+import sourceSansBoldURL from '../assets/fonts/SourceSans3-Bold.ttf';
+import sourceSansLightURL from '../assets/fonts/SourceSans3-Light.ttf';
+import sourceSansRegularURL from '../assets/fonts/SourceSans3-Regular.ttf';
 import {
   PdfPageElement,
   PdfTextElement,
@@ -25,17 +27,17 @@ function CvPage({ children }: CvPageProps): PdfPageElement {
       family: FONT_FAMILY,
       fonts: [
         {
-          src: `src/assets/${toPascalCase(FONT_FAMILY)}-Light.ttf`,
+          src: sourceSansLightURL,
           fontStyle: 'normal',
           fontWeight: 'light',
         },
         {
-          src: `src/assets/${toPascalCase(FONT_FAMILY)}-Regular.ttf`,
+          src: sourceSansRegularURL,
           fontStyle: 'normal',
           fontWeight: 'normal',
         },
         {
-          src: `src/assets/${toPascalCase(FONT_FAMILY)}-Bold.ttf`,
+          src: sourceSansBoldURL,
           fontStyle: 'normal',
           fontWeight: 'bold',
         },

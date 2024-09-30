@@ -1,9 +1,9 @@
 import { Path, Svg } from '@react-pdf/renderer';
-import circleIcon from '../../assets/circle-solid.svg?raw';
-import envelopeIcon from '../../assets/envelope-solid.svg?raw';
-import houseIcon from '../../assets/house-solid.svg?raw';
-import locationDotIcon from '../../assets/location-dot-solid.svg?raw';
-import phoneIcon from '../../assets/phone-solid.svg?raw';
+import circleIcon from '../assets/icons/circle-solid.svg?raw';
+import envelopeIcon from '../assets/icons/envelope-solid.svg?raw';
+import houseIcon from '../assets/icons/house-solid.svg?raw';
+import locationDotIcon from '../assets/icons/location-dot-solid.svg?raw';
+import phoneIcon from '../assets/icons/phone-solid.svg?raw';
 import { Icon } from '../types/cvTypes';
 import { PdfSvgElement } from '../types/pdfTypes';
 import CvError, { CvErrorElement } from './CvError';
