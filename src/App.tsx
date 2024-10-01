@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Languages } from './appTypes';
 import CvDocument from './cv/CvDocument';
 import CvDownloadLink from './cv/CvDownloadLink';
@@ -18,7 +18,6 @@ function App(): React.JSX.Element {
   const COLOR = '#4b6f96';
 
   const [language, setLanguage] = useState<Languages>(Languages.ENGLISH);
-
   const [isCvIncluded, setIsCvIncluded] = useState(true);
   const [isCoverLetterIncluded, setIsCoverLetterIncluded] = useState(true);
 
@@ -45,6 +44,22 @@ function App(): React.JSX.Element {
       color={COLOR}
     />
   );
+
+  // A "BindingError" in react-pdf may occur when rendering multiple `<Document>` components at the same time:
+  // { name: "BindingError", message: 'Expected null or instance of Config, got an instance of Config' }.
+  // The cause is unclear and is under discussion: https://github.com/diegomura/react-pdf/issues/2892.
+  // Adding a 600ms delay before rendering the second `<Document>` appears to work as a temporary workaround.
+  const [isPreviewDisplayed, setIsPreviewDisplayed] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsPreviewDisplayed(true);
+    }, 600);
+
+    return (): void => {
+      clearTimeout(timer);
+    };
+  }, []);
 
   return (
     <div
@@ -98,7 +113,7 @@ function App(): React.JSX.Element {
       </div>
 
       <div>
-        <CvViewer>{documentComponent}</CvViewer>
+        {isPreviewDisplayed && <CvViewer>{documentComponent}</CvViewer>}
       </div>
     </div>
   );
