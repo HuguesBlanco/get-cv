@@ -50,7 +50,6 @@ function App(): React.JSX.Element {
   // The cause is unclear and is under discussion: https://github.com/diegomura/react-pdf/issues/2892.
   // Adding a 600ms delay before rendering the second `<Document>` appears to work as a temporary workaround.
   const [isPreviewDisplayed, setIsPreviewDisplayed] = useState(false);
-
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsPreviewDisplayed(true);
