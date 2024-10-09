@@ -5,19 +5,19 @@ import CvSignature from '../primitives/CvSignature';
 import { Paragraph } from '../types/cvTypes';
 import { PdfViewElement } from '../types/pdfTypes';
 
-type ApplicationNarativeProps = {
+type CvApplicationNarativeProps = {
   gretting: string;
   structuredBodyText: Paragraph[]; // TODO: decouple from service types.
   closing: string;
   signature: string;
 };
 
-function ApplicationNarative({
+function CvApplicationNarative({
   gretting,
   structuredBodyText,
   closing,
   signature,
-}: ApplicationNarativeProps): PdfViewElement {
+}: CvApplicationNarativeProps): PdfViewElement {
   return (
     <View>
       <CvParagraph>{gretting}</CvParagraph>
@@ -28,4 +28,4 @@ function ApplicationNarative({
   );
 }
 
-export default ApplicationNarative;
+export default CvApplicationNarative;

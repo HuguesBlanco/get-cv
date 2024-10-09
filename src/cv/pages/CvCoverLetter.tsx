@@ -3,7 +3,7 @@ import CvHeader from '../primitives/CvHeader';
 import CvPage from '../primitives/CvPage';
 import CvPart from '../primitives/CvPart';
 import CvSlot from '../primitives/CvSlot';
-import ApplicationNarative from '../sections/ApplicationNarative';
+import CvApplicationNarative from '../sections/CvApplicationNarative';
 import { CoverLetter, Cv, Languages } from '../types/cvTypes';
 import { PdfPageElement } from '../types/pdfTypes';
 
@@ -45,7 +45,7 @@ function CvCoverLetter({
         </CvSlot>
 
         <CvSlot widthPercentage={66.666}>
-          <ApplicationNarative
+          <CvApplicationNarative
             gretting={coverLetter.greeting}
             structuredBodyText={coverLetter.body}
             closing={coverLetter.closing}
