@@ -4,6 +4,7 @@ import CvPart from '../primitives/CvPart';
 import CvSlot from '../primitives/CvSlot';
 import CvApplicationNarative from '../sections/CvApplicationNarative';
 import CvFrom from '../sections/CvFrom';
+import CvTo from '../sections/CvTo';
 import { CoverLetter, Cv, Languages } from '../types/cvTypes';
 import { PdfPageElement } from '../types/pdfTypes';
 
@@ -39,8 +40,26 @@ function CvCoverLetter({
         <CvSlot
           widthPercentage={33.333}
           isBorderRightVisible
+          verticalDistribution="top"
           borderColor={color}
         >
+          <CvTo
+            organization="Google"
+            name={{ lastName: 'Doe', firstName: 'John' }}
+            contact={{
+              email: 'test@test.com',
+              phone: '+32 456 09 34 39',
+              postalAddress: {
+                streetNumber: '456',
+                streetName: 'rue du Tilleul',
+                additionalAddressInfo: 'boite 34',
+                city: 'Bruxelles',
+                postalCode: '1000',
+                country: 'Belgique',
+              },
+            }}
+            color={color}
+          />
           <CvFrom name={cv.name} contact={cv.contact} color={color} />
         </CvSlot>
 

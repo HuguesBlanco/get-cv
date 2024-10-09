@@ -8,6 +8,7 @@ type CvSlotProps = {
     | PdfViewElement[]
     | PdfTextElement
     | PdfTextElement[];
+  verticalDistribution?: 'top' | 'space-between';
 } & (
   | { isBorderRightVisible: true; borderColor: string }
   | { isBorderRightVisible?: false; borderColor?: undefined }
@@ -18,6 +19,7 @@ function CvSlot({
   isBorderRightVisible = false,
   widthPercentage,
   borderColor,
+  verticalDistribution = 'space-between',
 }: CvSlotProps): PdfViewElement {
   const borderRight = isBorderRightVisible
     ? { borderRight: `0.4mm solid ${String(borderColor)}` }
@@ -28,11 +30,14 @@ function CvSlot({
       ? { width: `${String(widthPercentage)}%` }
       : {};
 
+  const justifyContent =
+    verticalDistribution === 'top' ? 'flex-start' : 'space-between';
+
   return (
     <View
       style={{
         ...borderRight,
-        justifyContent: 'space-between',
+        justifyContent,
         paddingLeft: '5mm',
         paddingRight: '5mm',
         ...width,

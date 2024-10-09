@@ -5,6 +5,18 @@ import CvTitle1 from '../primitives/CvTitle1';
 import { Contact, Name, PostalAddress } from '../types/cvTypes';
 import { PdfViewElement } from '../types/pdfTypes';
 
+type OrganizationItemProps = {
+  name: string;
+};
+
+function OrganizationItem({ name }: OrganizationItemProps): PdfViewElement {
+  return (
+    <CvListItem>
+      <Text style={{ textTransform: 'uppercase' }}>{name}</Text>
+    </CvListItem>
+  );
+}
+
 type NameItemProps = {
   name: Name;
 };
@@ -96,6 +108,7 @@ function PostalAddressItem({
 }
 
 type CvPersonDetailProps = {
+  organization?: string;
   title?: string;
   name?: Name;
   contact: Contact;
@@ -103,6 +116,7 @@ type CvPersonDetailProps = {
 };
 
 function CvPersonDetail({
+  organization,
   title,
   name,
   contact,
@@ -113,6 +127,8 @@ function CvPersonDetail({
   return (
     <View>
       {title !== undefined && <CvTitle1 color={color}>{title}</CvTitle1>}
+
+      {organization !== undefined && <OrganizationItem name={organization} />}
 
       {name !== undefined && <NameItem name={name} />}
 
