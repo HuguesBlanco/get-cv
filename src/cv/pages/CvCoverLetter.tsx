@@ -1,3 +1,4 @@
+import { Text } from '@react-pdf/renderer';
 import CvHeader from '../primitives/CvHeader';
 import CvPage from '../primitives/CvPage';
 import CvPart from '../primitives/CvPart';
@@ -40,27 +41,35 @@ function CvCoverLetter({
         <CvSlot
           widthPercentage={33.333}
           isBorderRightVisible
-          verticalDistribution="top"
           borderColor={color}
         >
-          <CvTo
-            organization="Google"
-            name={{ lastName: 'Doe', firstName: 'John' }}
-            contact={{
-              email: 'test@test.com',
-              phone: '+32 456 09 34 39',
-              postalAddress: {
-                streetNumber: '456',
-                streetName: 'rue du Tilleul',
-                additionalAddressInfo: 'boite 34',
-                city: 'Bruxelles',
-                postalCode: '1000',
-                country: 'Belgique',
-              },
-            }}
-            color={color}
-          />
-          <CvFrom name={cv.name} contact={cv.contact} color={color} />
+          <CvPart>
+            <CvSlot verticalDistribution="top">
+              <CvTo
+                organization="Google"
+                name={{ lastName: 'Doe', firstName: 'John' }}
+                contact={{
+                  email: 'test@test.com',
+                  phone: '+32 456 09 34 39',
+                  postalAddress: {
+                    streetNumber: '456',
+                    streetName: 'rue du Tilleul',
+                    additionalAddressInfo: 'boite 34',
+                    city: 'Bruxelles',
+                    postalCode: '1000',
+                    country: 'Belgique',
+                  },
+                }}
+                color={color}
+              />
+              <CvFrom name={cv.name} contact={cv.contact} color={color} />
+            </CvSlot>
+          </CvPart>
+          <CvPart isMarginBottomEnabled={false}>
+            <CvSlot>
+              <Text>Github + Linkedin</Text>
+            </CvSlot>
+          </CvPart>
         </CvSlot>
 
         <CvSlot widthPercentage={66.666}>
