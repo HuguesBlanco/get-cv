@@ -25,8 +25,8 @@ function CvResume({ cv, language, color }: CvResumeProps): PdfPageElement {
       <CvPart>
         <CvSlot>
           <CvHeader
-            title={cv.name.lastName}
-            preTitle={cv.name.firstName}
+            title={cv.name.lastName ?? ''}
+            preTitle={cv.name.firstName ?? ''}
             tagline={cv.objective}
             imageSource={photoUrl}
             color={color}
