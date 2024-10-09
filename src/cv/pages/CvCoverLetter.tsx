@@ -1,9 +1,9 @@
-import { Text } from '@react-pdf/renderer';
 import CvHeader from '../primitives/CvHeader';
 import CvPage from '../primitives/CvPage';
 import CvPart from '../primitives/CvPart';
 import CvSlot from '../primitives/CvSlot';
 import CvApplicationNarative from '../sections/CvApplicationNarative';
+import CvFrom from '../sections/CvFrom';
 import { CoverLetter, Cv, Languages } from '../types/cvTypes';
 import { PdfPageElement } from '../types/pdfTypes';
 
@@ -41,7 +41,7 @@ function CvCoverLetter({
           isBorderRightVisible
           borderColor={color}
         >
-          <Text>From to</Text>
+          <CvFrom name={cv.name} contact={cv.contact} color={color} />
         </CvSlot>
 
         <CvSlot widthPercentage={66.666}>

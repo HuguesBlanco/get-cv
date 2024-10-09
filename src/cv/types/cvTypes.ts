@@ -10,8 +10,8 @@ export enum Languages {
 export type Icon = 'envelope' | 'house' | 'locationDot' | 'phone' | 'circle';
 
 export type Name = {
-  firstName: string;
-  lastName: string;
+  firstName?: string;
+  lastName?: string;
 };
 
 export type PostalAddress = {

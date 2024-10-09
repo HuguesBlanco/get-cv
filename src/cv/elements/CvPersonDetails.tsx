@@ -2,24 +2,46 @@ import { Text, View } from '@react-pdf/renderer';
 import CvIcon from '../primitives/CvIcon';
 import CvListItem from '../primitives/CvListItem';
 import CvTitle1 from '../primitives/CvTitle1';
-import { Contact } from '../types/cvTypes';
+import { Contact, Name, PostalAddress } from '../types/cvTypes';
 import { PdfViewElement } from '../types/pdfTypes';
 
-type ContactDetailProps = {
-  icon: 'envelope' | 'phone';
-  text: string;
-  leftSpace: string;
+type NameItemProps = {
+  name: Name;
 };
 
-function ContactDetail({
+function NameItem({ name }: NameItemProps): PdfViewElement | null {
+  const { firstName, lastName } = name;
+
+  if (firstName === undefined && lastName === undefined) {
+    return null;
+  }
+
+  const spaceBetweenNames =
+    firstName !== undefined && lastName !== undefined ? ' ' : '';
+  const nameDisplay = `${firstName ?? ''}${spaceBetweenNames}${lastName ?? ''}`;
+
+  return (
+    <CvListItem>
+      <Text style={{ fontWeight: 'bold' }}>{nameDisplay}</Text>
+    </CvListItem>
+  );
+}
+
+type ContactItemProps = {
+  icon: 'envelope' | 'phone';
+  text: string;
+  iconPadding: string;
+};
+
+function ContactItem({
   icon,
   text,
-  leftSpace,
-}: ContactDetailProps): PdfViewElement {
+  iconPadding,
+}: ContactItemProps): PdfViewElement | null {
   return (
     <CvListItem>
       <View style={{ flexDirection: 'row' }}>
-        <View style={{ width: leftSpace, justifyContent: 'center' }}>
+        <View style={{ width: iconPadding, justifyContent: 'center' }}>
           <CvIcon icon={icon} size={10} />
         </View>
         <Text>{text}</Text>
@@ -28,25 +50,20 @@ function ContactDetail({
   );
 }
 
-type PostalAddressInfoProps = {
-  postalAddress: Contact['postalAddress'];
-  leftSpace: string;
+type PostalAddressItemProps = {
+  postalAddress: PostalAddress;
+  iconPadding: string;
 };
 
-function PostalAddressInfo({
+function PostalAddressItem({
   postalAddress,
-  leftSpace,
-}: PostalAddressInfoProps): PdfViewElement | null {
-  if (!postalAddress) {
-    return null;
-  }
-
+  iconPadding,
+}: PostalAddressItemProps): PdfViewElement {
   return (
     <CvListItem isBottomSpacingEnabled={false}>
       <View>
-        {/* Street information */}
         <View style={{ flexDirection: 'row' }}>
-          <View style={{ width: leftSpace, justifyContent: 'center' }}>
+          <View style={{ width: iconPadding, justifyContent: 'center' }}>
             <CvIcon icon="locationDot" size={10} />
           </View>
           <Text>
@@ -57,9 +74,8 @@ function PostalAddressInfo({
           </Text>
         </View>
 
-        {/* Postal code and city */}
         <View style={{ flexDirection: 'row' }}>
-          <View style={{ width: leftSpace }} />
+          <View style={{ width: iconPadding }} />
           <Text>
             {postalAddress.postalCode !== undefined
               ? `${postalAddress.postalCode} `
@@ -68,10 +84,9 @@ function PostalAddressInfo({
           </Text>
         </View>
 
-        {/* Country */}
         {postalAddress.country !== undefined && (
           <View style={{ flexDirection: 'row' }}>
-            <View style={{ width: leftSpace }} />
+            <View style={{ width: iconPadding }} />
             <Text>{postalAddress.country}</Text>
           </View>
         )}
@@ -80,47 +95,51 @@ function PostalAddressInfo({
   );
 }
 
-type CvPersonDetailsProps = {
+type CvPersonDetailProps = {
   title?: string;
+  name?: Name;
   contact: Contact;
   color: string;
 };
 
-function CvPersonDetails({
+function CvPersonDetail({
   title,
+  name,
   contact,
   color,
-}: CvPersonDetailsProps): PdfViewElement {
-  const leftSpace = '5mm';
+}: CvPersonDetailProps): PdfViewElement {
+  const iconPadding = '5mm';
 
   return (
     <View>
       {title !== undefined && <CvTitle1 color={color}>{title}</CvTitle1>}
 
+      {name !== undefined && <NameItem name={name} />}
+
       {contact.email !== undefined && (
-        <ContactDetail
+        <ContactItem
           icon="envelope"
           text={contact.email}
-          leftSpace={leftSpace}
+          iconPadding={iconPadding}
         />
       )}
 
       {contact.phone !== undefined && (
-        <ContactDetail
+        <ContactItem
           icon="phone"
           text={contact.phone}
-          leftSpace={leftSpace}
+          iconPadding={iconPadding}
         />
       )}
 
       {contact.postalAddress !== undefined && (
-        <PostalAddressInfo
+        <PostalAddressItem
           postalAddress={contact.postalAddress}
-          leftSpace={leftSpace}
+          iconPadding={iconPadding}
         />
       )}
     </View>
   );
 }
 
-export default CvPersonDetails;
+export default CvPersonDetail;
