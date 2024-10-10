@@ -6,16 +6,16 @@ export type Name = {
 export type PostalAddress = {
   streetNumber: string;
   streetName: string;
-  additionalAddressInfo: string;
+  additionalAddressInfo?: string;
   city: string;
-  postalCode: string;
-  country: string;
+  postalCode?: string;
+  country?: string;
 };
 
 export type Contact = {
-  email: string;
-  phone: string;
-  postalAddress: PostalAddress;
+  email?: string;
+  phone?: string;
+  postalAddress?: PostalAddress;
 };
 
 export type Language = {
