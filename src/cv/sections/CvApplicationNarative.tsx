@@ -7,7 +7,7 @@ import { PdfViewElement } from '../types/pdfTypes';
 
 type CvApplicationNarativeProps = {
   gretting: string;
-  structuredBodyText: Paragraph[]; // TODO: decouple from service types.
+  structuredBodyText: Paragraph[];
   closing: string;
   signature: string;
 };

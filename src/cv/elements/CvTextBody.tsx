@@ -5,7 +5,7 @@ import { PdfViewElement } from '../types/pdfTypes';
 import CvTextSections from './CvTextSections';
 
 type CvTextBodyProps = {
-  structuredText: Paragraph[]; // TODO: Decouple from service types.
+  structuredText: Paragraph[];
 };
 
 function CvTextBody({ structuredText }: CvTextBodyProps): PdfViewElement {

@@ -4,7 +4,7 @@ import { Paragraph, SegmentType } from '../types/cvTypes';
 import { PdfTextElement, PdfViewElement } from '../types/pdfTypes';
 
 type CvTextSectionProps = {
-  paragraph: Paragraph; // TODO: Decouple from service types.
+  paragraph: Paragraph;
 };
 
 function CvTextSections({
