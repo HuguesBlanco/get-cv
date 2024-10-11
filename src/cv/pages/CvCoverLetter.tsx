@@ -1,10 +1,10 @@
-import { Text } from '@react-pdf/renderer';
 import CvHeader from '../primitives/CvHeader';
 import CvPage from '../primitives/CvPage';
 import CvPart from '../primitives/CvPart';
 import CvSlot from '../primitives/CvSlot';
 import CvApplicationNarative from '../sections/CvApplicationNarative';
 import CvFrom from '../sections/CvFrom';
+import CvLinks from '../sections/CvLinks';
 import CvTo from '../sections/CvTo';
 import { CoverLetter, Cv, Languages } from '../types/cvTypes';
 import { PdfPageElement } from '../types/pdfTypes';
@@ -67,7 +67,7 @@ function CvCoverLetter({
           </CvPart>
           <CvPart isMarginBottomEnabled={false}>
             <CvSlot>
-              <Text>Github + Linkedin</Text>
+              <CvLinks links={cv.links} language={language} color={color} />
             </CvSlot>
           </CvPart>
         </CvSlot>

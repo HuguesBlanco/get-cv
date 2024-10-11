@@ -1,20 +1,14 @@
 import { Path, Svg } from '@react-pdf/renderer';
 import circleIcon from '../assets/icons/circle-solid.svg?raw';
 import envelopeIcon from '../assets/icons/envelope-solid.svg?raw';
+import githubIcon from '../assets/icons/github-brands-solid.svg?raw';
 import houseIcon from '../assets/icons/house-solid.svg?raw';
+import linkedinIcon from '../assets/icons/linkedin-brands-solid.svg?raw';
 import locationDotIcon from '../assets/icons/location-dot-solid.svg?raw';
 import phoneIcon from '../assets/icons/phone-solid.svg?raw';
 import { Icon } from '../types/cvTypes';
 import { PdfSvgElement } from '../types/pdfTypes';
 import CvError, { CvErrorElement } from './CvError';
-
-type CvIconProps = {
-  icon: Icon;
-  /**
-   * The size is based on the typography size. It corresponds to the height of the icon in typography points (pt)
-   */
-  size: number;
-};
 
 function getIconSvgContent(icon: Icon): string {
   const iconMap: Record<Icon, string> = {
@@ -23,6 +17,8 @@ function getIconSvgContent(icon: Icon): string {
     locationDot: locationDotIcon,
     phone: phoneIcon,
     circle: circleIcon,
+    linkedin: linkedinIcon,
+    github: githubIcon,
   };
 
   return iconMap[icon];
@@ -72,7 +68,20 @@ function calculateDimensions(
   return { widthInPoint, heightInPoint };
 }
 
-function CvIcon({ icon, size }: CvIconProps): PdfSvgElement | CvErrorElement {
+type CvIconProps = {
+  icon: Icon;
+  /**
+   * The size is based on the typography size. It corresponds to the height of the icon in typography points (pt)
+   */
+  size: number;
+  color?: string;
+};
+
+function CvIcon({
+  icon,
+  size,
+  color = '#000000',
+}: CvIconProps): PdfSvgElement | CvErrorElement {
   const iconSvg = getIconSvgContent(icon);
 
   const attributes = parseSvgAttributes(iconSvg);
@@ -89,7 +98,7 @@ function CvIcon({ icon, size }: CvIconProps): PdfSvgElement | CvErrorElement {
       height={calculatedSizes.heightInPoint}
       width={calculatedSizes.widthInPoint}
     >
-      <Path fill="#000000" d={attributes.d} />
+      <Path fill={color} d={attributes.d} />
     </Svg>
   );
 }

@@ -206,5 +206,9 @@
       "credentialId": "KUPNURUAGWQY",
       "issueDate": "2020-09-01T00:00:00.000Z"
     }
-  ]
+  ],
+  "links": {
+    "linkedinUrl": "https://www.linkedin.com/in/hugues-blanco-alvarez/",
+    "githubUrl": "https://github.com/HuguesBlanco"
+  }
 }

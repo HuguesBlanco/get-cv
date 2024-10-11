@@ -55,6 +55,11 @@ export type OnlineCourse = {
   issueDate: Date;
 };
 
+export type Links = {
+  linkedinUrl: string;
+  githubUrl: string;
+};
+
 export type Cv = {
   name: Name;
   targetPosition: string;
@@ -65,4 +70,5 @@ export type Cv = {
   companies: Company[];
   educationAchievements: EducationAchievement[];
   onlineCourses: OnlineCourse[];
+  links: Links;
 };

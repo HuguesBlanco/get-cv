@@ -7,7 +7,14 @@ export enum Languages {
   FRENCH = 'fr',
 }
 
-export type Icon = 'envelope' | 'house' | 'locationDot' | 'phone' | 'circle';
+export type Icon =
+  | 'envelope'
+  | 'house'
+  | 'locationDot'
+  | 'phone'
+  | 'circle'
+  | 'linkedin'
+  | 'github';
 
 export type Name = {
   firstName?: string;
@@ -66,6 +73,11 @@ export type OnlineCourse = {
   issueDate: Date;
 };
 
+export type Links = {
+  linkedinUrl: string;
+  githubUrl: string;
+};
+
 export type Cv = {
   name: Name;
   targetPosition: string;
@@ -76,6 +88,7 @@ export type Cv = {
   companies: Company[];
   educationAchievements: EducationAchievement[];
   onlineCourses: OnlineCourse[];
+  links: Links;
 };
 
 export enum SegmentType {
