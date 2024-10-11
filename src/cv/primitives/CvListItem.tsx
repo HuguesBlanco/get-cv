@@ -29,22 +29,30 @@ function getIconPaddingTop(icon: Icon): string {
 
 type CvListItemProps = {
   children: string | PdfViewElement | PdfTextElement;
-  icon?: Icon;
-  iconSize?: number;
+  textColor?: string;
   isTopSpacingEnabled?: boolean;
   isBottomSpacingEnabled?: boolean;
-  iconColor?: string;
-  textColor?: string;
-};
+} & (
+  | {
+      icon?: undefined;
+      iconSize?: undefined;
+      iconColor?: undefined;
+    }
+  | {
+      icon: Icon;
+      iconSize?: number;
+      iconColor?: string;
+    }
+);
 
 function CvListItem({
   children,
-  icon,
-  iconSize = 5,
+  textColor = '#000000',
   isTopSpacingEnabled = false,
   isBottomSpacingEnabled = true,
+  icon,
+  iconSize = 5,
   iconColor = '#000000',
-  textColor = '#000000',
 }: CvListItemProps): PdfViewElement {
   return (
     <View
