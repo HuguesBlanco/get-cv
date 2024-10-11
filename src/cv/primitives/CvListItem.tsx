@@ -4,6 +4,29 @@ import { Icon } from '../types/cvTypes';
 import { PdfTextElement, PdfViewElement } from '../types/pdfTypes';
 import CvIcon from './CvIcon';
 
+function getIconPaddingTop(icon: Icon): string {
+  switch (icon) {
+    case 'circle':
+      return '1.35mm';
+
+    case 'envelope':
+      return '0.6mm';
+
+    case 'phone':
+      return '0.4mm';
+
+    case 'locationDot':
+      return '0.1mm';
+
+    case 'github':
+    case 'linkedin':
+      return '0.2mm';
+
+    default:
+      return '0mm';
+  }
+}
+
 type CvListItemProps = {
   children: string | PdfViewElement | PdfTextElement;
   icon?: Icon;
@@ -23,14 +46,6 @@ function CvListItem({
   iconColor = '#000000',
   textColor = '#000000',
 }: CvListItemProps): PdfViewElement {
-  // TODO: Make that clearer
-  const paddingTop =
-    icon === 'circle'
-      ? '1.35mm'
-      : icon === 'github' || icon === 'linkedin'
-        ? '0.2mm'
-        : '0mm';
-
   return (
     <View
       style={{
@@ -40,7 +55,7 @@ function CvListItem({
       }}
     >
       {icon !== undefined && (
-        <View style={{ width: '5mm', paddingTop }}>
+        <View style={{ width: '5mm', paddingTop: getIconPaddingTop(icon) }}>
           <CvIcon icon={icon} size={iconSize} color={iconColor} />
         </View>
       )}
