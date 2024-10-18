@@ -4,7 +4,6 @@ import CvHeader from '../primitives/CvHeader';
 import CvPage from '../primitives/CvPage';
 import CvContact from '../sections/CvContact';
 import CvEducation from '../sections/CvEducation';
-import CvGithub from '../sections/CvGithub';
 import CvLanguages from '../sections/CvLanguages';
 import CvOnlineCourses from '../sections/CvOnlineCourses';
 import CvSkills from '../sections/CvSkills';
@@ -59,10 +58,6 @@ function CvResume({ cv, language, color }: CvResumeProps): PdfPageElement {
             color={color}
           />
         </CvBlock>
-      </CvBlock>
-
-      <CvBlock isPaddindXEnabled>
-        <CvGithub language={language} color={color} />
       </CvBlock>
     </CvPage>
   );
