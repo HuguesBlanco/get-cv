@@ -25,7 +25,7 @@ function CvTextSections({
           isTopSpacingEnabled={isPreviousSectionParagraph}
           isBottomSpacingEnabled={!isLastSegment}
         >
-          {section.content}
+          <Text>{section.content}</Text>
         </CvListItem>
       );
     }

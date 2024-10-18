@@ -10,7 +10,8 @@ type CvJobPositionProps = {
 
 function CvJobPosition({ jobPosition }: CvJobPositionProps): PdfViewElement {
   return (
-    <View style={{ paddingLeft: 20 }}>
+    // TODO: use CvListItem (with an "null" icon) instead of <View style={{ paddingLeft: '5mm' }}>
+    <View style={{ paddingLeft: '5mm' }}>
       <CvTitle3
         extraContent={
           <CvDate

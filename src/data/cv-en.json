@@ -1,7 +1,7 @@
 {
   "name": {
     "firstName": "Hugues",
-    "lastName": "Blanco Alvarez"
+    "lastName": "Blanco\u00A0Alvarez"
   },
   "targetPosition": "Front-end Developer",
   "objective": "Seeking a front-end developer position",
@@ -28,8 +28,8 @@
     "JavaScript",
     "TypeScript",
     "React.js",
-    "Tailwind CSS",
-    "Unit Testing",
+    "Tailwind\u00A0CSS",
+    "Unit\u00A0Testing",
     "Git",
     "Agile Methodology",
     "Scrum",
@@ -59,13 +59,13 @@
       "jobPositions": [
         {
           "title": "Front-End Developer",
-          "description": "Developed the user interface for SaaS ERP software using TypeScript and React.js. Created components with Tailwind CSS and designed JavaScript libraries. Refactored code for modularity, clarity, and quality. Added unit tests.",
+          "description": "Developed the user interface for SaaS ERP software using TypeScript and React.js. Created components with Tailwind CSS and designed JavaScript libraries. Refactored code for modularity, clarity, and quality. Added unit\u00A0tests.",
           "skills": [
             "JavaScript",
             "TypeScript",
             "React.js",
             "Tailwind CSS",
-            "unit testing",
+            "unit\u00A0testing",
             "Git",
             "Agile methodology",
             "Scrum"

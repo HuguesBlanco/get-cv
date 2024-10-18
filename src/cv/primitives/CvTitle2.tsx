@@ -19,12 +19,18 @@ function CvTitle2({ children, extraContent }: CvTitle2Props): PdfViewElement {
         marginBottom: '3mm',
       }}
     >
-      <Text style={{ fontSize: 11, textTransform: 'uppercase' }}>
+      <Text
+        style={{
+          fontSize: '11pt',
+          letterSpacing: '0.9',
+          textTransform: 'uppercase',
+        }}
+      >
         {children}
       </Text>
 
       {isExtraContentAvailable && isString(extraContent) && (
-        <Text style={{ fontSize: 9 }}>{extraContent}</Text>
+        <Text style={{ fontSize: '9pt' }}>{extraContent}</Text>
       )}
       {isExtraContentAvailable && !isString(extraContent) && (
         <View>{extraContent}</View>

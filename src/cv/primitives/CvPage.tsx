@@ -56,11 +56,12 @@ function CvPage({ children }: CvPageProps): PdfPageElement {
     >
       <View
         style={{
-          marginTop: '8mm',
-          marginLeft: '8mm',
-          marginRight: '8mm',
-          marginBottom: '2mm',
+          marginTop: '15mm',
+          marginLeft: '5mm',
+          marginRight: '5mm',
+          marginBottom: '15mm',
           flexGrow: 1,
+          justifyContent: 'space-between',
         }}
       >
         {children}

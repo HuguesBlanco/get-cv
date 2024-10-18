@@ -14,7 +14,7 @@ function CvOnlineCourses({
 }: CvOnlineCoursesProps): PdfViewElement {
   return (
     <View>
-      <CvTitle1 color={color}>Online courses</CvTitle1>
+      <CvTitle1 color={color}>Courses</CvTitle1>
 
       {onlineCourses.map((course, index) => {
         return (

@@ -15,7 +15,7 @@ function CompanyAdditionalInformation({
 }: CompanyAdditionalInformationProps): PdfTextElement | null {
   if (company.description !== undefined) {
     return (
-      <Text>
+      <Text style={{ letterSpacing: '0.3' }}>
         <Text>{company.description}</Text>
 
         {company.website !== undefined && (
@@ -27,7 +27,7 @@ function CompanyAdditionalInformation({
       </Text>
     );
   } else if (company.location !== undefined) {
-    return <Text>{company.location}</Text>;
+    return <Text style={{ letterSpacing: '0.3' }}>{company.location}</Text>;
   }
 
   return null;

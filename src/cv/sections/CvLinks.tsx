@@ -24,7 +24,7 @@ function CvLinks({ links, language, color }: CvLinksProps): PdfViewElement {
 
   return (
     <View>
-      <CvTitle1 color={color}>Find Me Online</CvTitle1>
+      <CvTitle1 color={color}>Find&nbsp;Me&nbsp;Online</CvTitle1>
 
       <View style={{ marginBottom: '8mm' }}>
         <Text style={{ marginBottom: '2mm' }}>{githubText}</Text>

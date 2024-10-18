@@ -16,18 +16,27 @@ function CvHeader({
   imageSource,
   color,
 }: CvHeaderProps): PdfViewElement {
-  const IMAGE_SIZE = '33mm';
+  const IMAGE_SIZE = '26mm';
+  const LINE_SPACING = '5mm';
 
   return (
     <View>
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
         <View>
           <Text
             style={{
-              fontSize: '20pt',
-              letterSpacing: '9',
-              lineHeight: 1.1, // 1 = 100%, cf. https://github.com/diegomura/react-pdf/issues/2369
+              fontSize: '16pt',
+              letterSpacing: '4',
+              lineHeight: 0.7, // 1 = 100%, cf. https://github.com/diegomura/react-pdf/issues/2369
               textTransform: 'uppercase',
+              verticalAlign: 'super',
+              marginBottom: LINE_SPACING,
             }}
           >
             {preTitle}
@@ -35,20 +44,24 @@ function CvHeader({
           <Text
             style={{
               color: color,
-              fontSize: '40pt',
+              fontSize: '34pt',
+              letterSpacing: '2',
+              lineHeight: 0.6,
               fontWeight: 'light',
-              letterSpacing: '2.5',
-              marginLeft: '-2.4',
               textTransform: 'uppercase',
+              verticalAlign: 'super',
+              marginLeft: '-2.4',
+              marginBottom: LINE_SPACING,
             }}
           >
             {title}
           </Text>
           <Text
             style={{
-              fontSize: '11pt',
-              letterSpacing: '1',
-              marginLeft: '58mm',
+              fontSize: '9pt',
+              letterSpacing: '1.1',
+              verticalAlign: 'sub',
+              marginLeft: '56.5mm',
             }}
           >
             {tagline}
@@ -69,7 +82,7 @@ function CvHeader({
                 width: IMAGE_SIZE,
                 height: IMAGE_SIZE,
                 borderRadius: '50%',
-                opacity: 0.8,
+                opacity: 0.6,
               }}
             />
           </View>

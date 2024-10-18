@@ -14,17 +14,19 @@ function CvWorkExperience({
   color,
 }: CvWorkExperienceProps): PdfViewElement {
   return (
-    <View>
+    <View style={{ flexGrow: 1 }}>
       <CvTitle1 color={color}>Experience</CvTitle1>
 
-      {companies.map((company, index) => (
-        <CvListItem
-          key={company.name}
-          isBottomSpacingEnabled={!isLastElement(index, companies)}
-        >
-          <CvCompany company={company} />
-        </CvListItem>
-      ))}
+      <View style={{ flexGrow: 1, justifyContent: 'space-between' }}>
+        {companies.map((company, index) => (
+          <CvListItem
+            key={company.name}
+            isBottomSpacingEnabled={!isLastElement(index, companies)}
+          >
+            <CvCompany company={company} />
+          </CvListItem>
+        ))}
+      </View>
     </View>
   );
 }

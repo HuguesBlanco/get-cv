@@ -25,7 +25,7 @@ function CvCoverLetter({
 
   return (
     <CvPage>
-      <CvBlock isPaddindXEnabled isMarginBottomEnabled>
+      <CvBlock isPaddindXEnabled isBigMargin isMarginBottomEnabled>
         <CvHeader
           preTitle={candidateLabel}
           title={cv.targetPosition}
@@ -34,7 +34,7 @@ function CvCoverLetter({
         />
       </CvBlock>
 
-      <CvBlock layoutDirection="horizontal" isExpanded isMarginBottomEnabled>
+      <CvBlock layoutDirection="horizontal" isExpanded>
         <CvBlock
           widthPercentage={33.333}
           isBorderRightVisible
