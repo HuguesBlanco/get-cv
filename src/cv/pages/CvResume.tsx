@@ -1,8 +1,7 @@
 import photoUrl from '../assets/photo-cv.jpg';
+import CvBlock from '../primitives/CvBlock';
 import CvHeader from '../primitives/CvHeader';
 import CvPage from '../primitives/CvPage';
-import CvPart from '../primitives/CvPart';
-import CvSlot from '../primitives/CvSlot';
 import CvContact from '../sections/CvContact';
 import CvEducation from '../sections/CvEducation';
 import CvGithub from '../sections/CvGithub';
@@ -22,52 +21,49 @@ type CvResumeProps = {
 function CvResume({ cv, language, color }: CvResumeProps): PdfPageElement {
   return (
     <CvPage>
-      <CvPart>
-        <CvSlot>
-          <CvHeader
-            title={cv.name.lastName ?? ''}
-            preTitle={cv.name.firstName ?? ''}
-            tagline={cv.objective}
-            imageSource={photoUrl}
-            color={color}
-          />
-        </CvSlot>
-      </CvPart>
+      <CvBlock isMarginBottomEnabled isPaddindXEnabled>
+        <CvHeader
+          title={cv.name.lastName ?? ''}
+          preTitle={cv.name.firstName ?? ''}
+          tagline={cv.objective}
+          imageSource={photoUrl}
+          color={color}
+        />
+      </CvBlock>
 
-      <CvPart layoutDirection="horizontal">
-        <CvSlot
+      <CvBlock layoutDirection="horizontal" isMarginBottomEnabled>
+        <CvBlock
           widthPercentage={33.333}
+          isPaddindXEnabled
           isBorderRightVisible={true}
           borderColor={color}
         >
           <CvContact contact={cv.contact} color={color} />
           <CvSkills skills={cv.skills} color={color} language={language} />
           <CvLanguages languages={cv.languages} color={color} />
-        </CvSlot>
+        </CvBlock>
 
-        <CvSlot widthPercentage={66.666}>
+        <CvBlock widthPercentage={66.666} isPaddindXEnabled>
           <CvWorkExperience companies={cv.companies} color={color} />
-        </CvSlot>
-      </CvPart>
+        </CvBlock>
+      </CvBlock>
 
-      <CvPart layoutDirection="horizontal">
-        <CvSlot widthPercentage={33.333}>
+      <CvBlock isMarginBottomEnabled layoutDirection="horizontal">
+        <CvBlock widthPercentage={33.333} isPaddindXEnabled>
           <CvOnlineCourses onlineCourses={cv.onlineCourses} color={color} />
-        </CvSlot>
+        </CvBlock>
 
-        <CvSlot widthPercentage={66.666}>
+        <CvBlock widthPercentage={66.666} isPaddindXEnabled>
           <CvEducation
             educationAchievements={cv.educationAchievements}
             color={color}
           />
-        </CvSlot>
-      </CvPart>
+        </CvBlock>
+      </CvBlock>
 
-      <CvPart isMarginBottomEnabled={false}>
-        <CvSlot>
-          <CvGithub language={language} color={color} />
-        </CvSlot>
-      </CvPart>
+      <CvBlock isPaddindXEnabled>
+        <CvGithub language={language} color={color} />
+      </CvBlock>
     </CvPage>
   );
 }
