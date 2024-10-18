@@ -48,12 +48,12 @@ function App(): React.JSX.Element {
   // A "BindingError" in react-pdf may occur when rendering multiple `<Document>` components at the same time:
   // { name: "BindingError", message: 'Expected null or instance of Config, got an instance of Config' }.
   // The cause is unclear and is under discussion: https://github.com/diegomura/react-pdf/issues/2892.
-  // Adding a 600ms delay before rendering the second `<Document>` appears to work as a temporary workaround.
+  // Adding a 1000ms delay before rendering the second `<Document>` appears to work as a temporary workaround.
   const [isPreviewDisplayed, setIsPreviewDisplayed] = useState(false);
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsPreviewDisplayed(true);
-    }, 600);
+    }, 1000);
 
     return (): void => {
       clearTimeout(timer);
