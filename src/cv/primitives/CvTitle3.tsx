@@ -18,6 +18,7 @@ function CvTitle3({ children, extraContent }: CvTitle3Props): PdfViewElement {
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginBottom: '1mm',
+        letterSpacing: '0.2',
       }}
     >
       <Text>{children}</Text>
