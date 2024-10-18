@@ -21,7 +21,16 @@ function App(): React.JSX.Element {
   const [isCvIncluded, setIsCvIncluded] = useState(true);
   const [isCoverLetterIncluded, setIsCoverLetterIncluded] = useState(true);
 
-  const cv = getCv(language);
+  const initialCv = getCv(language);
+  const cv = {
+    ...initialCv,
+
+    companies: initialCv.companies.filter(
+      // Exclude Apollo internship to prioritize a cleaner layout by omitting less significant experience.
+      (company) => company.name !== 'Apollo',
+    ),
+  };
+
   const initialCoverLetter = getCoverLetter(language);
 
   const [formJobPosition, setFormJobPosition] = useState('');
