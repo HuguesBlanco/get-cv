@@ -8,7 +8,7 @@ type CvParagraphProps = {
 
 function CvParagraph({ children }: CvParagraphProps): PdfViewElement {
   return (
-    <View style={{ marginBottom: '8mm' }}>
+    <View style={{ marginBottom: '8mm', textAlign: 'justify' }}>
       {isString(children) ? <Text>{children}</Text> : children}
     </View>
   );

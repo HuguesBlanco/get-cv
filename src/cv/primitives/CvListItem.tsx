@@ -67,7 +67,7 @@ function CvListItem({
           <CvIcon icon={icon} size={iconSize} color={iconColor} />
         </View>
       )}
-      <View style={{ flexGrow: 1, color: textColor }}>
+      <View style={{ flex: 1, color: textColor }}>
         {isString(children) ? <Text>{children}</Text> : children}
       </View>
     </View>
