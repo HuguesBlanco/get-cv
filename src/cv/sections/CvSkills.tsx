@@ -88,12 +88,14 @@ type CvSkillsProps = {
 };
 
 function CvSkills({ skills, color, language }: CvSkillsProps): PdfViewElement {
+  const title = language === Languages.FRENCH ? 'Compétences' : 'Skills';
+
   const combinedSkills = combineSkills(skills);
   const filteredSkillsForCv = filterSkillsForCv(combinedSkills, language);
 
   return (
     <View>
-      <CvTitle1 color={color}>Skills</CvTitle1>
+      <CvTitle1 color={color}>{title}</CvTitle1>
       {filteredSkillsForCv.map((skill) => (
         <CvListItem key={skill} icon="circle" isBottomSpacingEnabled={false}>
           {skill}
