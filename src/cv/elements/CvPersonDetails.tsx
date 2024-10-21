@@ -1,6 +1,5 @@
 import { Text, View } from '@react-pdf/renderer';
 import CvListItem from '../primitives/CvListItem';
-import CvTitle1 from '../primitives/CvTitle1';
 import { Contact, Name } from '../types/cvTypes';
 import { PdfViewElement } from '../types/pdfTypes';
 
@@ -19,7 +18,6 @@ function displayName(name: Name): string {
 
 type CvPersonDetailProps = {
   organization?: string;
-  title?: string;
   name?: Name;
   contact: Contact;
   color: string;
@@ -27,15 +25,11 @@ type CvPersonDetailProps = {
 
 function CvPersonDetail({
   organization,
-  title,
   name,
   contact,
-  color,
 }: CvPersonDetailProps): PdfViewElement {
   return (
     <View>
-      {title !== undefined && <CvTitle1 color={color}>{title}</CvTitle1>}
-
       {organization !== undefined && (
         <CvListItem>
           <Text style={{ textTransform: 'uppercase' }}>{organization}</Text>

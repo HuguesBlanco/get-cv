@@ -1,4 +1,6 @@
+import { View } from '@react-pdf/renderer';
 import CvPersonDetail from '../elements/CvPersonDetails';
+import CvTitle1 from '../primitives/CvTitle1';
 import { Contact, Name } from '../types/cvTypes';
 import { PdfViewElement } from '../types/pdfTypes';
 
@@ -10,7 +12,10 @@ type CvFromProps = {
 
 function CvFrom({ name, contact, color }: CvFromProps): PdfViewElement {
   return (
-    <CvPersonDetail title="From" name={name} contact={contact} color={color} />
+    <View>
+      <CvTitle1 color={color}>From</CvTitle1>
+      <CvPersonDetail name={name} contact={contact} color={color} />
+    </View>
   );
 }
 
