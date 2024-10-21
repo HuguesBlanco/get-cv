@@ -11,6 +11,9 @@ type CvLinksProps = {
 };
 
 function CvLinks({ links, language, color }: CvLinksProps): PdfViewElement {
+  const title =
+    language === Languages.FRENCH ? 'Liens' : 'Find\u00A0Me\u00A0Online';
+
   const githubText =
     language === Languages.FRENCH
       ? 'Ce document a été généré avec JavaScript.  Pour explorer le code source, consultez mon dépôt.'
@@ -22,7 +25,7 @@ function CvLinks({ links, language, color }: CvLinksProps): PdfViewElement {
 
   return (
     <View>
-      <CvTitle1 color={color}>Find&nbsp;Me&nbsp;Online</CvTitle1>
+      <CvTitle1 color={color}>{title}</CvTitle1>
 
       <View style={{ marginBottom: '10mm' }}>
         <Text style={{ marginBottom: '2mm' }}>{githubText}</Text>
