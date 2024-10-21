@@ -1,19 +1,27 @@
 import { View } from '@react-pdf/renderer';
 import CvPersonDetail from '../elements/CvPersonDetails';
 import CvTitle1 from '../primitives/CvTitle1';
-import { Contact, Name } from '../types/cvTypes';
+import { Contact, Languages, Name } from '../types/cvTypes';
 import { PdfViewElement } from '../types/pdfTypes';
 
 type CvFromProps = {
   name: Name;
   contact: Contact;
+  language: Languages;
   color: string;
 };
 
-function CvFrom({ name, contact, color }: CvFromProps): PdfViewElement {
+function CvFrom({
+  name,
+  contact,
+  language,
+  color,
+}: CvFromProps): PdfViewElement {
+  const title = language === Languages.FRENCH ? 'Expéditeur' : 'From';
+
   return (
     <View>
-      <CvTitle1 color={color}>From</CvTitle1>
+      <CvTitle1 color={color}>{title}</CvTitle1>
       <CvPersonDetail name={name} contact={contact} color={color} />
     </View>
   );

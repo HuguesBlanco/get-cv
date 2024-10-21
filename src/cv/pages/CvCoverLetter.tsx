@@ -59,7 +59,12 @@ function CvCoverLetter({
               language={language}
               color={color}
             />
-            <CvFrom name={cv.name} contact={cv.contact} color={color} />
+            <CvFrom
+              name={cv.name}
+              contact={cv.contact}
+              language={language}
+              color={color}
+            />
           </CvBlock>
 
           <CvBlock isPaddindXEnabled>
