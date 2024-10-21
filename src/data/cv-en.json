@@ -11,7 +11,7 @@
     "postalAddress": {
       "streetNumber": "31",
       "streetName": "Rue Sainte-Véronique",
-      "additionalAddressInfo": "boite 33",
+      "additionalAddressInfo": "bte\u00A033",
       "city": "Liège",
       "postalCode": "4000",
       "country": "Belgium"

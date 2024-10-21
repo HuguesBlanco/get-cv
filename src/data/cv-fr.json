@@ -1,7 +1,7 @@
 {
   "name": {
     "firstName": "Hugues",
-    "lastName": "Blanco Alvarez"
+    "lastName": "Blanco\u00A0Alvarez"
   },
   "targetPosition": "Développeur front-end",
   "objective": "Cherche un poste de développeur front-end",
@@ -11,7 +11,7 @@
     "postalAddress": {
       "streetNumber": "31",
       "streetName": "Rue Sainte-Véronique",
-      "additionalAddressInfo": "boîte 33",
+      "additionalAddressInfo": "bte\u00A033",
       "city": "Liège",
       "postalCode": "4000",
       "country": "Belgique"
