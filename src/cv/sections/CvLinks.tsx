@@ -15,11 +15,11 @@ function CvLinks({ links, language, color }: CvLinksProps): PdfViewElement {
 
   const githubText =
     language === Languages.FRENCH
-      ? "Ce document a été généré avec JavaScript. Vous pouvez explorer le code de l'application."
-      : 'This document was generated using JavaScript. You can explore the code behind the app.';
+      ? 'Ce document a été généré avec JavaScript.  Pour explorer le code source, consultez mon dépôt.'
+      : 'This document was generated using JavaScript. To explore the code behind it, visit my repository.';
   const linkedinText =
     language === Languages.FRENCH
-      ? "N'hésitez pas à me connecter."
+      ? "N'hésitez pas à nous connecter."
       : 'Feel free to connect with me.';
 
   return (
