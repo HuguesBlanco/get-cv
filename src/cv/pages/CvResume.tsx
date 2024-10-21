@@ -70,6 +70,7 @@ function CvResume({ cv, language, color }: CvResumeProps): PdfPageElement {
         <CvBlock widthPercentage={66.666} isPaddindXEnabled>
           <CvEducation
             educationAchievements={cv.educationAchievements}
+            language={language}
             color={color}
           />
         </CvBlock>

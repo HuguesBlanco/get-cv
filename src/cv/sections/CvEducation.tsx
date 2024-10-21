@@ -3,21 +3,25 @@ import CvLearning from '../elements/CvLearning';
 import { isLastElement } from '../libs/arrayUtils';
 import CvListItem from '../primitives/CvListItem';
 import CvTitle1 from '../primitives/CvTitle1';
-import { EducationAchievement } from '../types/cvTypes';
+import { EducationAchievement, Languages } from '../types/cvTypes';
 import { PdfViewElement } from '../types/pdfTypes';
 
 type CvEducationProps = {
   educationAchievements: EducationAchievement[];
+  language: Languages;
   color: string;
 };
 
 function CvEducation({
   educationAchievements,
+  language,
   color,
 }: CvEducationProps): PdfViewElement {
+  const title = language === Languages.FRENCH ? 'Formation' : 'Education';
+
   return (
     <View>
-      <CvTitle1 color={color}>Education</CvTitle1>
+      <CvTitle1 color={color}>{title}</CvTitle1>
 
       {educationAchievements.map((achievement, index) => (
         <CvListItem
