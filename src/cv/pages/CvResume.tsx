@@ -64,7 +64,11 @@ function CvResume({ cv, language, color }: CvResumeProps): PdfPageElement {
 
       <CvBlock layoutDirection="horizontal">
         <CvBlock widthPercentage={33.333} isPaddindXEnabled>
-          <CvOnlineCourses onlineCourses={cv.onlineCourses} color={color} />
+          <CvOnlineCourses
+            onlineCourses={cv.onlineCourses}
+            language={language}
+            color={color}
+          />
         </CvBlock>
 
         <CvBlock widthPercentage={66.666} isPaddindXEnabled>
