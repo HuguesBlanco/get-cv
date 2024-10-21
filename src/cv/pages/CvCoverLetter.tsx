@@ -50,7 +50,7 @@ function CvCoverLetter({
                 postalAddress: {
                   streetNumber: '456',
                   streetName: 'rue du Tilleul',
-                  additionalAddressInfo: 'boite 34',
+                  additionalAddressInfo: 'bte 34',
                   city: 'Bruxelles',
                   postalCode: '1000',
                   country: 'Belgique',
