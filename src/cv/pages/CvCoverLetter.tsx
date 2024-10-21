@@ -56,6 +56,7 @@ function CvCoverLetter({
                   country: 'Belgique',
                 },
               }}
+              language={language}
               color={color}
             />
             <CvFrom name={cv.name} contact={cv.contact} color={color} />
