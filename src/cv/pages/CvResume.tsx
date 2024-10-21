@@ -20,7 +20,7 @@ type CvResumeProps = {
 function CvResume({ cv, language, color }: CvResumeProps): PdfPageElement {
   return (
     <CvPage>
-      <CvBlock isMarginBottomEnabled isBigMargin isPaddindXEnabled>
+      <CvBlock isMarginBottomEnabled isPaddindXEnabled>
         <CvHeader
           title={cv.name.lastName ?? ''}
           preTitle={cv.name.firstName ?? ''}
@@ -30,7 +30,7 @@ function CvResume({ cv, language, color }: CvResumeProps): PdfPageElement {
         />
       </CvBlock>
 
-      <CvBlock layoutDirection="horizontal" isMarginBottomEnabled isBigMargin>
+      <CvBlock layoutDirection="horizontal" isMarginBottomEnabled>
         <CvBlock
           widthPercentage={33.333}
           isBorderRightVisible={true}
@@ -54,7 +54,7 @@ function CvResume({ cv, language, color }: CvResumeProps): PdfPageElement {
         </CvBlock>
       </CvBlock>
 
-      <CvBlock isBigMargin layoutDirection="horizontal">
+      <CvBlock layoutDirection="horizontal">
         <CvBlock widthPercentage={33.333} isPaddindXEnabled>
           <CvOnlineCourses onlineCourses={cv.onlineCourses} color={color} />
         </CvBlock>

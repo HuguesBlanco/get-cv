@@ -25,7 +25,7 @@ function CvCoverLetter({
 
   return (
     <CvPage>
-      <CvBlock isPaddindXEnabled isBigMargin isMarginBottomEnabled>
+      <CvBlock isPaddindXEnabled isMarginBottomEnabled>
         <CvHeader
           preTitle={candidateLabel}
           title={cv.targetPosition}

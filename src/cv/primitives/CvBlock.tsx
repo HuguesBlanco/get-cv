@@ -13,20 +13,11 @@ type CvBlockProps = {
   contentDistribution?: 'start' | 'space-between';
 
   isPaddindXEnabled?: boolean;
+  isMarginBottomEnabled?: boolean;
 } & (
-  | {
-      isMarginBottomEnabled?: true;
-      isBigMargin?: boolean;
-    }
-  | {
-      isMarginBottomEnabled?: false;
-      isBigMargin?: undefined;
-    }
-) &
-  (
-    | { isBorderRightVisible: true; borderColor: string }
-    | { isBorderRightVisible?: false; borderColor?: undefined }
-  );
+  | { isBorderRightVisible: true; borderColor: string }
+  | { isBorderRightVisible?: false; borderColor?: undefined }
+);
 
 function CvBlock({
   children,
@@ -36,7 +27,6 @@ function CvBlock({
   contentDistribution = 'space-between',
   isPaddindXEnabled = false,
   isMarginBottomEnabled = false,
-  isBigMargin = false,
   isBorderRightVisible = false,
   borderColor,
 }: CvBlockProps): PdfViewElement {
@@ -55,11 +45,7 @@ function CvBlock({
   const paddingLeft = isPaddindXEnabled ? '10mm' : '0mm';
   const paddingRight = isPaddindXEnabled ? '10mm' : '0mm';
 
-  const marginBottom = isMarginBottomEnabled
-    ? isBigMargin
-      ? '10mm'
-      : '10mm'
-    : 0;
+  const marginBottom = isMarginBottomEnabled ? '10mm' : 0;
 
   const borderRight = isBorderRightVisible
     ? { borderRight: `0.45mm solid ${String(borderColor)}` }
