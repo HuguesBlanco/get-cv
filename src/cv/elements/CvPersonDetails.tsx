@@ -63,8 +63,8 @@ function CvPersonDetail({
         >
           <View>
             <Text>
-              {contact.postalAddress.streetNumber}{' '}
-              {contact.postalAddress.streetName}
+              {contact.postalAddress.streetName}{' '}
+              {contact.postalAddress.streetNumber}
               {contact.postalAddress.additionalAddressInfo !== undefined
                 ? ` ${contact.postalAddress.additionalAddressInfo}`
                 : ''}
