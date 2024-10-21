@@ -37,7 +37,7 @@ function CvResume({ cv, language, color }: CvResumeProps): PdfPageElement {
           borderColor={color}
         >
           <CvBlock isPaddindXEnabled isMarginBottomEnabled>
-            <CvContact contact={cv.contact} color={color} />
+            <CvContact contact={cv.contact} langage={language} color={color} />
           </CvBlock>
 
           <CvBlock isPaddindXEnabled isMarginBottomEnabled>
