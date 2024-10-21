@@ -74,10 +74,12 @@ function CvCoverLetter({
 
         <CvBlock widthPercentage={66.666} isPaddindXEnabled>
           <CvApplicationNarative
+            date={coverLetter.date}
             gretting={coverLetter.greeting}
             structuredBodyText={coverLetter.body}
             closing={coverLetter.closing}
             signature={coverLetter.signature}
+            language={language}
           />
         </CvBlock>
       </CvBlock>

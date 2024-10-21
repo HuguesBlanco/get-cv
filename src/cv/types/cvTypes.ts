@@ -104,6 +104,7 @@ export type Segment = {
 export type Paragraph = Segment[];
 
 export type CoverLetter = {
+  date: Date;
   headline: string;
   greeting: string;
   body: Paragraph[];

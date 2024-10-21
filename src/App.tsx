@@ -21,6 +21,8 @@ function App(): React.JSX.Element {
   const [isCvIncluded, setIsCvIncluded] = useState(true);
   const [isCoverLetterIncluded, setIsCoverLetterIncluded] = useState(true);
 
+  const now = new Date();
+
   const initialCv = getCv(language);
   const cv = {
     ...initialCv,
@@ -40,6 +42,7 @@ function App(): React.JSX.Element {
 
   const coverLetter = {
     ...initialCoverLetter,
+    date: now,
     body: convertMarkupToParagraphs(coverLetterBodyMarkup),
   };
 
