@@ -54,7 +54,11 @@ function CvResume({ cv, language, color }: CvResumeProps): PdfPageElement {
         </CvBlock>
 
         <CvBlock widthPercentage={66.666} isPaddindXEnabled>
-          <CvWorkExperience companies={cv.companies} color={color} />
+          <CvWorkExperience
+            companies={cv.companies}
+            language={language}
+            color={color}
+          />
         </CvBlock>
       </CvBlock>
 
