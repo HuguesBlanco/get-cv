@@ -1,12 +1,6 @@
 import { Text } from '@react-pdf/renderer';
 import { PdfTextElement } from '../types/pdfTypes';
 
-type CvDateProps = {
-  startDate: Date;
-  endDate: Date | null;
-  isMonthDisplayed: boolean;
-};
-
 function formatDate(date: Date, isMonthDisplayed: boolean): string {
   const year = date.getFullYear().toString();
   if (isMonthDisplayed) {
@@ -15,6 +9,12 @@ function formatDate(date: Date, isMonthDisplayed: boolean): string {
   }
   return year;
 }
+
+type CvDateProps = {
+  startDate: Date;
+  endDate: Date | null;
+  isMonthDisplayed: boolean;
+};
 
 function CvDate({
   startDate,
