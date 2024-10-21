@@ -16,7 +16,7 @@ function CvContact({
   return (
     <View>
       <CvTitle1 color={color}>{title}</CvTitle1>
-      <CvPersonDetail contact={contact} color={color} />;
+      <CvPersonDetail contact={contact} color={color} />
     </View>
   );
 }
