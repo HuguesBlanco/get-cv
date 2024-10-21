@@ -59,7 +59,7 @@
       "jobPositions": [
         {
           "title": "Développeur front-end",
-          "description": "Développement de l'interface utilisateur d'un ERP SaaS avec TypeScript, React.js et Tailwind CSS. Conception de bibliothèques JavaScript et refactoring pour améliorer la modularité et la qualité du code. Ajout de tests unitaires pour garantir la stabilité.",
+          "description": "Développement de l'interface utilisateur d'un logiciel ERP en SaaS au sein de l'équipe front-end. Création de composants réutilisables en React.js et TypeScript, stylisés avec Tailwind CSS. Conception de bibliothèques JavaScript pour les calculs financiers et la comptabilité. Refactorisation du code pour améliorer la modularité et la lisibilité, et mise en place de tests unitaires pour garantir la qualité.",
           "skills": [
             "JavaScript",
             "TypeScript",
@@ -81,7 +81,7 @@
       "jobPositions": [
         {
           "title": "Travail et voyage",
-          "description": "Amélioration de l'anglais et découverte de la culture australienne.",
+          "description": "Amélioration de la maîtrise de l'anglais grâce à des interactions quotidiennes avec des locuteurs natifs et immersion dans la culture australienne pendant un an.",
           "skills": ["Adaptabilité", "Communication en anglais"],
           "startDate": "2020-03-01T00:00:00.000Z",
           "endDate": "2021-07-01T00:00:00.000Z"
@@ -96,7 +96,7 @@
       "jobPositions": [
         {
           "title": "Responsable data et email marketing",
-          "description": "Coordination des initiatives d'email marketing et d'enrichissement de données. Définition et mise en œuvre de la stratégie en collaboration avec les autres équipes. Prise en charge des clients, organisation et planification du travail.",
+          "description": "Coordination des initiatives d'email marketing et d'enrichissement de données. Définition et mise en œuvre de stratégies en collaboration avec les autres équipes. Prise en charge des clients, organisation et planification du travail.",
           "skills": [
             "Stratégie de data marketing",
             "Leadership opérationnel",
@@ -107,7 +107,7 @@
         },
         {
           "title": "Chef de projet data et email marketing",
-          "description": "Gestion des campagnes emailing, retargeting et enrichissement de données. Conception, codage, ciblage, suivi des campagnes. Automatisation via scripts PHP.",
+          "description": "Gestion des campagnes emailing, retargeting et enrichissement de données. Conception et suivi des campagnes. Automatisation des tâches via des scripts PHP.",
           "skills": [
             "Gestion de projets",
             "Emailing",
@@ -119,7 +119,7 @@
         },
         {
           "title": "Web designer",
-          "description": "Conception de sites web, de présentations et de newsletters. Traduction des designs en HTML et CSS en utilisant WordPress et Qualifio.",
+          "description": "Création de sites web, de présentations et de newsletters. Conversion des designs en HTML et CSS en utilisant le CMS WordPress et la plateforme Qualifio.",
           "skills": [
             "Design graphique",
             "Suite Adobe",

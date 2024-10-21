@@ -59,7 +59,7 @@
       "jobPositions": [
         {
           "title": "Front-End Developer",
-          "description": "Developed the user interface for SaaS ERP software using TypeScript and React.js. Created components with Tailwind CSS and designed JavaScript libraries. Refactored code for modularity, clarity, and quality. Added unit\u00A0tests.",
+          "description": "Developed the user interface of a SaaS ERP software as part of the front-end team. Created reusable React.js components in TypeScript, styled with Tailwind CSS. Designed JavaScript libraries, including tools for financial calculations and accounting. Refactored code to enhance modularity and readability, simplifying it and adding unit tests to ensure quality.",
           "skills": [
             "JavaScript",
             "TypeScript",
@@ -81,7 +81,7 @@
       "jobPositions": [
         {
           "title": "Work and travel",
-          "description": "Improved English and experienced local culture during a year in Australia.",
+          "description": "Enhanced English proficiency through daily interactions with native speakers and immersed in local culture during a year in Australia.",
           "skills": ["Adaptability", "communication in English"],
           "startDate": "2020-03-01T00:00:00.000Z",
           "endDate": "2021-07-01T00:00:00.000Z"
@@ -97,7 +97,7 @@
         {
           "title": "Head of Data and Email Marketing",
 
-          "description": "Coordinated email marketing and data enrichment initiatives. Defined and implemented the strategy in collaboration with other teams. Managed client relationships, planned tasks, and dispatched work.",
+          "description": "Coordinated email marketing and data enrichment initiatives. Defined and implemented strategies in collaboration with other teams. Managed client relationships, organized and planned work.",
           "skills": [
             "Data marketing strategy",
             "operational leadership",
@@ -108,7 +108,7 @@
         },
         {
           "title": "Data and Email Marketing Project Manager",
-          "description": "Managed email, retargeting, and data campaigns. Designed, coded, targeted, and tracked campaigns. Automated tasks with PHP scripts.",
+          "description": "Managed email, retargeting, and data campaigns. Designed, coded, targeted, and tracked campaigns. Automated tasks by developing PHP scripts.",
           "skills": [
             "Project management",
             "email marketing",
@@ -120,7 +120,7 @@
         },
         {
           "title": "Web Designer",
-          "description": "Designed websites, presentations, and newsletters. Translated designs into HTML and CSS using WordPress and Qualifio.",
+          "description": "Created websites, presentations, and newsletters. Converted designs into HTML and CSS using WordPress CMS and Qualifio platfrom.",
           "skills": [
             "Graphic design",
             "Adobe Suite",
