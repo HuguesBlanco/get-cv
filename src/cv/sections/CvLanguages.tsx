@@ -3,23 +3,36 @@ import CvLanguage from '../elements/CvLanguage';
 import { isLastElement } from '../libs/arrayUtils';
 import CvListItem from '../primitives/CvListItem';
 import CvTitle1 from '../primitives/CvTitle1';
-import { Language } from '../types/cvTypes';
+import { Language, Languages } from '../types/cvTypes';
 import { PdfViewElement } from '../types/pdfTypes';
 
 type CvLanguagesProps = {
-  languages: Language[];
+  /**
+   * The list of known languages to display.
+   */
+  knownLanguages: Language[];
+  /**
+   * The language in which the CV is written.
+   */
+  language: Languages;
   color: string;
 };
 
-function CvLanguages({ languages, color }: CvLanguagesProps): PdfViewElement {
+function CvLanguages({
+  knownLanguages,
+  language,
+  color,
+}: CvLanguagesProps): PdfViewElement {
+  const title = language === Languages.FRENCH ? 'Langues' : 'Languages';
+
   return (
     <View>
-      <CvTitle1 color={color}>Languages</CvTitle1>
+      <CvTitle1 color={color}>{title}</CvTitle1>
 
-      {languages.map((language, index) => (
+      {knownLanguages.map((language, index) => (
         <CvListItem
           key={language.name}
-          isBottomSpacingEnabled={!isLastElement(index, languages)}
+          isBottomSpacingEnabled={!isLastElement(index, knownLanguages)}
         >
           <CvLanguage language={language} />
         </CvListItem>

@@ -45,7 +45,11 @@ function CvResume({ cv, language, color }: CvResumeProps): PdfPageElement {
           </CvBlock>
 
           <CvBlock isPaddindXEnabled>
-            <CvLanguages languages={cv.languages} color={color} />
+            <CvLanguages
+              knownLanguages={cv.languages}
+              language={language}
+              color={color}
+            />
           </CvBlock>
         </CvBlock>
 
