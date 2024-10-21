@@ -19,7 +19,7 @@ function CvTo({
   language,
   color,
 }: CvFromProps): PdfViewElement {
-  const title = language === Languages.FRENCH ? 'Destinataire' : 'To';
+  const title = language === Languages.FRENCH ? 'Pour' : 'To';
 
   return (
     <View style={{ marginBottom: '10mm' }}>

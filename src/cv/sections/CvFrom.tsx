@@ -17,7 +17,7 @@ function CvFrom({
   language,
   color,
 }: CvFromProps): PdfViewElement {
-  const title = language === Languages.FRENCH ? 'Expéditeur' : 'From';
+  const title = language === Languages.FRENCH ? 'De la part de' : 'From';
 
   return (
     <View>
