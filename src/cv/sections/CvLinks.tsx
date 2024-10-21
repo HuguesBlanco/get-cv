@@ -11,8 +11,6 @@ type CvLinksProps = {
 };
 
 function CvLinks({ links, language, color }: CvLinksProps): PdfViewElement {
-  // TODO: define margins in regard of other margin of the  document (link to other margins ?)
-
   const githubText =
     language === Languages.FRENCH
       ? 'Ce document a été généré avec JavaScript.  Pour explorer le code source, consultez mon dépôt.'
@@ -26,7 +24,7 @@ function CvLinks({ links, language, color }: CvLinksProps): PdfViewElement {
     <View>
       <CvTitle1 color={color}>Find&nbsp;Me&nbsp;Online</CvTitle1>
 
-      <View style={{ marginBottom: '8mm' }}>
+      <View style={{ marginBottom: '10mm' }}>
         <Text style={{ marginBottom: '2mm' }}>{githubText}</Text>
         <CvMediaLink href={links.githubUrl} media="github" color={color} />
       </View>
