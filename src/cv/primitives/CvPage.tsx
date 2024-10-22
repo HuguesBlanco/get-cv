@@ -1,5 +1,6 @@
 import { Font, Page, View } from '@react-pdf/renderer';
 import sourceSansBoldURL from '../assets/fonts/SourceSans3-Bold.ttf';
+import sourceSansItalicURL from '../assets/fonts/SourceSans3-Italic.ttf';
 import sourceSansLightURL from '../assets/fonts/SourceSans3-Light.ttf';
 import sourceSansRegularURL from '../assets/fonts/SourceSans3-Regular.ttf';
 import {
@@ -34,6 +35,11 @@ function CvPage({ children }: CvPageProps): PdfPageElement {
         {
           src: sourceSansRegularURL,
           fontStyle: 'normal',
+          fontWeight: 'normal',
+        },
+        {
+          src: sourceSansItalicURL,
+          fontStyle: 'italic',
           fontWeight: 'normal',
         },
         {
