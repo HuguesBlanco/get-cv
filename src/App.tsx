@@ -3,10 +3,12 @@ import { Languages } from './appTypes';
 import CvDocument from './cv/CvDocument';
 import CvDownloadLink from './cv/CvDownloadLink';
 import CvViewer from './cv/CvViewer';
+import { CoverLetter, Cv } from './cv/types/cvTypes';
 import {
   convertMarkupToParagraphs,
   convertParagraphsToMarkup,
 } from './libs/richTextParsers';
+import { insertTag, substituteTag, Tag } from './libs/tags';
 import { getCoverLetter } from './services/coverLetterService';
 import { getCv } from './services/cvService';
 import Checkbox from './ui/Checkbox';
@@ -17,33 +19,60 @@ import Textarea from './ui/Textarea';
 function App(): React.JSX.Element {
   const COLOR = '#4b6f96';
 
+  const now = new Date();
+
   const [language, setLanguage] = useState<Languages>(Languages.ENGLISH);
+
+  const initialCv = getCv(language);
+  const initialCoverLetter = getCoverLetter(language);
+
   const [isCvIncluded, setIsCvIncluded] = useState(true);
   const [isCoverLetterIncluded, setIsCoverLetterIncluded] = useState(true);
 
-  const now = new Date();
+  const [targetedPosition, setTargetedPosition] = useState(
+    initialCv.targetedPosition,
+  );
 
-  const initialCv = getCv(language);
-  const cv = {
+  const [coverLetterBodyMarkup, setCoverLetterBodyMarkup] = useState(
+    insertTag(
+      convertParagraphsToMarkup(initialCoverLetter.body),
+      Tag.TARGETED_POSITION,
+    ),
+  );
+
+  const cvObjectiveWithTag = insertTag(
+    initialCv.objective,
+    Tag.TARGETED_POSITION,
+  );
+
+  const cvObjective = substituteTag(
+    cvObjectiveWithTag,
+    Tag.TARGETED_POSITION,
+    targetedPosition,
+  );
+
+  const cv: Cv = {
     ...initialCv,
-
+    targetedPosition,
+    objective: cvObjective,
     companies: initialCv.companies.filter(
       // Exclude Apollo internship to prioritize a cleaner layout by omitting less significant experience.
       (company) => company.name !== 'Apollo',
     ),
   };
 
-  const initialCoverLetter = getCoverLetter(language);
-
-  const [formJobPosition, setFormJobPosition] = useState('');
-  const [coverLetterBodyMarkup, setCoverLetterBodyMarkup] = useState(
-    convertParagraphsToMarkup(initialCoverLetter.body),
+  const coverLetterBody = convertMarkupToParagraphs(
+    substituteTag(
+      coverLetterBodyMarkup,
+      Tag.TARGETED_POSITION,
+      targetedPosition,
+    ),
   );
 
-  const coverLetter = {
+  const coverLetter: CoverLetter = {
     ...initialCoverLetter,
     date: now,
-    body: convertMarkupToParagraphs(coverLetterBodyMarkup),
+    body: coverLetterBody,
   };
 
   const documentComponent = (
@@ -93,8 +122,12 @@ function App(): React.JSX.Element {
           onChange={(newLanguage) => {
             setLanguage(newLanguage);
             setCoverLetterBodyMarkup(
-              convertParagraphsToMarkup(getCoverLetter(newLanguage).body),
+              insertTag(
+                convertParagraphsToMarkup(getCoverLetter(newLanguage).body),
+                Tag.TARGETED_POSITION,
+              ),
             );
+            setTargetedPosition(getCv(newLanguage).targetedPosition);
           }}
           color={COLOR}
         />
@@ -113,8 +146,8 @@ function App(): React.JSX.Element {
 
         <TextInput
           label="Job position"
-          value={formJobPosition}
-          onChange={setFormJobPosition}
+          value={targetedPosition}
+          onChange={setTargetedPosition}
         />
 
         <Textarea

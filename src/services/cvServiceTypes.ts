@@ -62,7 +62,7 @@ export type Links = {
 
 export type Cv = {
   name: Name;
-  targetPosition: string;
+  targetedPosition: string;
   objective: string;
   contact: Contact;
   languages: Language[];

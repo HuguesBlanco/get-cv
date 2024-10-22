@@ -28,7 +28,7 @@ function CvCoverLetter({
       <CvBlock isPaddindXEnabled isMarginBottomEnabled>
         <CvHeader
           preTitle={candidateLabel}
-          title={cv.targetPosition}
+          title={cv.targetedPosition}
           tagline={coverLetter.headline}
           color={color}
         />
