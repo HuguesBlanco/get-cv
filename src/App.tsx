@@ -90,8 +90,11 @@ function App(): React.JSX.Element {
             { label: 'French', value: Languages.FRENCH },
           ]}
           selectedValue={language}
-          onChange={(value) => {
-            setLanguage(value);
+          onChange={(newLanguage) => {
+            setLanguage(newLanguage);
+            setCoverLetterBodyMarkup(
+              convertParagraphsToMarkup(getCoverLetter(newLanguage).body),
+            );
           }}
           color={COLOR}
         />
