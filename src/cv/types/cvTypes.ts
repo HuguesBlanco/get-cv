@@ -22,10 +22,10 @@ export type Name = {
 };
 
 export type PostalAddress = {
-  streetNumber: string;
-  streetName: string;
+  streetNumber?: string;
+  streetName?: string;
   additionalAddressInfo?: string;
-  city: string;
+  city?: string;
   postalCode?: string;
   country?: string;
 };

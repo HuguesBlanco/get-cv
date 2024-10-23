@@ -1,4 +1,4 @@
-import { Contact, Name, PostalAddress } from './services/cvServiceTypes';
+import { Contact, Name } from './services/cvServiceTypes';
 
 /**
  * List of available languages for the app\
@@ -12,9 +12,5 @@ export enum Languages {
 export type Recipient = {
   name?: Partial<Name>;
   organization?: string;
-  contact?: ContactWithOptionalPostalAddress; // Temporary. Must make all properties of PostalAddress optionnal everywhere later.
-};
-
-type ContactWithOptionalPostalAddress = Omit<Contact, 'postalAddress'> & {
-  postalAddress?: Partial<PostalAddress>;
+  contact?: Contact;
 };
