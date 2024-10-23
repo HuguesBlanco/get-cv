@@ -31,6 +31,7 @@ function App(): React.JSX.Element {
     isCoverLetterIncluded: true,
     date: now,
     targetedPosition: initialCv.targetedPosition,
+    recipient: {},
     coverLetterBodyMarkup: convertParagraphsToMarkup(initialCoverLetter.body),
   });
 
