@@ -1,87 +1,141 @@
 import React, { useEffect, useState } from 'react';
 import { Languages } from './appTypes';
+import ConfigurationForm, {
+  ConfigurationFormData,
+} from './components/ConfigurationForm';
 import CvDocument from './cv/CvDocument';
 import CvDownloadLink from './cv/CvDownloadLink';
 import CvViewer from './cv/CvViewer';
-import { CoverLetter, Cv } from './cv/types/cvTypes';
+import {
+  CoverLetter as CoverLetterFromCv,
+  Cv as CvFromCv,
+} from './cv/types/cvTypes';
 import {
   convertMarkupToParagraphs,
   convertParagraphsToMarkup,
 } from './libs/richTextParsers';
 import { insertTag, substituteTag, Tag } from './libs/tags';
 import { getCoverLetter } from './services/coverLetterService';
+import { CoverLetter as CoverLetterFromApp } from './services/coverletterServiceTypes';
 import { getCv } from './services/cvService';
-import Checkbox from './ui/Checkbox';
+import { Cv as CvFromApp } from './services/cvServiceTypes';
 import SegmentedControl from './ui/SegmentedControl';
-import TextInput from './ui/TextInput';
-import Textarea from './ui/Textarea';
 
-function App(): React.JSX.Element {
-  const COLOR = '#4b6f96';
+function createInitialForm(
+  initialCv: CvFromApp,
+  initialCoverLetter: CoverLetterFromApp,
+  date: Date,
+  language: Languages,
+): ConfigurationFormData {
+  const bodyMarkup = convertParagraphsToMarkup(initialCoverLetter.body);
+  const bodyMarkupWithTags = insertTag(bodyMarkup, Tag.TARGETED_POSITION);
 
-  const now = new Date();
+  return {
+    formLanguage: language,
+    isCvIncluded: true,
+    isCoverLetterIncluded: true,
+    date,
+    targetedPosition: initialCv.targetedPosition,
+    coverLetterBodyMarkup: bodyMarkupWithTags,
+  };
+}
 
-  const [language, setLanguage] = useState<Languages>(Languages.ENGLISH);
+function createNewLanguageForm(
+  previousForm: ConfigurationFormData,
+  initialCv: CvFromApp,
+  initialCoverLetter: CoverLetterFromApp,
+  language: Languages,
+): ConfigurationFormData {
+  const bodyMarkup = convertParagraphsToMarkup(initialCoverLetter.body);
+  const bodyMarkupWithTags = insertTag(bodyMarkup, Tag.TARGETED_POSITION);
 
-  const initialCv = getCv(language);
-  const initialCoverLetter = getCoverLetter(language);
+  return {
+    ...previousForm,
+    formLanguage: language,
+    targetedPosition: initialCv.targetedPosition,
+    coverLetterBodyMarkup: bodyMarkupWithTags,
+  };
+}
 
-  const [isCvIncluded, setIsCvIncluded] = useState(true);
-  const [isCoverLetterIncluded, setIsCoverLetterIncluded] = useState(true);
-
-  const [targetedPosition, setTargetedPosition] = useState(
-    initialCv.targetedPosition,
-  );
-
-  const [coverLetterBodyMarkup, setCoverLetterBodyMarkup] = useState(
-    insertTag(
-      convertParagraphsToMarkup(initialCoverLetter.body),
-      Tag.TARGETED_POSITION,
-    ),
-  );
-
+function buildCv(initialCv: CvFromApp, form: ConfigurationFormData): CvFromCv {
   const cvObjectiveWithTag = insertTag(
     initialCv.objective,
     Tag.TARGETED_POSITION,
   );
 
-  const cvObjective = substituteTag(
+  const objectiveWithFormPosition = substituteTag(
     cvObjectiveWithTag,
     Tag.TARGETED_POSITION,
-    targetedPosition,
+    form.targetedPosition,
   );
 
-  const cv: Cv = {
+  const companies = initialCv.companies.filter(
+    // Exclude Apollo internship to prioritize a cleaner layout by omitting less significant experience.
+    (company) => company.name !== 'Apollo',
+  );
+
+  return {
     ...initialCv,
-    targetedPosition,
-    objective: cvObjective,
-    companies: initialCv.companies.filter(
-      // Exclude Apollo internship to prioritize a cleaner layout by omitting less significant experience.
-      (company) => company.name !== 'Apollo',
-    ),
+    targetedPosition: form.targetedPosition,
+    objective: objectiveWithFormPosition,
+    companies,
   };
+}
 
-  const coverLetterBody = convertMarkupToParagraphs(
-    substituteTag(
-      coverLetterBodyMarkup,
-      Tag.TARGETED_POSITION,
-      targetedPosition,
-    ),
+function buildCoverLetter(
+  initialCoverLetter: CoverLetterFromApp,
+  form: ConfigurationFormData,
+): CoverLetterFromCv {
+  const markupWithoutTags = substituteTag(
+    form.coverLetterBodyMarkup,
+    Tag.TARGETED_POSITION,
+    form.targetedPosition,
   );
 
-  const coverLetter: CoverLetter = {
+  const structuredParagraphs = convertMarkupToParagraphs(markupWithoutTags);
+
+  return {
     ...initialCoverLetter,
-    date: now,
-    body: coverLetterBody,
+    date: form.date,
+    body: structuredParagraphs,
   };
+}
+
+function App(): React.JSX.Element {
+  const COLOR = '#4b6f96';
+
+  const [language, setLanguage] = useState(Languages.ENGLISH);
+
+  const initialCv = getCv(language);
+  const initialCoverLetter = getCoverLetter(language);
+
+  const now = new Date();
+
+  const [form, setForm] = useState<ConfigurationFormData>(
+    createInitialForm(initialCv, initialCoverLetter, now, language),
+  );
+
+  if (language !== form.formLanguage) {
+    const updatedForm = createNewLanguageForm(
+      form,
+      initialCv,
+      initialCoverLetter,
+      language,
+    );
+
+    setForm(updatedForm);
+  }
+
+  const cv = buildCv(initialCv, form);
+  const coverLetter = buildCoverLetter(initialCoverLetter, form);
 
   const documentComponent = (
     <CvDocument
       language={language}
       cv={cv}
       coverLetter={coverLetter}
-      isCvIncluded={isCvIncluded}
-      isCoverLetterIncluded={isCoverLetterIncluded}
+      isCvIncluded={form.isCvIncluded}
+      isCoverLetterIncluded={form.isCoverLetterIncluded}
       color={COLOR}
     />
   );
@@ -121,40 +175,11 @@ function App(): React.JSX.Element {
           selectedValue={language}
           onChange={(newLanguage) => {
             setLanguage(newLanguage);
-            setCoverLetterBodyMarkup(
-              insertTag(
-                convertParagraphsToMarkup(getCoverLetter(newLanguage).body),
-                Tag.TARGETED_POSITION,
-              ),
-            );
-            setTargetedPosition(getCv(newLanguage).targetedPosition);
           }}
           color={COLOR}
         />
 
-        <Checkbox
-          label="CV"
-          isChecked={isCvIncluded}
-          onChange={setIsCvIncluded}
-        />
-
-        <Checkbox
-          label="Cover letter"
-          isChecked={isCoverLetterIncluded}
-          onChange={setIsCoverLetterIncluded}
-        />
-
-        <TextInput
-          label="Job position"
-          value={targetedPosition}
-          onChange={setTargetedPosition}
-        />
-
-        <Textarea
-          label="Cover letter body"
-          value={coverLetterBodyMarkup}
-          onChange={setCoverLetterBodyMarkup}
-        />
+        <ConfigurationForm form={form} setForm={setForm} />
 
         <CvDownloadLink language={language}>{documentComponent}</CvDownloadLink>
       </div>
