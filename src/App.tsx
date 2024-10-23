@@ -36,6 +36,7 @@ function App(): React.JSX.Element {
 
   const isLanguageChangeDetected = language !== form.formLanguage;
   if (isLanguageChangeDetected) {
+    // This is not an anti-pattern: https://react.dev/learn/you-might-not-need-an-effect#adjusting-some-state-when-a-prop-changes
     setForm((previousForm) => ({
       ...previousForm,
       formLanguage: language,
