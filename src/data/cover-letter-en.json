@@ -5,7 +5,7 @@
     [
       {
         "type": "text",
-        "content": "I am reaching out to apply for the front-end developer position. Although I did not follow a traditional computer science education, I have acquired the necessary skills to create polished and reliable user interfaces."
+        "content": "I am reaching out to apply for the {{targetedPosition}} position. Although I did not follow a traditional computer science education, I have acquired the necessary skills to create polished and reliable user interfaces."
       }
     ],
     [

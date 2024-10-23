@@ -14,7 +14,6 @@ import {
   convertMarkupToParagraphs,
   convertParagraphsToMarkup,
 } from './libs/richTextParsers';
-import { insertTag, substituteTag, Tag } from './libs/tags';
 import { getCoverLetter } from './services/coverLetterService';
 import { CoverLetter as CoverLetterFromApp } from './services/coverletterServiceTypes';
 import { getCv } from './services/cvService';
@@ -28,7 +27,6 @@ function createInitialForm(
   language: Languages,
 ): ConfigurationFormData {
   const bodyMarkup = convertParagraphsToMarkup(initialCoverLetter.body);
-  const bodyMarkupWithTags = insertTag(bodyMarkup, Tag.TARGETED_POSITION);
 
   return {
     formLanguage: language,
@@ -36,7 +34,7 @@ function createInitialForm(
     isCoverLetterIncluded: true,
     date,
     targetedPosition: initialCv.targetedPosition,
-    coverLetterBodyMarkup: bodyMarkupWithTags,
+    coverLetterBodyMarkup: bodyMarkup,
   };
 }
 
@@ -47,25 +45,18 @@ function createNewLanguageForm(
   language: Languages,
 ): ConfigurationFormData {
   const bodyMarkup = convertParagraphsToMarkup(initialCoverLetter.body);
-  const bodyMarkupWithTags = insertTag(bodyMarkup, Tag.TARGETED_POSITION);
 
   return {
     ...previousForm,
     formLanguage: language,
     targetedPosition: initialCv.targetedPosition,
-    coverLetterBodyMarkup: bodyMarkupWithTags,
+    coverLetterBodyMarkup: bodyMarkup,
   };
 }
 
 function buildCv(initialCv: CvFromApp, form: ConfigurationFormData): CvFromCv {
-  const cvObjectiveWithTag = insertTag(
-    initialCv.objective,
-    Tag.TARGETED_POSITION,
-  );
-
-  const objectiveWithFormPosition = substituteTag(
-    cvObjectiveWithTag,
-    Tag.TARGETED_POSITION,
+  const objective = initialCv.objective.replace(
+    '{{targetedPosition}}',
     form.targetedPosition,
   );
 
@@ -77,7 +68,7 @@ function buildCv(initialCv: CvFromApp, form: ConfigurationFormData): CvFromCv {
   return {
     ...initialCv,
     targetedPosition: form.targetedPosition,
-    objective: objectiveWithFormPosition,
+    objective,
     companies,
   };
 }
@@ -86,13 +77,12 @@ function buildCoverLetter(
   initialCoverLetter: CoverLetterFromApp,
   form: ConfigurationFormData,
 ): CoverLetterFromCv {
-  const markupWithoutTags = substituteTag(
-    form.coverLetterBodyMarkup,
-    Tag.TARGETED_POSITION,
+  const bodyMarkup = form.coverLetterBodyMarkup.replace(
+    '{{targetedPosition}}',
     form.targetedPosition,
   );
 
-  const structuredParagraphs = convertMarkupToParagraphs(markupWithoutTags);
+  const structuredParagraphs = convertMarkupToParagraphs(bodyMarkup);
 
   return {
     ...initialCoverLetter,

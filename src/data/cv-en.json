@@ -4,7 +4,7 @@
     "lastName": "Blanco\u00A0Alvarez"
   },
   "targetedPosition": "front-end developer",
-  "objective": "Seeking a front-end developer position",
+  "objective": "Seeking a {{targetedPosition}} position",
   "contact": {
     "email": "contact@huguesblanco.com",
     "phone": "+32 473 40 20 71",

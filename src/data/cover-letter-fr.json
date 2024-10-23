@@ -5,7 +5,7 @@
     [
       {
         "type": "text",
-        "content": "Je vous contacte pour postuler au poste de développeur front-end. Bien que je n'aie pas suivi une formation traditionnelle en informatique, j'ai acquis les compétences nécessaires pour créer des interfaces utilisateur soignées et fiables."
+        "content": "Je vous contacte pour postuler au poste de {{targetedPosition}}. Bien que je n'aie pas suivi une formation traditionnelle en informatique, j'ai acquis les compétences nécessaires pour créer des interfaces utilisateur soignées et fiables."
       }
     ],
     [
