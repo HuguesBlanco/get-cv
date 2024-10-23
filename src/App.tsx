@@ -7,92 +7,16 @@ import CvDocument from './cv/CvDocument';
 import CvDownloadLink from './cv/CvDownloadLink';
 import CvViewer from './cv/CvViewer';
 import {
-  CoverLetter as CoverLetterFromCv,
-  Cv as CvFromCv,
-} from './cv/types/cvTypes';
-import {
   convertMarkupToParagraphs,
   convertParagraphsToMarkup,
 } from './libs/richTextParsers';
 import { getCoverLetter } from './services/coverLetterService';
-import { CoverLetter as CoverLetterFromApp } from './services/coverletterServiceTypes';
 import { getCv } from './services/cvService';
-import { Cv as CvFromApp } from './services/cvServiceTypes';
 import SegmentedControl from './ui/SegmentedControl';
-
-function createInitialForm(
-  initialCv: CvFromApp,
-  initialCoverLetter: CoverLetterFromApp,
-  date: Date,
-  language: Languages,
-): ConfigurationFormData {
-  const bodyMarkup = convertParagraphsToMarkup(initialCoverLetter.body);
-
-  return {
-    formLanguage: language,
-    isCvIncluded: true,
-    isCoverLetterIncluded: true,
-    date,
-    targetedPosition: initialCv.targetedPosition,
-    coverLetterBodyMarkup: bodyMarkup,
-  };
-}
-
-function createNewLanguageForm(
-  previousForm: ConfigurationFormData,
-  initialCv: CvFromApp,
-  initialCoverLetter: CoverLetterFromApp,
-  language: Languages,
-): ConfigurationFormData {
-  const bodyMarkup = convertParagraphsToMarkup(initialCoverLetter.body);
-
-  return {
-    ...previousForm,
-    formLanguage: language,
-    targetedPosition: initialCv.targetedPosition,
-    coverLetterBodyMarkup: bodyMarkup,
-  };
-}
-
-function buildCv(initialCv: CvFromApp, form: ConfigurationFormData): CvFromCv {
-  const objective = initialCv.objective.replace(
-    '{{targetedPosition}}',
-    form.targetedPosition,
-  );
-
-  const companies = initialCv.companies.filter(
-    // Exclude Apollo internship to prioritize a cleaner layout by omitting less significant experience.
-    (company) => company.name !== 'Apollo',
-  );
-
-  return {
-    ...initialCv,
-    targetedPosition: form.targetedPosition,
-    objective,
-    companies,
-  };
-}
-
-function buildCoverLetter(
-  initialCoverLetter: CoverLetterFromApp,
-  form: ConfigurationFormData,
-): CoverLetterFromCv {
-  const bodyMarkup = form.coverLetterBodyMarkup.replace(
-    '{{targetedPosition}}',
-    form.targetedPosition,
-  );
-
-  const structuredParagraphs = convertMarkupToParagraphs(bodyMarkup);
-
-  return {
-    ...initialCoverLetter,
-    date: form.date,
-    body: structuredParagraphs,
-  };
-}
 
 function App(): React.JSX.Element {
   const COLOR = '#4b6f96';
+  const TARGETED_POSITION_TAG = '{{targetedPosition}}'; // // Tag used in CV and cover letter initial data texts
 
   const [language, setLanguage] = useState(Languages.ENGLISH);
 
@@ -101,23 +25,52 @@ function App(): React.JSX.Element {
 
   const now = new Date();
 
-  const [form, setForm] = useState<ConfigurationFormData>(
-    createInitialForm(initialCv, initialCoverLetter, now, language),
-  );
+  const [form, setForm] = useState<ConfigurationFormData>({
+    formLanguage: language,
+    isCvIncluded: true,
+    isCoverLetterIncluded: true,
+    date: now,
+    targetedPosition: initialCv.targetedPosition,
+    coverLetterBodyMarkup: convertParagraphsToMarkup(initialCoverLetter.body),
+  });
 
-  if (language !== form.formLanguage) {
-    const updatedForm = createNewLanguageForm(
-      form,
-      initialCv,
-      initialCoverLetter,
-      language,
-    );
-
-    setForm(updatedForm);
+  const isLanguageChangeDetected = language !== form.formLanguage;
+  if (isLanguageChangeDetected) {
+    setForm((previousForm) => ({
+      ...previousForm,
+      formLanguage: language,
+      targetedPosition: initialCv.targetedPosition,
+      coverLetterBodyMarkup: convertParagraphsToMarkup(initialCoverLetter.body),
+    }));
   }
 
-  const cv = buildCv(initialCv, form);
-  const coverLetter = buildCoverLetter(initialCoverLetter, form);
+  // Build CV
+  const objective = initialCv.objective.replace(
+    TARGETED_POSITION_TAG,
+    form.targetedPosition,
+  );
+  const companies = initialCv.companies.filter(
+    // Exclude Apollo internship to prioritize a cleaner layout by omitting less significant experience.
+    (company) => company.name !== 'Apollo',
+  );
+  const cv = {
+    ...initialCv,
+    targetedPosition: form.targetedPosition,
+    objective,
+    companies,
+  };
+
+  // Build cover letter
+  const coverLetterBodyMarkup = form.coverLetterBodyMarkup.replace(
+    TARGETED_POSITION_TAG,
+    form.targetedPosition,
+  );
+  const structuredParagraphs = convertMarkupToParagraphs(coverLetterBodyMarkup);
+  const coverLetter = {
+    ...initialCoverLetter,
+    date: form.date,
+    body: structuredParagraphs,
+  };
 
   const documentComponent = (
     <CvDocument
@@ -163,9 +116,7 @@ function App(): React.JSX.Element {
             { label: 'French', value: Languages.FRENCH },
           ]}
           selectedValue={language}
-          onChange={(newLanguage) => {
-            setLanguage(newLanguage);
-          }}
+          onChange={setLanguage}
           color={COLOR}
         />
 
