@@ -1,5 +1,9 @@
 import { View } from '@react-pdf/renderer';
 import CvPersonDetail from '../elements/CvPersonDetails';
+import {
+  isDisplayableString,
+  isDisplayableStringInObject,
+} from '../libs/textUtils';
 import CvTitle1 from '../primitives/CvTitle1';
 import { Contact, Languages, Name } from '../types/cvTypes';
 import { PdfViewElement } from '../types/pdfTypes';
@@ -19,6 +23,15 @@ function CvTo({
   language,
   color,
 }: CvToProps): PdfViewElement {
+  const isComponentDisplayed =
+    isDisplayableString(organization) ||
+    (name !== undefined && isDisplayableStringInObject(name)) ||
+    (contact !== undefined && isDisplayableStringInObject(contact));
+
+  if (!isComponentDisplayed) {
+    return <View></View>;
+  }
+
   const title = language === Languages.FRENCH ? 'Pour' : 'To';
 
   return (

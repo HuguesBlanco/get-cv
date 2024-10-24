@@ -50,6 +50,7 @@ function CvCoverLetter({
               language={language}
               color={color}
             />
+
             <CvFrom
               name={cv.name}
               contact={cv.contact}
