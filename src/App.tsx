@@ -79,6 +79,7 @@ function App(): React.JSX.Element {
       language={language}
       cv={cv}
       coverLetter={coverLetter}
+      recipient={form.recipient}
       isCvIncluded={form.isCvIncluded}
       isCoverLetterIncluded={form.isCoverLetterIncluded}
       color={COLOR}

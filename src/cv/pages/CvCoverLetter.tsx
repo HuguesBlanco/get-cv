@@ -5,18 +5,20 @@ import CvApplicationNarative from '../sections/CvApplicationNarative';
 import CvFrom from '../sections/CvFrom';
 import CvLinks from '../sections/CvLinks';
 import CvTo from '../sections/CvTo';
-import { CoverLetter, Cv, Languages } from '../types/cvTypes';
+import { CoverLetter, Cv, Languages, Recipient } from '../types/cvTypes';
 import { PdfPageElement } from '../types/pdfTypes';
 
 type CvCoverLetterProps = {
   cv: Cv;
   coverLetter: CoverLetter;
+  recipient: Recipient | undefined;
   language: Languages;
   color: string;
 };
 function CvCoverLetter({
   cv,
   coverLetter,
+  recipient,
   language,
   color,
 }: CvCoverLetterProps): PdfPageElement {
@@ -42,20 +44,9 @@ function CvCoverLetter({
         >
           <CvBlock contentDistribution="start" isPaddindXEnabled>
             <CvTo
-              organization="Google"
-              name={{ lastName: 'Doe', firstName: 'John' }}
-              contact={{
-                email: 'test@test.com',
-                phone: '+32 456 09 34 39',
-                postalAddress: {
-                  streetNumber: '456',
-                  streetName: 'rue du Tilleul',
-                  additionalAddressInfo: 'bte 34',
-                  city: 'Bruxelles',
-                  postalCode: '1000',
-                  country: 'Belgique',
-                },
-              }}
+              organization={recipient?.organization}
+              name={recipient?.name}
+              contact={recipient?.contact}
               language={language}
               color={color}
             />

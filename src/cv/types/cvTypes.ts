@@ -111,3 +111,9 @@ export type CoverLetter = {
   closing: string;
   signature: string;
 };
+
+export type Recipient = {
+  name?: Partial<Name>;
+  organization?: string;
+  contact?: Contact;
+};

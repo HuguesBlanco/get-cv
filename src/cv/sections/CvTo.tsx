@@ -4,10 +4,10 @@ import CvTitle1 from '../primitives/CvTitle1';
 import { Contact, Languages, Name } from '../types/cvTypes';
 import { PdfViewElement } from '../types/pdfTypes';
 
-type CvFromProps = {
-  organization: string;
-  name: Name;
-  contact: Contact;
+type CvToProps = {
+  organization: string | undefined;
+  name: Name | undefined;
+  contact: Contact | undefined;
   language: Languages;
   color: string;
 };
@@ -18,7 +18,7 @@ function CvTo({
   contact,
   language,
   color,
-}: CvFromProps): PdfViewElement {
+}: CvToProps): PdfViewElement {
   const title = language === Languages.FRENCH ? 'Pour' : 'To';
 
   return (

@@ -93,9 +93,9 @@ function CvPostalAddress({
 }
 
 type CvPersonDetailProps = {
-  organization?: string;
-  name?: Name;
-  contact: Contact;
+  organization?: string | undefined;
+  name?: Name | undefined;
+  contact: Contact | undefined;
   color: string;
 };
 
@@ -114,19 +114,19 @@ function CvPersonDetail({
 
       {name !== undefined && <CvName name={name} />}
 
-      {isDisplayable(contact.email) && (
+      {isDisplayable(contact?.email) && (
         <CvListItem icon="envelope" iconSize={10}>
           <Text>{contact.email}</Text>
         </CvListItem>
       )}
 
-      {isDisplayable(contact.phone) && (
+      {isDisplayable(contact?.phone) && (
         <CvListItem icon="phone" iconSize={10}>
           <Text>{contact.phone}</Text>
         </CvListItem>
       )}
 
-      {contact.postalAddress !== undefined && (
+      {contact?.postalAddress !== undefined && (
         <CvPostalAddress address={contact.postalAddress} />
       )}
     </View>
