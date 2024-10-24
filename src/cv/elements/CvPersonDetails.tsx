@@ -1,33 +1,31 @@
 import { Text, View } from '@react-pdf/renderer';
+import {
+  isDisplayableString,
+  isDisplayableStringInObject,
+} from '../libs/textUtils';
 import CvListItem from '../primitives/CvListItem';
 import { Contact, Name, PostalAddress } from '../types/cvTypes';
 import { PdfViewElement } from '../types/pdfTypes';
-
-function isDisplayable(value: string | undefined): value is string {
-  return !(value === undefined || value === '');
-}
 
 type CvNameProps = {
   name: Name;
 };
 
 function CvName({ name }: CvNameProps): React.JSX.Element | null {
-  const firstName = isDisplayable(name.firstName) ? name.firstName : '';
-  const lastNameSpace = isDisplayable(firstName) ? ' ' : '';
-  const lastName = isDisplayable(name.lastName)
+  if (!isDisplayableStringInObject(name)) return null;
+
+  const firstName = isDisplayableString(name.firstName) ? name.firstName : '';
+  const lastNameSpace = isDisplayableString(firstName) ? ' ' : '';
+  const lastName = isDisplayableString(name.lastName)
     ? `${lastNameSpace}${name.lastName}`
     : '';
   const fullName = `${firstName}${lastName}`;
 
-  if (isDisplayable(fullName)) {
-    return (
-      <CvListItem>
-        <Text style={{ fontWeight: 'bold' }}>{fullName}</Text>
-      </CvListItem>
-    );
-  }
-
-  return null;
+  return (
+    <CvListItem>
+      <Text style={{ fontWeight: 'bold' }}>{fullName}</Text>
+    </CvListItem>
+  );
 }
 
 type CvPostalAddressProps = {
@@ -37,59 +35,54 @@ type CvPostalAddressProps = {
 function CvPostalAddress({
   address,
 }: CvPostalAddressProps): PdfViewElement | null {
-  const streetName = isDisplayable(address.streetName)
+  if (!isDisplayableStringInObject(address)) return null;
+
+  const streetName = isDisplayableString(address.streetName)
     ? address.streetName
     : '';
-  const streetNumberSpace = isDisplayable(streetName) ? ' ' : '';
-  const streetNumber = isDisplayable(address.streetNumber)
+  const streetNumberSpace = isDisplayableString(streetName) ? ' ' : '';
+  const streetNumber = isDisplayableString(address.streetNumber)
     ? `${streetNumberSpace}${address.streetNumber}`
     : '';
   const additionalAddressInfoSpace =
-    isDisplayable(streetName) || isDisplayable(streetNumber) ? ' ' : '';
-  const additionalAddressInfo = isDisplayable(address.additionalAddressInfo)
+    isDisplayableString(streetName) || isDisplayableString(streetNumber)
+      ? ' '
+      : '';
+  const additionalAddressInfo = isDisplayableString(
+    address.additionalAddressInfo,
+  )
     ? `${additionalAddressInfoSpace}${address.additionalAddressInfo}`
     : '';
   const streetAddress = `${streetName}${streetNumber}${additionalAddressInfo}`;
-  const StreetAddressComponent = isDisplayable(streetAddress) ? (
+  const StreetAddressComponent = isDisplayableString(streetAddress) ? (
     <Text>{streetAddress}</Text>
   ) : null;
 
-  const postalCode = isDisplayable(address.postalCode)
+  const postalCode = isDisplayableString(address.postalCode)
     ? address.postalCode
     : '';
-  const citySpace = isDisplayable(postalCode) ? ' ' : '';
-  const city = isDisplayable(address.city) ? `${citySpace}${address.city}` : '';
+  const citySpace = isDisplayableString(postalCode) ? ' ' : '';
+  const city = isDisplayableString(address.city)
+    ? `${citySpace}${address.city}`
+    : '';
   const locality = `${postalCode}${city}`;
-  const LocalityComponent = isDisplayable(locality) ? (
+  const LocalityComponent = isDisplayableString(locality) ? (
     <Text>{locality}</Text>
   ) : null;
 
-  const countryComponent = isDisplayable(address.country) ? (
+  const countryComponent = isDisplayableString(address.country) ? (
     <Text>{address.country}</Text>
   ) : null;
 
-  const isComponentDisplayable =
-    StreetAddressComponent !== null ||
-    LocalityComponent !== null ||
-    countryComponent !== null;
-
-  if (isComponentDisplayable) {
-    return (
-      <CvListItem
-        icon="locationDot"
-        iconSize={10}
-        isBottomSpacingEnabled={false}
-      >
-        <View>
-          {StreetAddressComponent}
-          {LocalityComponent}
-          {countryComponent}
-        </View>
-      </CvListItem>
-    );
-  }
-
-  return null;
+  return (
+    <CvListItem icon="locationDot" iconSize={10} isBottomSpacingEnabled={false}>
+      <View>
+        {StreetAddressComponent}
+        {LocalityComponent}
+        {countryComponent}
+      </View>
+    </CvListItem>
+  );
 }
 
 type CvPersonDetailProps = {
@@ -106,7 +99,7 @@ function CvPersonDetail({
 }: CvPersonDetailProps): PdfViewElement {
   return (
     <View>
-      {isDisplayable(organization) && (
+      {isDisplayableString(organization) && (
         <CvListItem>
           <Text style={{ textTransform: 'uppercase' }}>{organization}</Text>
         </CvListItem>
@@ -114,13 +107,13 @@ function CvPersonDetail({
 
       {name !== undefined && <CvName name={name} />}
 
-      {isDisplayable(contact?.email) && (
+      {isDisplayableString(contact?.email) && (
         <CvListItem icon="envelope" iconSize={10}>
           <Text>{contact.email}</Text>
         </CvListItem>
       )}
 
-      {isDisplayable(contact?.phone) && (
+      {isDisplayableString(contact?.phone) && (
         <CvListItem icon="phone" iconSize={10}>
           <Text>{contact.phone}</Text>
         </CvListItem>
