@@ -1,12 +1,14 @@
 import React from 'react';
 
 type CheckboxProps = {
+  id: string;
   label: string;
   isChecked: boolean;
   onChange: (checked: boolean) => void;
 };
 
 function Checkbox({
+  id,
   label,
   isChecked,
   onChange,
@@ -16,8 +18,9 @@ function Checkbox({
   };
 
   return (
-    <label>
+    <label htmlFor={id}>
       <input
+        id={id}
         type="checkbox"
         checked={isChecked}
         onChange={handleCheckboxChange}

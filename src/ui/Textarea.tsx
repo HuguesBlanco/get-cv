@@ -1,12 +1,14 @@
 import React, { ChangeEvent } from 'react';
 
 type TextareaProps = {
+  id: string;
   label: string;
   value: string;
   onChange: (value: string) => void;
 };
 
 function Textarea({
+  id,
   label,
   value,
   onChange,
@@ -27,10 +29,14 @@ function Textarea({
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-      <label style={{ fontWeight: 500, fontSize: '14px', color: LABEL_COLOR }}>
+      <label
+        htmlFor={id}
+        style={{ fontWeight: 500, fontSize: '14px', color: LABEL_COLOR }}
+      >
         {label}
       </label>
       <textarea
+        id={id}
         value={value}
         onChange={handleChange}
         onFocus={(event) => {

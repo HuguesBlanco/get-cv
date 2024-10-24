@@ -1,3 +1,4 @@
+import { useId } from 'react';
 import { Languages, Recipient } from '../appTypes';
 import Checkbox from '../ui/Checkbox';
 import Textarea from '../ui/Textarea';
@@ -31,9 +32,12 @@ function ConfigurationForm({
     coverLetterBodyMarkup,
   } = form;
 
+  const formId = useId();
+
   return (
     <form>
       <Checkbox
+        id={`${formId}-is-cv-included`}
         label="CV"
         isChecked={isCvIncluded}
         onChange={(isCvInculdedNew) => {
@@ -45,6 +49,7 @@ function ConfigurationForm({
       />
 
       <Checkbox
+        id={`${formId}-is-cover-letter-included`}
         label="Cover letter"
         isChecked={isCoverLetterIncluded}
         onChange={(isCoverLetterIncludedNew) => {
@@ -56,6 +61,7 @@ function ConfigurationForm({
       />
 
       <TextInput
+        id={`${formId}-job-position`}
         label="Job position"
         value={targetedPosition}
         onChange={(newTargetPosition) => {
@@ -70,6 +76,7 @@ function ConfigurationForm({
         <legend>Recipent</legend>
 
         <TextInput
+          id={`${formId}-organization-name`}
           label="Organization name"
           value={recipient.organization ?? ''}
           onChange={(newOrganizationName) => {
@@ -84,6 +91,7 @@ function ConfigurationForm({
         />
 
         <TextInput
+          id={`${formId}-first-name`}
           label="First name"
           value={recipient.name?.firstName ?? ''}
           onChange={(newFirstName) => {
@@ -101,6 +109,7 @@ function ConfigurationForm({
         />
 
         <TextInput
+          id={`${formId}-last-name`}
           label="Last name"
           value={recipient.name?.lastName ?? ''}
           onChange={(newLastName) => {
@@ -118,6 +127,7 @@ function ConfigurationForm({
         />
 
         <TextInput
+          id={`${formId}-email`}
           label="Email"
           value={recipient.contact?.email ?? ''}
           onChange={(newEmail) => {
@@ -135,6 +145,7 @@ function ConfigurationForm({
         />
 
         <TextInput
+          id={`${formId}-phone`}
           label="Phone"
           value={recipient.contact?.phone ?? ''}
           onChange={(newEmail) => {
@@ -152,6 +163,7 @@ function ConfigurationForm({
         />
 
         <TextInput
+          id={`${formId}-street-name`}
           label="Street name"
           value={recipient.contact?.postalAddress?.streetName ?? ''}
           onChange={(newStreetName) => {
@@ -172,6 +184,7 @@ function ConfigurationForm({
         />
 
         <TextInput
+          id={`${formId}-street-number`}
           label="Street number"
           value={recipient.contact?.postalAddress?.streetNumber ?? ''}
           onChange={(newStreetNumber) => {
@@ -192,6 +205,7 @@ function ConfigurationForm({
         />
 
         <TextInput
+          id={`${formId}-box`}
           label="Box"
           value={recipient.contact?.postalAddress?.additionalAddressInfo ?? ''}
           onChange={(newAdditionalAddressInfo) => {
@@ -212,6 +226,7 @@ function ConfigurationForm({
         />
 
         <TextInput
+          id={`${formId}-postal-code`}
           label="Postal Code"
           value={recipient.contact?.postalAddress?.postalCode ?? ''}
           onChange={(newPostalCode) => {
@@ -232,6 +247,7 @@ function ConfigurationForm({
         />
 
         <TextInput
+          id={`${formId}-city`}
           label="City"
           value={recipient.contact?.postalAddress?.city ?? ''}
           onChange={(newCity) => {
@@ -252,6 +268,7 @@ function ConfigurationForm({
         />
 
         <TextInput
+          id={`${formId}-country`}
           label="Country"
           value={recipient.contact?.postalAddress?.country ?? ''}
           onChange={(newCountry) => {
@@ -273,6 +290,7 @@ function ConfigurationForm({
       </fieldset>
 
       <Textarea
+        id={`${formId}-cover-letter-body`}
         label="Cover letter body"
         value={coverLetterBodyMarkup}
         onChange={(newCoverLetterBodyMarkup) => {

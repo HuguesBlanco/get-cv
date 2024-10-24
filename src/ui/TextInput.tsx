@@ -1,12 +1,14 @@
 import React, { ChangeEvent } from 'react';
 
 type TextInputProps = {
+  id: string;
   label: string;
   value: string;
   onChange: (newValue: string) => void;
 };
 
 function TextInput({
+  id,
   label,
   value,
   onChange,
@@ -17,10 +19,8 @@ function TextInput({
 
   return (
     <div>
-      <label>
-        {label}
-        <input type="text" value={value} onChange={handleChange} />
-      </label>
+      <label htmlFor={id}>{label}</label>
+      <input id={id} type="text" value={value} onChange={handleChange} />
     </div>
   );
 }
