@@ -36,6 +36,7 @@ function Textarea({
         {label}
       </label>
       <textarea
+        rows={20}
         id={id}
         value={value}
         onChange={handleChange}
