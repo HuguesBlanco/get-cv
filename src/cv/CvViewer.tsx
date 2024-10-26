@@ -3,11 +3,23 @@ import { PdfDocumentElement, PdfViewerElement } from './types/pdfTypes';
 
 type CvViewerProps = {
   children: PdfDocumentElement;
+  numberOfPages: number;
 };
 
-function CvViewer({ children }: CvViewerProps): PdfViewerElement {
+function CvViewer({
+  children,
+  numberOfPages: numberOfPage,
+}: CvViewerProps): PdfViewerElement {
+  const viewerHeight = `${String(numberOfPage * 320)}mm`;
+
   return (
-    <PDFViewer width="800px" height="1131.37px">
+    <PDFViewer
+      style={{
+        border: 'none',
+        width: '100%',
+        height: viewerHeight,
+      }}
+    >
       {children}
     </PDFViewer>
   );

@@ -6,6 +6,7 @@ import ConfigurationForm, {
 import CvDocument from './cv/CvDocument';
 import CvDownloadLink from './cv/CvDownloadLink';
 import CvViewer from './cv/CvViewer';
+import useScreenSize from './hooks/useScreenResize';
 import {
   convertMarkupToParagraphs,
   convertParagraphsToMarkup,
@@ -86,6 +87,10 @@ function App(): React.JSX.Element {
     />
   );
 
+  const numberOfPages = form.isCvIncluded && form.isCoverLetterIncluded ? 2 : 1;
+
+  const { isSmallScreen } = useScreenSize();
+
   // A "BindingError" in react-pdf may occur when rendering multiple `<Document>` components at the same time:
   // { name: "BindingError", message: 'Expected null or instance of Config, got an instance of Config' }.
   // The cause is unclear and is under discussion: https://github.com/diegomura/react-pdf/issues/2892.
@@ -105,14 +110,18 @@ function App(): React.JSX.Element {
     <div
       style={{
         display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        gap: '20px',
-        padding: '20px',
-        maxWidth: '1200px',
-        margin: '0 auto',
+        gridTemplateColumns: isSmallScreen ? '1fr' : '1fr 1fr',
+        overflow: 'hidden',
       }}
     >
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '15px',
+          padding: '10% 20%',
+        }}
+      >
         <SegmentedControl
           options={[
             { label: 'English', value: Languages.ENGLISH },
@@ -129,7 +138,9 @@ function App(): React.JSX.Element {
       </div>
 
       <div>
-        {isPreviewDisplayed && <CvViewer>{documentComponent}</CvViewer>}
+        {isPreviewDisplayed && (
+          <CvViewer numberOfPages={numberOfPages}>{documentComponent}</CvViewer>
+        )}
       </div>
     </div>
   );
