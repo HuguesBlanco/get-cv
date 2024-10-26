@@ -18,6 +18,7 @@ function CvViewer({
         border: 'none',
         width: '100%',
         height: viewerHeight,
+        minHeight: '100%',
       }}
     >
       {children}
