@@ -13,6 +13,7 @@ import {
 } from './libs/richTextParsers';
 import { getCoverLetter } from './services/coverLetterService';
 import { getCv } from './services/cvService';
+import './styles/fonts.css';
 import SegmentedControl from './ui/SegmentedControl';
 
 function App(): React.JSX.Element {
@@ -110,16 +111,14 @@ function App(): React.JSX.Element {
     <div
       style={{
         display: 'grid',
-        gridTemplateColumns: isSmallScreen ? '1fr' : '1fr 1fr',
+        gridTemplateColumns: isSmallScreen ? '100%' : '50% 50%',
         overflow: 'hidden',
+        fontFamily: "'Source Sans 3', 'sans-serif'",
       }}
     >
       <div
         style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '15px',
-          padding: '10% 20%',
+          padding: '10% 17%',
         }}
       >
         <SegmentedControl
@@ -132,7 +131,7 @@ function App(): React.JSX.Element {
           color={COLOR}
         />
 
-        <ConfigurationForm form={form} setForm={setForm} />
+        <ConfigurationForm color={COLOR} form={form} setForm={setForm} />
 
         <CvDownloadLink language={language}>{documentComponent}</CvDownloadLink>
       </div>
