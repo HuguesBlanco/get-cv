@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { UiColors } from './uiTypes';
 
 type SegmentedControlButtonProps<T> = {
   label: string;
   value: T;
   isSelected: boolean;
   onSelect: (value: T) => void;
-  color: string;
+  colors: UiColors;
+  isFirst: boolean;
+  isLast: boolean;
 };
 
 function SegmentedControlButton<T>({
@@ -13,10 +16,28 @@ function SegmentedControlButton<T>({
   value,
   isSelected,
   onSelect,
-  color,
+  colors,
+  isFirst,
+  isLast,
 }: SegmentedControlButtonProps<T>): React.JSX.Element {
-  const backgroundColor = isSelected ? color : 'transparent';
-  const textColor = isSelected ? '#ffffff' : color;
+  const [isHovered, setIsHovered] = useState(false);
+
+  const getTextColor = (): string => {
+    if (isSelected || isHovered) return colors.WHITE;
+    return colors.GREY_DARK;
+  };
+
+  const getBorderColor = (): string => {
+    if (isSelected) return colors.PRIMARY;
+    if (isHovered) return colors.BLACK;
+    return colors.GREY_LIGHT;
+  };
+
+  const getBackgroundColor = (): string => {
+    if (isSelected) return colors.PRIMARY;
+    if (isHovered) return colors.BLACK;
+    return colors.WHITE;
+  };
 
   return (
     <button
@@ -24,15 +45,30 @@ function SegmentedControlButton<T>({
       onClick={() => {
         onSelect(value);
       }}
+      onMouseEnter={() => {
+        setIsHovered(true);
+      }}
+      onMouseLeave={() => {
+        setIsHovered(false);
+      }}
       style={{
         flex: 1,
-        padding: '8px',
-        backgroundColor,
-        color: textColor,
-        border: 'none',
-        cursor: 'pointer',
+        padding: '0.5rem 1rem',
+        fontSize: '1rem',
+        color: getTextColor(),
         textAlign: 'center',
-        transition: 'background-color 0.2s',
+        backgroundColor: getBackgroundColor(),
+        border: `1px solid ${getBorderColor()}`,
+        borderLeftWidth: isFirst ? '1px' : '0px',
+        borderRightWidth: isLast ? '1px' : '0px',
+        borderRadius: isFirst
+          ? '0.1rem 0 0 0.1rem'
+          : isLast
+            ? '0 0.1rem 0.1rem 0'
+            : '0',
+        cursor: isSelected ? 'default' : 'pointer',
+        outline: 'none',
+        transition: 'background-color 0.3s, color 0.3s, border 0.3s',
       }}
     >
       {label}
@@ -41,35 +77,90 @@ function SegmentedControlButton<T>({
 }
 
 type SegmentedControlProps<T> = {
+  id: string;
+  label: string;
   options: { label: string; value: T }[];
   selectedValue: T;
   onChange: (selectedValue: T) => void;
-  color: string;
+  colors: UiColors;
 };
 
 function SegmentedControl<T>({
+  id,
+  label,
   options,
   selectedValue,
   onChange,
-  color,
+  colors,
 }: SegmentedControlProps<T>): React.JSX.Element {
+  const [isFocused, setIsFocused] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const getLabelColor = (): string => {
+    if (isFocused) return colors.PRIMARY;
+    if (isHovered) return colors.BLACK;
+    return colors.GREY_REGULAR;
+  };
+
   return (
     <div
       style={{
         display: 'flex',
-        border: `1px solid ${color}`,
+        flexDirection: 'column',
+        transition: 'color 0.3s',
+      }}
+      onMouseEnter={() => {
+        setIsHovered(true);
+      }}
+      onMouseLeave={() => {
+        setIsHovered(false);
+      }}
+      onFocus={() => {
+        setIsFocused(true);
+      }}
+      onBlur={() => {
+        setIsFocused(false);
       }}
     >
-      {options.map(({ label, value }) => (
-        <SegmentedControlButton
-          key={String(value)}
-          label={label}
-          value={value}
-          isSelected={value === selectedValue}
-          onSelect={onChange}
-          color={color}
-        />
-      ))}
+      <label
+        htmlFor={id}
+        style={{
+          color: getLabelColor(),
+          fontSize: '1rem',
+          fontWeight: 600,
+          whiteSpace: 'nowrap',
+          marginBottom: '0.5rem',
+          transition: 'color 0.3s',
+        }}
+      >
+        {label}
+      </label>
+      <div
+        id={id}
+        style={{
+          display: 'flex',
+        }}
+      >
+        {options.map(({ label, value }, index) => {
+          const isFirstButton = index === 0;
+          const isLastButton = index === options.length - 1;
+
+          const isBuuttonSelected = value === selectedValue;
+
+          return (
+            <SegmentedControlButton
+              key={String(value)}
+              label={label}
+              value={value}
+              isSelected={isBuuttonSelected}
+              onSelect={onChange}
+              colors={colors}
+              isFirst={isFirstButton}
+              isLast={isLastButton}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }

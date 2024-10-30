@@ -123,13 +123,15 @@ function App(): React.JSX.Element {
       >
         <div style={{ marginBottom: '4rem' }}>
           <SegmentedControl
+            id="documents-language"
+            label="Documents language"
             options={[
               { label: 'English', value: Languages.ENGLISH },
               { label: 'French', value: Languages.FRENCH },
             ]}
             selectedValue={language}
             onChange={setLanguage}
-            color={AppColors.PRIMARY}
+            colors={AppColors}
           />
         </div>
         <div style={{ marginBottom: '4rem' }}>
