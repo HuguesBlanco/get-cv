@@ -5,4 +5,5 @@ export enum AppColors {
   GREY_DARK = '#555555',
   BLACK = '#000000',
   PRIMARY = '#4b6f96',
+  SECONDARY = '#96724B',
 }

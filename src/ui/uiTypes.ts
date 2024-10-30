@@ -5,4 +5,5 @@ export type UiColors = {
   GREY_DARK: string;
   BLACK: string;
   PRIMARY: string;
+  SECONDARY: string;
 };
