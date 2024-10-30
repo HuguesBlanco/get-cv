@@ -1,5 +1,6 @@
 import { useId } from 'react';
 import { Languages, Recipient } from '../appTypes';
+import { AppColors } from '../styles/colors';
 import Checkbox from '../ui/Checkbox';
 import Textarea from '../ui/Textarea';
 import TextInput from '../ui/TextInput';
@@ -49,6 +50,7 @@ function ConfigurationForm({
               isCvIncluded: isCvInculdedNew,
             });
           }}
+          colors={AppColors}
         />
       </div>
 
@@ -63,6 +65,7 @@ function ConfigurationForm({
               isCoverLetterIncluded: isCoverLetterIncludedNew,
             });
           }}
+          colors={AppColors}
         />
       </div>
 
