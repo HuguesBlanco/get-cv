@@ -37,7 +37,6 @@ function TextInput({
       style={{
         display: 'flex',
         flexDirection: 'column',
-        marginBottom: '4rem',
         transition: 'color 0.3s',
       }}
     >

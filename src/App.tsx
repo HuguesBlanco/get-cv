@@ -121,19 +121,26 @@ function App(): React.JSX.Element {
           padding: '10% 17%',
         }}
       >
-        <SegmentedControl
-          options={[
-            { label: 'English', value: Languages.ENGLISH },
-            { label: 'French', value: Languages.FRENCH },
-          ]}
-          selectedValue={language}
-          onChange={setLanguage}
-          color={COLOR}
-        />
+        <div style={{ marginBottom: '4rem' }}>
+          <SegmentedControl
+            options={[
+              { label: 'English', value: Languages.ENGLISH },
+              { label: 'French', value: Languages.FRENCH },
+            ]}
+            selectedValue={language}
+            onChange={setLanguage}
+            color={COLOR}
+          />
+        </div>
+        <div style={{ marginBottom: '4rem' }}>
+          <ConfigurationForm color={COLOR} form={form} setForm={setForm} />
+        </div>
 
-        <ConfigurationForm color={COLOR} form={form} setForm={setForm} />
-
-        <CvDownloadLink language={language}>{documentComponent}</CvDownloadLink>
+        <div style={{ marginBottom: '4rem' }}>
+          <CvDownloadLink language={language}>
+            {documentComponent}
+          </CvDownloadLink>
+        </div>
       </div>
 
       <div>
