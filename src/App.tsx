@@ -13,11 +13,11 @@ import {
 } from './libs/richTextParsers';
 import { getCoverLetter } from './services/coverLetterService';
 import { getCv } from './services/cvService';
+import { AppColors } from './styles/colors';
 import './styles/fonts.css';
 import SegmentedControl from './ui/SegmentedControl';
 
 function App(): React.JSX.Element {
-  const COLOR = '#4b6f96';
   const TARGETED_POSITION_TAG = '{{targetedPosition}}'; // // Tag used in CV and cover letter initial data texts
 
   const [language, setLanguage] = useState(Languages.ENGLISH);
@@ -84,7 +84,7 @@ function App(): React.JSX.Element {
       recipient={form.recipient}
       isCvIncluded={form.isCvIncluded}
       isCoverLetterIncluded={form.isCoverLetterIncluded}
-      color={COLOR}
+      color={AppColors.PRIMARY}
     />
   );
 
@@ -129,11 +129,15 @@ function App(): React.JSX.Element {
             ]}
             selectedValue={language}
             onChange={setLanguage}
-            color={COLOR}
+            color={AppColors.PRIMARY}
           />
         </div>
         <div style={{ marginBottom: '4rem' }}>
-          <ConfigurationForm color={COLOR} form={form} setForm={setForm} />
+          <ConfigurationForm
+            color={AppColors.PRIMARY}
+            form={form}
+            setForm={setForm}
+          />
         </div>
 
         <div style={{ marginBottom: '4rem' }}>
