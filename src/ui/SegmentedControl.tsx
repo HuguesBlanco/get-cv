@@ -21,21 +21,22 @@ function SegmentedControlButton<T>({
   isLast,
 }: SegmentedControlButtonProps<T>): React.JSX.Element {
   const [isHovered, setIsHovered] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
 
   const getTextColor = (): string => {
-    if (isSelected || isHovered) return colors.WHITE;
+    if (isFocused || isHovered || isSelected) return colors.WHITE;
     return colors.GREY_DARK;
   };
 
   const getBorderColor = (): string => {
+    if (isFocused || isHovered) return colors.BLACK;
     if (isSelected) return colors.PRIMARY;
-    if (isHovered) return colors.BLACK;
     return colors.GREY_LIGHT;
   };
 
   const getBackgroundColor = (): string => {
+    if (isFocused || isHovered) return colors.BLACK;
     if (isSelected) return colors.PRIMARY;
-    if (isHovered) return colors.BLACK;
     return colors.WHITE;
   };
 
@@ -50,6 +51,12 @@ function SegmentedControlButton<T>({
       }}
       onMouseLeave={() => {
         setIsHovered(false);
+      }}
+      onFocus={() => {
+        setIsFocused(true);
+      }}
+      onBlur={() => {
+        setIsFocused(false);
       }}
       style={{
         flex: 1,

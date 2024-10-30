@@ -20,22 +20,21 @@ function Checkbox({
   const [isHovered, setIsHovered] = useState(false);
 
   const getLabelColor = (): string => {
-    if (isFocused) return colors.PRIMARY;
     if (isHovered) return colors.BLACK;
+    if (isFocused) return colors.PRIMARY;
     return colors.GREY_REGULAR;
   };
 
   const getBorderColor = (): string => {
-    if (isFocused) return colors.PRIMARY;
-    if (isHovered) return colors.BLACK;
+    if (isFocused || isHovered) return colors.BLACK;
     if (isChecked) return colors.PRIMARY;
     return colors.GREY_LIGHT;
   };
 
   const getBackgroundColor = (): string => {
-    if (isHovered) return colors.BLACK;
-    if (isChecked) return colors.PRIMARY;
-    return 'transparent';
+    if (!isChecked) return 'transparent';
+    if (isFocused || isHovered) return colors.BLACK;
+    return colors.PRIMARY;
   };
 
   return (
