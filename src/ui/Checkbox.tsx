@@ -20,19 +20,19 @@ function Checkbox({
   const [isHovered, setIsHovered] = useState(false);
 
   const getLabelColor = (): string => {
-    if (isFocused) return colors.Primary;
-    if (isHovered) return colors.Black;
-    return colors.GreyRegular;
+    if (isFocused) return colors.PRIMARY;
+    if (isHovered) return colors.BLACK;
+    return colors.GREY_REGULAR;
   };
 
   const getBorderColor = (): string => {
-    if (isFocused) return colors.Primary;
-    if (isHovered) return colors.Black;
-    if (isChecked) return colors.Primary;
-    return colors.GreyLight;
+    if (isFocused) return colors.PRIMARY;
+    if (isHovered) return colors.BLACK;
+    if (isChecked) return colors.PRIMARY;
+    return colors.GREY_LIGHT;
   };
 
-  const backgroundColor = isChecked ? colors.Primary : 'transparent';
+  const backgroundColor = isChecked ? colors.PRIMARY : 'transparent';
 
   return (
     <label
@@ -102,7 +102,7 @@ function Checkbox({
                 transform: 'translate(-50%, -50%)',
                 width: '1rem',
                 height: '1rem',
-                fill: colors.White,
+                fill: colors.WHITE,
               }}
             >
               <path d="M20.285 6.708l-11.67 11.67-4.95-4.95 1.415-1.414 3.535 3.535 10.255-10.255z" />

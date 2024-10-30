@@ -1,8 +1,8 @@
 export enum AppColors {
-  White = '#ffffff',
-  GreyLight = '#eeeeee',
-  GreyRegular = '#999999',
-  GreyDark = '#555555',
-  Black = '#000000',
-  Primary = '#4b6f96',
+  WHITE = '#ffffff',
+  GREY_LIGHT = '#eeeeee',
+  GREY_REGULAR = '#999999',
+  GREY_DARK = '#555555',
+  BLACK = '#000000',
+  PRIMARY = '#4b6f96',
 }

@@ -22,22 +22,22 @@ function TextInput({
   const isInputEmpty = value.length === 0;
 
   const getLabelColor = (): string => {
-    if (isFocused) return colors.Primary;
-    if (isHovered) return colors.Black;
-    return colors.GreyRegular;
+    if (isFocused) return colors.PRIMARY;
+    if (isHovered) return colors.BLACK;
+    return colors.GREY_REGULAR;
   };
 
   const getTextColor = (): string => {
-    if (isFocused) return colors.Black;
-    if (isHovered) return colors.Black;
-    return colors.GreyDark;
+    if (isFocused) return colors.BLACK;
+    if (isHovered) return colors.BLACK;
+    return colors.GREY_DARK;
   };
 
   const getLineColor = (): string => {
-    if (isFocused) return colors.Primary;
-    if (isHovered) return colors.Black;
-    if (isInputEmpty) return colors.GreyLight;
-    return colors.GreyRegular;
+    if (isFocused) return colors.PRIMARY;
+    if (isHovered) return colors.BLACK;
+    if (isInputEmpty) return colors.GREY_LIGHT;
+    return colors.GREY_REGULAR;
   };
 
   return (

@@ -1,8 +1,8 @@
 export type UiColors = {
-  White: string;
-  GreyLight: string;
-  GreyRegular: string;
-  GreyDark: string;
-  Black: string;
-  Primary: string;
+  WHITE: string;
+  GREY_LIGHT: string;
+  GREY_REGULAR: string;
+  GREY_DARK: string;
+  BLACK: string;
+  PRIMARY: string;
 };
