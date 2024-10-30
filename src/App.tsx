@@ -18,7 +18,7 @@ import './styles/fonts.css';
 import SegmentedControl from './ui/SegmentedControl';
 
 function App(): React.JSX.Element {
-  const TARGETED_POSITION_TAG = '{{targetedPosition}}'; // // Tag used in CV and cover letter initial data texts
+  const TARGETED_POSITION_TAG = '{{targetedPosition}}'; // Tag used in CV and cover letter initial data texts
 
   const [language, setLanguage] = useState(Languages.ENGLISH);
 
