@@ -367,6 +367,7 @@ function ConfigurationForm({
             coverLetterBodyMarkup: newCoverLetterBodyMarkup,
           });
         }}
+        colors={AppColors}
       />
     </form>
   );
