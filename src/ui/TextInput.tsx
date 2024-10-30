@@ -16,21 +16,29 @@ function TextInput({
   onChange,
   colors,
 }: TextInputProps): React.JSX.Element {
-  const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    onChange(event.target.value);
-  };
-
-  const [isFocus, setIsFocus] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const isInputEmpty = value.length === 0;
 
-  const labelColor = isFocus ? colors.Primary : colors.GreyRegular;
-  const textColor = isFocus ? colors.Black : colors.GreyDark;
-  const lineColor = isFocus
-    ? colors.Primary
-    : isInputEmpty
-      ? colors.GreyLight
-      : colors.GreyRegular;
+  const getLabelColor = (): string => {
+    if (isFocused) return colors.Primary;
+    if (isHovered) return colors.Black;
+    return colors.GreyRegular;
+  };
+
+  const getTextColor = (): string => {
+    if (isFocused) return colors.Black;
+    if (isHovered) return colors.Black;
+    return colors.GreyDark;
+  };
+
+  const getLineColor = (): string => {
+    if (isFocused) return colors.Primary;
+    if (isHovered) return colors.Black;
+    if (isInputEmpty) return colors.GreyLight;
+    return colors.GreyRegular;
+  };
 
   return (
     <div
@@ -39,15 +47,22 @@ function TextInput({
         flexDirection: 'column',
         transition: 'color 0.3s',
       }}
+      onMouseEnter={() => {
+        setIsHovered(true);
+      }}
+      onMouseLeave={() => {
+        setIsHovered(false);
+      }}
     >
       <label
         htmlFor={id}
         style={{
-          color: labelColor,
+          color: getLabelColor(),
           fontSize: '1rem',
           fontWeight: 600,
           whiteSpace: 'nowrap',
           marginBottom: '0.2rem',
+          transition: 'color 0.3s',
         }}
       >
         {label}
@@ -56,23 +71,25 @@ function TextInput({
         id={id}
         type="text"
         value={value}
-        onChange={handleChange}
+        onChange={(event: ChangeEvent<HTMLInputElement>): void => {
+          onChange(event.target.value);
+        }}
+        onFocus={() => {
+          setIsFocused(true);
+        }}
+        onBlur={() => {
+          setIsFocused(false);
+        }}
         style={{
           fontSize: '1rem',
-          color: textColor,
+          color: getTextColor(),
           outline: 'none',
           padding: '0.4rem 0',
           border: 'none',
-          borderBottom: `2px solid ${lineColor}`,
-          transition: 'border-color 0.3s',
+          borderBottom: `2px solid ${getLineColor()}`,
+          transition: 'border-color 0.3s, color 0.3s',
           width: '100%',
           textOverflow: 'ellipsis',
-        }}
-        onFocus={() => {
-          setIsFocus(true);
-        }}
-        onBlur={() => {
-          setIsFocus(false);
         }}
       />
     </div>
