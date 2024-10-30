@@ -1,11 +1,12 @@
 import React, { ChangeEvent, useState } from 'react';
+import { UiColors } from './uiTypes';
 
 type TextInputProps = {
   id: string;
   label: string;
   value: string;
   onChange: (newValue: string) => void;
-  color: string;
+  colors: UiColors;
 };
 
 function TextInput({
@@ -13,7 +14,7 @@ function TextInput({
   label,
   value,
   onChange,
-  color,
+  colors,
 }: TextInputProps): React.JSX.Element {
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
     onChange(event.target.value);
@@ -23,14 +24,13 @@ function TextInput({
 
   const isInputEmpty = value.length === 0;
 
-  const GREY_LIGHT = '#eeeeee';
-  const GREY_REGULAR = '#999999';
-  const GREY_DARK = '#555555';
-  const BLACK = '#000000';
-
-  const labelColor = isFocus ? color : GREY_REGULAR;
-  const textColor = isFocus ? BLACK : GREY_DARK;
-  const lineColor = isFocus ? color : isInputEmpty ? GREY_LIGHT : GREY_REGULAR;
+  const labelColor = isFocus ? colors.Primary : colors.GreyRegular;
+  const textColor = isFocus ? colors.Black : colors.GreyDark;
+  const lineColor = isFocus
+    ? colors.Primary
+    : isInputEmpty
+      ? colors.GreyLight
+      : colors.GreyRegular;
 
   return (
     <div

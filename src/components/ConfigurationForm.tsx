@@ -80,7 +80,7 @@ function ConfigurationForm({
               targetedPosition: newTargetPosition,
             });
           }}
-          color={color}
+          colors={AppColors}
         />
       </div>
 
@@ -125,7 +125,7 @@ function ConfigurationForm({
                   },
                 });
               }}
-              color={color}
+              colors={AppColors}
             />
           </div>
 
@@ -146,7 +146,7 @@ function ConfigurationForm({
                   },
                 });
               }}
-              color={color}
+              colors={AppColors}
             />
           </div>
 
@@ -167,7 +167,7 @@ function ConfigurationForm({
                   },
                 });
               }}
-              color={color}
+              colors={AppColors}
             />
           </div>
 
@@ -188,7 +188,7 @@ function ConfigurationForm({
                   },
                 });
               }}
-              color={color}
+              colors={AppColors}
             />
           </div>
 
@@ -209,7 +209,7 @@ function ConfigurationForm({
                   },
                 });
               }}
-              color={color}
+              colors={AppColors}
             />
           </div>
 
@@ -233,7 +233,7 @@ function ConfigurationForm({
                   },
                 });
               }}
-              color={color}
+              colors={AppColors}
             />
           </div>
 
@@ -256,7 +256,7 @@ function ConfigurationForm({
                 },
               });
             }}
-            color={color}
+            colors={AppColors}
           />
 
           <TextInput
@@ -280,7 +280,7 @@ function ConfigurationForm({
                 },
               });
             }}
-            color={color}
+            colors={AppColors}
           />
 
           <div style={{ gridColumn: 'span 2' }}>
@@ -303,7 +303,7 @@ function ConfigurationForm({
                   },
                 });
               }}
-              color={color}
+              colors={AppColors}
             />
           </div>
 
@@ -327,7 +327,7 @@ function ConfigurationForm({
                   },
                 });
               }}
-              color={color}
+              colors={AppColors}
             />
           </div>
 
@@ -351,7 +351,7 @@ function ConfigurationForm({
                   },
                 });
               }}
-              color={color}
+              colors={AppColors}
             />
           </div>
         </div>
