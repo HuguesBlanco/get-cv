@@ -65,9 +65,10 @@ function SegmentedControlButton<T>({
         color: getTextColor(),
         textAlign: 'center',
         backgroundColor: getBackgroundColor(),
-        border: `1px solid ${getBorderColor()}`,
-        borderLeftWidth: isFirst ? '1px' : '0px',
-        borderRightWidth: isLast ? '1px' : '0px',
+        borderTop: `1px solid ${getBorderColor()}`,
+        borderBottom: `1px solid ${getBorderColor()}`,
+        borderLeft: isFirst ? `1px solid ${getBorderColor()}` : 'none',
+        borderRight: isLast ? `1px solid ${getBorderColor()}` : 'none',
         borderRadius: isFirst
           ? '0.1rem 0 0 0.1rem'
           : isLast
