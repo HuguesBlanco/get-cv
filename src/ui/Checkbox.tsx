@@ -32,7 +32,11 @@ function Checkbox({
     return colors.GREY_LIGHT;
   };
 
-  const backgroundColor = isChecked ? colors.PRIMARY : 'transparent';
+  const getBackgroundColor = (): string => {
+    if (isHovered) return colors.BLACK;
+    if (isChecked) return colors.PRIMARY;
+    return 'transparent';
+  };
 
   return (
     <label
@@ -87,7 +91,7 @@ function Checkbox({
             height: '100%',
             border: `2px solid ${getBorderColor()}`,
             borderRadius: '0.1rem',
-            backgroundColor: backgroundColor,
+            backgroundColor: getBackgroundColor(),
             transition: 'border-color 0.3s, background-color 0.3s',
             boxSizing: 'border-box',
           }}
