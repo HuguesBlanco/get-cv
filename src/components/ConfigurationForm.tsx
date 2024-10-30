@@ -90,7 +90,7 @@ function ConfigurationForm({
           borderRight: 'none',
           borderColor: color,
           padding: 0,
-          marginBottom: '4rem',
+          marginBottom: '6rem',
         }}
       >
         <legend
