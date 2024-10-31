@@ -10,7 +10,7 @@ function CvViewer({
   children,
   numberOfPages: numberOfPage,
 }: CvViewerProps): PdfViewerElement {
-  const viewerHeight = `${String(numberOfPage * 320)}mm`;
+  const viewerHeight = `${String(numberOfPage * 360)}mm`;
 
   return (
     <PDFViewer
