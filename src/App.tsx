@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useDebounce } from 'use-debounce';
 import { Languages } from './appTypes';
 import ConfigurationForm, {
   ConfigurationFormData,
 } from './components/ConfigurationForm';
-import CvDocument from './cv/CvDocument';
+import Document from './components/Document';
 import CvDownloadLink from './cv/CvDownloadLink';
 import CvViewer from './cv/CvViewer';
 import useScreenSize from './hooks/useScreenResize';
-import {
-  convertMarkupToParagraphs,
-  convertParagraphsToMarkup,
-} from './libs/richTextParsers';
+import { convertParagraphsToMarkup } from './libs/richTextParsers';
 import { getCoverLetter } from './services/coverLetterService';
 import { getCv } from './services/cvService';
 import { AppColors } from './styles/colors';
@@ -18,8 +16,6 @@ import './styles/fonts.css';
 import SegmentedControl from './ui/SegmentedControl';
 
 function App(): React.JSX.Element {
-  const TARGETED_POSITION_TAG = '{{targetedPosition}}'; // Tag used in CV and cover letter initial data texts
-
   const [language, setLanguage] = useState(Languages.ENGLISH);
 
   const initialCv = getCv(language);
@@ -48,47 +44,19 @@ function App(): React.JSX.Element {
     }));
   }
 
-  // Build CV
-  const objective = initialCv.objective.replace(
-    TARGETED_POSITION_TAG,
-    form.targetedPosition,
-  );
-  const companies = initialCv.companies.filter(
-    // Exclude Apollo internship to prioritize a cleaner layout by omitting less significant experience.
-    (company) => company.name !== 'Apollo',
-  );
-  const cv = {
-    ...initialCv,
-    targetedPosition: form.targetedPosition,
-    objective,
-    companies,
-  };
-
-  // Build cover letter
-  const coverLetterBodyMarkup = form.coverLetterBodyMarkup.replace(
-    TARGETED_POSITION_TAG,
-    form.targetedPosition,
-  );
-  const structuredParagraphs = convertMarkupToParagraphs(coverLetterBodyMarkup);
-  const coverLetter = {
-    ...initialCoverLetter,
-    date: form.date,
-    body: structuredParagraphs,
-  };
+  const [debouncedForm] = useDebounce(form, 1000, { leading: true });
 
   const documentComponent = (
-    <CvDocument
+    <Document
+      initialCv={initialCv}
+      initialCoverLetter={initialCoverLetter}
+      form={debouncedForm}
       language={language}
-      cv={cv}
-      coverLetter={coverLetter}
-      recipient={form.recipient}
-      isCvIncluded={form.isCvIncluded}
-      isCoverLetterIncluded={form.isCoverLetterIncluded}
-      color={AppColors.PRIMARY}
     />
   );
 
-  const numberOfPages = form.isCvIncluded && form.isCoverLetterIncluded ? 2 : 1;
+  const numberOfPages =
+    debouncedForm.isCvIncluded && debouncedForm.isCoverLetterIncluded ? 2 : 1;
 
   const { isSmallScreen } = useScreenSize();
 
