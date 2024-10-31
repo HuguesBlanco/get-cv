@@ -4,7 +4,7 @@ import { UiColors } from './uiTypes';
 type ButtonProps = {
   onClick: () => void;
   colors: UiColors;
-  children: React.ReactNode;
+  children: string;
 };
 
 function Button({ onClick, colors, children }: ButtonProps): React.JSX.Element {
