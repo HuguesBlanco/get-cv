@@ -117,7 +117,7 @@ function App(): React.JSX.Element {
         </div>
       </div>
 
-      <div>
+      <div style={{ backgroundColor: AppColors.GREY_REGULAR }}>
         {isPreviewDisplayed && (
           <CvViewer numberOfPages={numberOfPages}>{documentComponent}</CvViewer>
         )}
