@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDebounce } from 'use-debounce';
 import { Languages } from './appTypes';
 import ConfigurationForm, {
@@ -14,16 +14,9 @@ import { getCv } from './services/cvService';
 import { AppColors } from './styles/colors';
 import './styles/fonts.css';
 import Button from './ui/Button';
-import LoadingIcon from './ui/LoadingIcon';
 import SegmentedControl from './ui/SegmentedControl';
 
 function App(): React.JSX.Element {
-  // "BindingError" Issue Explanation:
-  // The @react-pdf/renderer library currently has a bug that can trigger an error when rendering multiple documents:
-  // { name: "BindingError", message: 'Expected null or instance of Config, got an instance of Config' }.
-  // This issue is under active investigation: https://github.com/diegomura/react-pdf/issues/2892.
-  // A temporary workaround is to distinguish each document and render them sequentially, which seems to prevent the error.
-
   const [language, setLanguage] = useState(Languages.ENGLISH);
 
   const initialCv = getCv(language);
@@ -52,19 +45,19 @@ function App(): React.JSX.Element {
     }));
   }
 
-  const [debouncedForm] = useDebounce(form, 1000);
+  const [debouncedForm] = useDebounce(form, 1000, { leading: true });
 
-  const fileName = `hugues_blanco_alvarez_cv_${language}.pdf`;
-  const downloadDocument = useDocumentDownload(
+  const documentComponent = (
     <Document
-      key="download-document" // Distinguish documents to resolve BindingError (see top note).
       initialCv={initialCv}
       initialCoverLetter={initialCoverLetter}
       form={debouncedForm}
       language={language}
-    />,
-    fileName,
+    />
   );
+
+  const fileName = `hugues_blanco_alvarez_cv_${language}.pdf`;
+  const downloadDocument = useDocumentDownload(documentComponent, fileName);
   const handleDocumentDownload = (): void => {
     downloadDocument().catch((error: unknown) => {
       console.error(error);
@@ -75,18 +68,6 @@ function App(): React.JSX.Element {
     debouncedForm.isCvIncluded && debouncedForm.isCoverLetterIncluded ? 2 : 1;
 
   const { isSmallScreen } = useScreenSize();
-
-  // Delay preview rendering to remove BindingError (see top note).
-  const [isDownloadDisplayed, setIsDownloadDisplayed] = useState(false);
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsDownloadDisplayed(true);
-    }, 3000);
-
-    return (): void => {
-      clearTimeout(timer);
-    };
-  }, []);
 
   return (
     <div
@@ -131,25 +112,7 @@ function App(): React.JSX.Element {
       </div>
 
       <div style={{ backgroundColor: AppColors.GREY_REGULAR }}>
-        {isDownloadDisplayed ? (
-          <CvViewer numberOfPages={numberOfPages}>
-            <Document
-              key="preview-document" // Distinguish documents to resolve BindingError (see top note).
-              initialCv={initialCv}
-              initialCoverLetter={initialCoverLetter}
-              form={debouncedForm}
-              language={language}
-            />
-          </CvViewer>
-        ) : (
-          <div
-            style={{
-              paddingTop: '30rem',
-            }}
-          >
-            <LoadingIcon colors={AppColors} />
-          </div>
-        )}
+        <CvViewer numberOfPages={numberOfPages}>{documentComponent}</CvViewer>
       </div>
     </div>
   );
