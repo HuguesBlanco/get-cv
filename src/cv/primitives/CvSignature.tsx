@@ -30,7 +30,7 @@ function CvSignature({ children }: CvSignatureProps): PdfViewElement {
       <Text
         style={{
           fontFamily: FONT_FAMILY,
-          fontSize: '20',
+          fontSize: '22',
         }}
       >
         {children}
