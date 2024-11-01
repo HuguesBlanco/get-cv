@@ -1,5 +1,6 @@
 import { useId } from 'react';
 import { Languages, Recipient } from '../appTypes';
+import useScreenSize from '../hooks/useScreenResize';
 import { AppColors } from '../styles/colors';
 import Checkbox from '../ui/Checkbox';
 import Textarea from '../ui/Textarea';
@@ -36,6 +37,8 @@ function ConfigurationForm({
   } = form;
 
   const formId = useId();
+
+  const { isSmallScreen } = useScreenSize();
 
   return (
     <form>
@@ -108,7 +111,7 @@ function ConfigurationForm({
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',
             gap: '4rem 2rem',
-            padding: '4rem 0 4rem 5.55rem',
+            padding: isSmallScreen ? '4rem 0 4rem 0' : '4rem 0 4rem 5.55rem',
           }}
         >
           <div style={{ gridColumn: 'span 4' }}>
@@ -129,7 +132,7 @@ function ConfigurationForm({
             />
           </div>
 
-          <div style={{ gridColumn: 'span 2' }}>
+          <div style={{ gridColumn: isSmallScreen ? 'span 4' : 'span 2' }}>
             <TextInput
               id={`${formId}-first-name`}
               label="First name"
@@ -150,7 +153,7 @@ function ConfigurationForm({
             />
           </div>
 
-          <div style={{ gridColumn: 'span 2' }}>
+          <div style={{ gridColumn: isSmallScreen ? 'span 4' : 'span 2' }}>
             <TextInput
               id={`${formId}-last-name`}
               label="Last name"
@@ -213,7 +216,7 @@ function ConfigurationForm({
             />
           </div>
 
-          <div style={{ gridColumn: 'span 2' }}>
+          <div style={{ gridColumn: isSmallScreen ? 'span 4' : 'span 2' }}>
             <TextInput
               id={`${formId}-street-name`}
               label="Street name"
@@ -237,53 +240,57 @@ function ConfigurationForm({
             />
           </div>
 
-          <TextInput
-            id={`${formId}-street-number`}
-            label="Street number"
-            value={recipient.contact?.postalAddress?.streetNumber ?? ''}
-            onChange={(newStreetNumber) => {
-              setForm({
-                ...form,
-                recipient: {
-                  ...form.recipient,
-                  contact: {
-                    ...form.recipient.contact,
-                    postalAddress: {
-                      ...form.recipient.contact?.postalAddress,
-                      streetNumber: newStreetNumber,
+          <div style={{ gridColumn: isSmallScreen ? 'span 4' : 'span 1' }}>
+            <TextInput
+              id={`${formId}-street-number`}
+              label="Street number"
+              value={recipient.contact?.postalAddress?.streetNumber ?? ''}
+              onChange={(newStreetNumber) => {
+                setForm({
+                  ...form,
+                  recipient: {
+                    ...form.recipient,
+                    contact: {
+                      ...form.recipient.contact,
+                      postalAddress: {
+                        ...form.recipient.contact?.postalAddress,
+                        streetNumber: newStreetNumber,
+                      },
                     },
                   },
-                },
-              });
-            }}
-            colors={AppColors}
-          />
+                });
+              }}
+              colors={AppColors}
+            />
+          </div>
 
-          <TextInput
-            id={`${formId}-box`}
-            label="Box"
-            value={
-              recipient.contact?.postalAddress?.additionalAddressInfo ?? ''
-            }
-            onChange={(newAdditionalAddressInfo) => {
-              setForm({
-                ...form,
-                recipient: {
-                  ...form.recipient,
-                  contact: {
-                    ...form.recipient.contact,
-                    postalAddress: {
-                      ...form.recipient.contact?.postalAddress,
-                      additionalAddressInfo: newAdditionalAddressInfo,
+          <div style={{ gridColumn: isSmallScreen ? 'span 4' : 'span 1' }}>
+            <TextInput
+              id={`${formId}-box`}
+              label="Box"
+              value={
+                recipient.contact?.postalAddress?.additionalAddressInfo ?? ''
+              }
+              onChange={(newAdditionalAddressInfo) => {
+                setForm({
+                  ...form,
+                  recipient: {
+                    ...form.recipient,
+                    contact: {
+                      ...form.recipient.contact,
+                      postalAddress: {
+                        ...form.recipient.contact?.postalAddress,
+                        additionalAddressInfo: newAdditionalAddressInfo,
+                      },
                     },
                   },
-                },
-              });
-            }}
-            colors={AppColors}
-          />
+                });
+              }}
+              colors={AppColors}
+            />
+          </div>
 
-          <div style={{ gridColumn: 'span 2' }}>
+          <div style={{ gridColumn: isSmallScreen ? 'span 4' : 'span 2' }}>
             <TextInput
               id={`${formId}-postal-code`}
               label="Postal Code"
@@ -307,7 +314,7 @@ function ConfigurationForm({
             />
           </div>
 
-          <div style={{ gridColumn: 'span 2' }}>
+          <div style={{ gridColumn: isSmallScreen ? 'span 4' : 'span 2' }}>
             <TextInput
               id={`${formId}-city`}
               label="City"
