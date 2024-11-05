@@ -5,7 +5,7 @@ import { PdfViewElement } from '../types/pdfTypes';
 function displayUrl(url: string): string {
   const protocolRegex = /(^\w+:|^)\/\//; // Matches protocol (http:// or https://)
   const wwwRegex = /^www\./; // Matches "www." at the start
-  const queryParamsRegex = /\/?.*\?.*/; // Matches everything after "?" (query parameters)
+  const queryParamsRegex = /\?.*/; // Matches everything after "?" (query parameters)
   const trailingSlashRegex = /\/+$/; // Matches trailing slashes
 
   return url
