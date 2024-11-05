@@ -20,7 +20,7 @@ function parseStylesInText(text: string): PdfTextElement {
       if (isBoldText) {
         const boldText = textSegment.slice(2, -2);
         return (
-          <Text key={segmentIndex} style={{ fontWeight: 'bold' }}>
+          <Text debug key={segmentIndex} style={{ fontWeight: 'bold' }}>
             {boldText}
           </Text>
         );
@@ -49,29 +49,33 @@ type CvTextSectionProps = {
 function CvTextSections({
   paragraph,
 }: CvTextSectionProps): (PdfViewElement | PdfTextElement)[] {
-  return paragraph.map((section, sectionIndex, allSections) => {
-    const textComponent = parseStylesInText(section.content);
+  return paragraph.map((segment, segmentIndex, allSegments) => {
+    const groupContentComponent = segment.content.map(
+      (contentString, contentIndex) => (
+        <View key={contentIndex}>{parseStylesInText(contentString)}</View>
+      ),
+    );
 
-    if (section.type === SegmentType.BULLET_POINT) {
-      const previousSection = allSections[sectionIndex - 1];
+    if (segment.type === SegmentType.BULLET_POINT) {
+      const previousSection = allSegments[segmentIndex - 1];
       const isPreviousSectionParagraph =
         previousSection?.type === SegmentType.TEXT;
 
-      const isLastSegment = sectionIndex === allSections.length - 1;
+      const isLastSegment = segmentIndex === allSegments.length - 1;
 
       return (
         <CvListItem
-          key={sectionIndex}
+          key={segmentIndex}
           icon="circle"
           isTopSpacingEnabled={isPreviousSectionParagraph}
           isBottomSpacingEnabled={!isLastSegment}
         >
-          {textComponent}
+          <View>{groupContentComponent}</View>
         </CvListItem>
       );
     }
 
-    return <View key={sectionIndex}>{textComponent}</View>;
+    return <View key={segmentIndex}>{groupContentComponent}</View>;
   });
 }
 

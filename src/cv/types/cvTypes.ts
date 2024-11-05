@@ -96,9 +96,11 @@ export enum SegmentType {
   BULLET_POINT = 'bullet_point',
 }
 
+export type ContentGroup = string[];
+
 export type Segment = {
   type: SegmentType;
-  content: string;
+  content: ContentGroup;
 };
 
 export type Paragraph = Segment[];

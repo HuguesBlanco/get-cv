@@ -1,4 +1,5 @@
 import {
+  ContentGroup,
   Paragraph,
   Segment,
   SegmentType,
@@ -8,30 +9,68 @@ import {
 const PARAGRAPH_SEPARATOR_SEQUENCE = '\n\n';
 const LINE_BREAK_SEQUENCE = '\n';
 const BULLET_POINT_SEQUENCE = '- ';
+const STILL_IN_BULLET_POINT_SEQUENCE = '  ';
 
-function convertMarkupSegmentToSegment(markupSegment: string): Segment {
-  if (markupSegment.startsWith(BULLET_POINT_SEQUENCE)) {
-    const cleanedBulletPoint = markupSegment.slice(
-      BULLET_POINT_SEQUENCE.length,
-    );
-    const bulletPointSegment: Segment = {
-      type: SegmentType.BULLET_POINT,
-      content: cleanedBulletPoint,
-    };
-    return bulletPointSegment;
+function groupContentReducer(
+  contentgroups: ContentGroup[],
+  currentMarkupSegment: string,
+): ContentGroup[] {
+  if (currentMarkupSegment.startsWith(STILL_IN_BULLET_POINT_SEQUENCE)) {
+    const lastContentGroup = contentgroups[contentgroups.length - 1];
+    const firstElementOfLastContentGroup = lastContentGroup?.[0] ?? '';
+
+    if (firstElementOfLastContentGroup.startsWith(BULLET_POINT_SEQUENCE)) {
+      const cleanedContent = currentMarkupSegment.slice(
+        STILL_IN_BULLET_POINT_SEQUENCE.length,
+      );
+
+      const contentGroupsWithoutLastOne = contentgroups.slice(0, -1);
+
+      const newLastContentGroup: ContentGroup =
+        lastContentGroup !== undefined
+          ? [...lastContentGroup, cleanedContent]
+          : [];
+
+      return [...contentGroupsWithoutLastOne, newLastContentGroup];
+    }
   }
 
-  const textSegment: Segment = {
+  const contentGroup: ContentGroup = [currentMarkupSegment];
+  return [...contentgroups, contentGroup];
+}
+
+function convertContentGroupToSegment(contentGroup: ContentGroup): Segment {
+  const [maybeFirstContent, ...restOfTheContent] = contentGroup;
+  const firstContent = maybeFirstContent ?? '';
+
+  const isBulletPointGroupContent = firstContent.startsWith(
+    BULLET_POINT_SEQUENCE,
+  );
+
+  if (isBulletPointGroupContent) {
+    const cleanedFirstContent = firstContent.slice(
+      BULLET_POINT_SEQUENCE.length,
+    );
+
+    const newContentGroup = [cleanedFirstContent, ...restOfTheContent];
+
+    return {
+      type: SegmentType.BULLET_POINT,
+      content: newContentGroup,
+    };
+  }
+
+  return {
     type: SegmentType.TEXT,
-    content: markupSegment,
+    content: contentGroup,
   };
-  return textSegment;
 }
 
 function convertMarkupParagraphToSegments(markupParagraph: string): Segment[] {
   return markupParagraph
     .split(LINE_BREAK_SEQUENCE)
-    .map(convertMarkupSegmentToSegment);
+    .reduce(groupContentReducer, [])
+    .map(convertContentGroupToSegment);
 }
 
 export function convertMarkupToParagraphs(markup: string): Paragraph[] {
@@ -41,10 +80,15 @@ export function convertMarkupToParagraphs(markup: string): Paragraph[] {
 }
 
 function convertSegmentToMarkup(segment: Segment): string {
+  const contentString = segment.content.join(
+    `${LINE_BREAK_SEQUENCE}${STILL_IN_BULLET_POINT_SEQUENCE}`,
+  );
+
   if (segment.type === SegmentType.BULLET_POINT) {
-    return BULLET_POINT_SEQUENCE + segment.content;
+    return BULLET_POINT_SEQUENCE + contentString;
   }
-  return segment.content;
+
+  return contentString;
 }
 
 export function convertParagraphsToMarkup(paragraphs: Paragraph[]): string {
