@@ -1,7 +1,12 @@
 {
   "headline": "Dédié à un code propre, lisible et sans bogues.",
-  "greeting": "Bonjour,",
   "body": [
+    [
+      {
+        "type": "text",
+        "content": ["Bonjour,"]
+      }
+    ],
     [
       {
         "type": "text",
@@ -71,8 +76,13 @@
         "type": "text",
         "content": ["Merci de considérer ma candidature."]
       }
+    ],
+    [
+      {
+        "type": "text",
+        "content": ["Cordialement,"]
+      }
     ]
   ],
-  "closing": "Cordialement,",
   "signature": "Hugues Blanco Alvarez"
 }

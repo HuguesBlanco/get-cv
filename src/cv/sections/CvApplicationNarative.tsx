@@ -30,18 +30,14 @@ const formatDateForLetter = (date: Date, language: Languages): string => {
 
 type CvApplicationNarativeProps = {
   date: Date;
-  gretting: string;
   structuredBodyText: Paragraph[];
-  closing: string;
   signature: string;
   language: Languages;
 };
 
 function CvApplicationNarative({
   date,
-  gretting,
   structuredBodyText,
-  closing,
   signature,
   language,
 }: CvApplicationNarativeProps): PdfViewElement {
@@ -53,11 +49,7 @@ function CvApplicationNarative({
         </Text>
       </CvParagraph>
 
-      <CvParagraph>{gretting}</CvParagraph>
-
       <CvTextBody structuredText={structuredBodyText} />
-
-      <CvParagraph>{closing}</CvParagraph>
 
       <CvSignature>{signature}</CvSignature>
     </View>

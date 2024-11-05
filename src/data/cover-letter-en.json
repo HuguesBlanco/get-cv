@@ -1,7 +1,12 @@
 {
   "headline": "Dedicated to clean, readable, and bug-free code.",
-  "greeting": "Hello,",
   "body": [
+    [
+      {
+        "type": "text",
+        "content": ["Hello,"]
+      }
+    ],
     [
       {
         "type": "text",
@@ -71,8 +76,13 @@
         "type": "text",
         "content": ["Thank you for considering my application."]
       }
+    ],
+    [
+      {
+        "type": "text",
+        "content": ["Sincerely,"]
+      }
     ]
   ],
-  "closing": "Sincerely,",
   "signature": "Hugues Blanco Alvarez"
 }
