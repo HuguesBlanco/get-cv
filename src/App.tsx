@@ -56,7 +56,12 @@ function App(): React.JSX.Element {
     />
   );
 
-  const fileName = `hugues_blanco_alvarez_cv_${language}.pdf`;
+  const fileName =
+    'hugues_blanco_alvarez_' +
+    (form.isCvIncluded ? 'cv_' : '') +
+    (form.isCoverLetterIncluded ? 'cover_letter_' : '') +
+    language +
+    '.pdf';
   const downloadDocument = useDocumentDownload(documentComponent, fileName);
   const handleDocumentDownload = (): void => {
     downloadDocument().catch((error: unknown) => {
