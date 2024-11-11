@@ -80,7 +80,7 @@ function Textarea({
           borderRadius: '0.1rem',
           border: 'none',
           borderBottom: `2px solid ${getBorderColor()}`,
-          fontFamily: 'inherit',
+          fontFamily: 'Source Code Pro',
           fontSize: '1rem',
           lineHeight: 1.5,
           color: getTextColor(),
