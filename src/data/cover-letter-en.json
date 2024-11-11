@@ -11,7 +11,7 @@
       {
         "type": "text",
         "content": [
-          "I am reaching out to apply for the {{targetedPosition}} position. Although I did not follow a traditional computer science education, I have acquired the necessary skills to create polished and reliable user interfaces."
+          "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit. Nullam ut massa lorem. Vivamus vel neque massa. Sed lectus velit, elementum nec mattis a, volutpat pellentesque velit. Vivamus a arcu scelerisque, blandit est a, dapibus arcu. Etiam at dui dictum, maximus risus sed, lacinia lorem. Curabitur vitae consectetur ligula. Aenean iaculis mi in tincidunt pharetra. Quisque suscipit nulla eu dolor iaculis, nec tempus dui laoreet. Morbi et est dolor."
         ]
       }
     ],
@@ -19,31 +19,29 @@
       {
         "type": "text",
         "content": [
-          "My background is unconventional, which highlights my ability to adapt and learn quickly:"
+          "Fusce sollicitudin, neque sit amet varius iaculis, purus sapien feugiat justo, nec laoreet nulla nunc facilisis arcu."
         ]
       },
       {
         "type": "bullet_point",
         "content": [
-          "I pursued artistic studies, including illustration, a year of training in digital special effects, and finally, a graphic design program."
+          "Morbi nec consectetur libero. Donec ultricies, purus in viverra ornare, neque lorem convallis nulla, sit amet egestas ipsum dui id metus."
         ]
       },
       {
         "type": "bullet_point",
         "content": [
-          "I worked for five years in a data marketing and emailing agency, where I advanced to the position of head of data marketing and emailing."
+          "Suspendisse pharetra sed lorem sed iaculis. Aenean pretium nisl sed leo maximus lacinia.\n  _Donec nibh sapien, consequat eu dictum ut, tincidunt ut purus. Proin sed tellus massa._"
         ]
       },
       {
         "type": "bullet_point",
-        "content": [
-          "Aware of the need to improve my English, I decided to tackle this challenge by moving to Australia. While there, with more time on my hands, I rethought my career goals and trained to become a developer. I learned JavaScript and the React framework."
-        ]
+        "content": ["Phasellus fermentum ligula et nisl condimentum finibus."]
       },
       {
         "type": "bullet_point",
         "content": [
-          "Upon returning to Belgium, I applied this training by working for two and a half years as a front-end developer, contributing to the development of a SaaS ERP software interface."
+          "Nulla efficitur, turpis a suscipit dictum, tortor justo scelerisque nunc, non iaculis tellus tellus non nisl. Maecenas pulvinar ligula et congue blandit."
         ]
       }
     ],
@@ -51,7 +49,7 @@
       {
         "type": "text",
         "content": [
-          "This atypical journey is a testament to my problem-solving abilities, quick learning, and adaptability. I am confident that these qualities will enable me to effectively contribute to your team by finding solutions to the challenges we may face together."
+          "Proin vitae interdum justo. Suspendisse consequat eu ligula a hendrerit. Nunc sit amet magna quis enim sollicitudin rutrum pretium vel enim. Morbi lectus ex, tempus ut vehicula vel, consequat eu nibh. **Nam accumsan lectus sit amet eros hendrerit sagittis.** Ut efficitur urna pulvinar, mattis mi consectetur, ultrices quam. Aenean ut faucibus massa."
         ]
       }
     ],
@@ -59,7 +57,7 @@
       {
         "type": "text",
         "content": [
-          "Furthermore, despite my self-taught background, I am meticulous and committed to writing clean, readable, and bug-free code."
+          "Suspendisse potenti. Proin dapibus turpis odio, non varius odio aliquam et. Aliquam a diam blandit leo lacinia pharetra sed a nibh. Nulla facilisi."
         ]
       }
     ],
@@ -67,20 +65,20 @@
       {
         "type": "text",
         "content": [
-          "I am looking forward to the opportunity to discuss how I can contribute to your company."
+          "Etiam rhoncus, felis vitae eleifend pharetra, magna turpis mattis eros, sed maximus odio eros ut est."
         ]
       }
     ],
     [
       {
         "type": "text",
-        "content": ["Thank you for considering my application."]
+        "content": ["Nulla a rhoncus massa."]
       }
     ],
     [
       {
         "type": "text",
-        "content": ["Sincerely,"]
+        "content": ["Maecenas,"]
       }
     ]
   ],

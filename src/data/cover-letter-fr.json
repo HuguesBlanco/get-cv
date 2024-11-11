@@ -11,7 +11,7 @@
       {
         "type": "text",
         "content": [
-          "Je vous contacte pour postuler au poste de {{targetedPosition}}. Bien que je n'aie pas suivi une formation traditionnelle en informatique, j'ai acquis les compétences nécessaires pour créer des interfaces utilisateur soignées et fiables."
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec suscipit lorem eu urna tempus, ornare tincidunt ligula fermentum. Ut eget velit nisi. Sed venenatis sodales enim. In sollicitudin orci convallis felis laoreet, nec porta eros pellentesque. Integer vitae luctus turpis. Donec porta, lectus et consectetur tincidunt, est mauris suscipit mauris, a mattis nisi nulla tempus tortor. Sed non dictum urna. Etiam libero sem, eleifend eu rutrum a, commodo ut eros. Donec sollicitudin ante ac sem suscipit pellentesque. "
         ]
       }
     ],
@@ -19,31 +19,25 @@
       {
         "type": "text",
         "content": [
-          "Mon parcours est non conventionnel, ce qui met en évidence ma capacité à m'adapter et à apprendre rapidement :"
+          "Duis id tempor purus. Nam commodo molestie nisl porttitor malesuada."
         ]
       },
       {
         "type": "bullet_point",
         "content": [
-          "J'ai poursuivi des études artistiques, y compris l'illustration, une année de formation en effets spéciaux numériques et enfin un programme de design graphique."
+          "**Phasellus laoreet egestas tellus, non auctor ipsum placerat vel**\n  Nunc tincidunt ultricies odio, quis fermentum lacus suscipit in."
         ]
       },
       {
         "type": "bullet_point",
         "content": [
-          "J'ai travaillé pendant cinq ans dans une agence de marketing de données et d'emailing, où j'ai progressé jusqu'au poste de responsable du marketing de données et de l'emailing."
+          "**Pellentesque habitant morbi tristique senectus**\n  Etiam eleifend sem leo, vitae dignissim metus tempor nec. Donec ut purus suscipit, tincidunt lorem nec, commodo nulla. In luctus lorem vel mauris egestas efficitur. Donec a interdum risus, luctus ultricies urna. Proin sit amet sagittis nunc."
         ]
       },
       {
         "type": "bullet_point",
         "content": [
-          "Conscient de la nécessité d'améliorer mon anglais, j'ai décidé de relever ce défi en déménageant en Australie. Là-bas, avec plus de temps libre, j'ai repensé mes objectifs de carrière et me suis formé pour devenir développeur. J'ai appris JavaScript et le framework React."
-        ]
-      },
-      {
-        "type": "bullet_point",
-        "content": [
-          "À mon retour en Belgique, j'ai appliqué cette formation en travaillant pendant deux ans et demi en tant que développeur front-end, contribuant au développement de l'interface d'un logiciel ERP SaaS."
+          "**Morbi consequat, dolor a elementum consequat**\n  Felis diam dictum tortor, bibendum congue dolor libero sed enim. Pellentesque ac diam id purus gravida dapibus. Duis eu dui consectetur, lobortis felis non, sollicitudin elit. Pellentesque eu nibh in ligula fringilla faucibus at eget libero. Integer turpis sem, venenatis in lectus sit amet, condimentum rutrum justo. Vivamus gravida laoreet velit in ultrices. Suspendisse vitae varius nunc, volutpat sodales justo."
         ]
       }
     ],
@@ -51,7 +45,7 @@
       {
         "type": "text",
         "content": [
-          "Ce parcours atypique témoigne de mes capacités à résoudre des problèmes, à apprendre rapidement et à m'adapter. Je suis convaincu que ces qualités me permettront de contribuer efficacement à votre équipe en trouvant des solutions aux défis que nous pourrions rencontrer ensemble."
+          "Suspendisse tempor suscipit lectus ut imperdiet. Ut sit amet elit mi. Suspendisse et tellus malesuada, molestie nibh non, finibus augue. Nullam feugiat, orci vitae semper fringilla, ante massa dictum metus, ut luctus dolor ante at ligula."
         ]
       }
     ],
@@ -59,7 +53,7 @@
       {
         "type": "text",
         "content": [
-          "De plus, malgré mon parcours autodidacte, je suis méticuleux et engagé à écrire du code propre, lisible et sans bogues."
+          "Etiam sit amet mollis erat. Nunc urna purus, tristique quis metus in, imperdiet hendrerit leo. Donec bibendum nulla lorem, a tristique arcu convallis eget."
         ]
       }
     ],
@@ -67,20 +61,20 @@
       {
         "type": "text",
         "content": [
-          "Je suis impatient de saisir l'opportunité de discuter de la manière dont je peux contribuer à votre entreprise."
+          "Aliquam tincidunt enim sit amet lobortis imperdiet. Etiam bibendum ipsum a sem pellentesque venenatis. "
         ]
       }
     ],
     [
       {
         "type": "text",
-        "content": ["Merci de considérer ma candidature."]
+        "content": ["Quisque consequat purus non justo laoreet."]
       }
     ],
     [
       {
         "type": "text",
-        "content": ["Cordialement,"]
+        "content": ["Sit amet,"]
       }
     ]
   ],
