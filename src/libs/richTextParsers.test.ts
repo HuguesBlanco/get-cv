@@ -211,6 +211,71 @@ describe('convertMarkupToParagraphs function tests', () => {
 
     expect(result).toEqual(expected);
   });
+
+  it('should correctly parse bullet points with line breaks inside them', () => {
+    const markup = '- Bullet point line 1\n  Bullet point line 2';
+    const result = convertMarkupToParagraphs(markup);
+
+    const expected: Paragraph[] = [
+      [
+        {
+          type: SegmentType.BULLET_POINT,
+          content: ['Bullet point line 1', 'Bullet point line 2'],
+        },
+      ],
+    ];
+
+    expect(result).toEqual(expected);
+  });
+
+  it('should handle multiple bullet points, each with internal line breaks', () => {
+    const markup =
+      '- First bullet point line 1\n  First bullet point line 2\n- Second bullet point line 1\n  Second bullet point line 2';
+    const result = convertMarkupToParagraphs(markup);
+
+    const expected: Paragraph[] = [
+      [
+        {
+          type: SegmentType.BULLET_POINT,
+          content: ['First bullet point line 1', 'First bullet point line 2'],
+        },
+        {
+          type: SegmentType.BULLET_POINT,
+          content: ['Second bullet point line 1', 'Second bullet point line 2'],
+        },
+      ],
+    ];
+
+    expect(result).toEqual(expected);
+  });
+
+  it('should correctly parse a mix of text and bullet points with line breaks inside', () => {
+    const markup =
+      'Paragraph text.\n- Bullet point line 1\n  Bullet point line 2\n\nAnother paragraph.\n- Another bullet point line 1\n  Another bullet point line 2';
+    const result = convertMarkupToParagraphs(markup);
+
+    const expected: Paragraph[] = [
+      [
+        { type: SegmentType.TEXT, content: ['Paragraph text.'] },
+        {
+          type: SegmentType.BULLET_POINT,
+          content: ['Bullet point line 1', 'Bullet point line 2'],
+        },
+      ],
+      [
+        { type: SegmentType.TEXT, content: ['Another paragraph.'] },
+        {
+          type: SegmentType.BULLET_POINT,
+          content: [
+            'Another bullet point line 1',
+            'Another bullet point line 2',
+          ],
+        },
+      ],
+    ];
+
+    expect(result).toEqual(expected);
+  });
 });
 
 describe('convertParagraphsToMarkup function tests', () => {
@@ -339,6 +404,68 @@ describe('convertParagraphsToMarkup function tests', () => {
     ];
     const result = convertParagraphsToMarkup(paragraphs);
     const expected = 'Text with indent\n\n - Indented bullet point';
+    expect(result).toBe(expected);
+  });
+
+  it('should convert bullet points with line breaks inside them to the correct markup', () => {
+    const paragraphs: Paragraph[] = [
+      [
+        {
+          type: SegmentType.BULLET_POINT,
+          content: ['Bullet point line 1', 'Bullet point line 2'],
+        },
+      ],
+    ];
+    const result = convertParagraphsToMarkup(paragraphs);
+
+    const expected = '- Bullet point line 1\n  Bullet point line 2';
+    expect(result).toBe(expected);
+  });
+
+  it('should handle multiple bullet points with line breaks inside them when converting to markup', () => {
+    const paragraphs: Paragraph[] = [
+      [
+        {
+          type: SegmentType.BULLET_POINT,
+          content: ['First bullet point line 1', 'First bullet point line 2'],
+        },
+        {
+          type: SegmentType.BULLET_POINT,
+          content: ['Second bullet point line 1', 'Second bullet point line 2'],
+        },
+      ],
+    ];
+    const result = convertParagraphsToMarkup(paragraphs);
+
+    const expected =
+      '- First bullet point line 1\n  First bullet point line 2\n- Second bullet point line 1\n  Second bullet point line 2';
+    expect(result).toBe(expected);
+  });
+
+  it('should convert a mix of text and bullet points with line breaks inside to the correct markup', () => {
+    const paragraphs: Paragraph[] = [
+      [
+        { type: SegmentType.TEXT, content: ['Paragraph text.'] },
+        {
+          type: SegmentType.BULLET_POINT,
+          content: ['Bullet point line 1', 'Bullet point line 2'],
+        },
+      ],
+      [
+        { type: SegmentType.TEXT, content: ['Another paragraph.'] },
+        {
+          type: SegmentType.BULLET_POINT,
+          content: [
+            'Another bullet point line 1',
+            'Another bullet point line 2',
+          ],
+        },
+      ],
+    ];
+    const result = convertParagraphsToMarkup(paragraphs);
+
+    const expected =
+      'Paragraph text.\n- Bullet point line 1\n  Bullet point line 2\n\nAnother paragraph.\n- Another bullet point line 1\n  Another bullet point line 2';
     expect(result).toBe(expected);
   });
 });
