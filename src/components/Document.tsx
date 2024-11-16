@@ -20,6 +20,7 @@ function Document({
   form,
   language,
 }: DocumentProps): PdfDocumentElement {
+  // TODO: tags replacement logic should be outside of CV library. That's data threatment (as the data process mixing info from the JSON and from the form is), not CV generation.
   const TARGETED_POSITION_TAG = '{{targetedPosition}}'; // Tag used in CV and cover letter initial data texts
 
   // Build CV
