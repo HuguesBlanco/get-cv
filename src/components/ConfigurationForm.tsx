@@ -13,6 +13,7 @@ export type ConfigurationFormData = {
   date: Date;
   targetedPosition: string;
   recipient: Recipient;
+  coverLetterHeadline: string;
   coverLetterBodyMarkup: string;
 };
 
@@ -33,6 +34,7 @@ function ConfigurationForm({
     // TODO: add date
     targetedPosition,
     recipient,
+    coverLetterHeadline,
     coverLetterBodyMarkup,
   } = form;
 
@@ -363,6 +365,21 @@ function ConfigurationForm({
           </div>
         </div>
       </fieldset>
+
+      <div style={{ marginBottom: '6rem' }}>
+        <TextInput
+          id={`${formId}-cover-letter-headline`}
+          label="Cover letter headline"
+          value={coverLetterHeadline}
+          onChange={(newCoverLetterHeadline) => {
+            setForm({
+              ...form,
+              coverLetterHeadline: newCoverLetterHeadline,
+            });
+          }}
+          colors={AppColors}
+        />
+      </div>
 
       <Textarea
         id={`${formId}-cover-letter-body`}

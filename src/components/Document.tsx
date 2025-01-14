@@ -47,6 +47,7 @@ function Document({
   const structuredParagraphs = convertMarkupToParagraphs(coverLetterBodyMarkup);
   const coverLetter = {
     ...initialCoverLetter,
+    headline: form.coverLetterHeadline,
     date: form.date,
     body: structuredParagraphs,
   };

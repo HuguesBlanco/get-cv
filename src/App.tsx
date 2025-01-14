@@ -31,6 +31,7 @@ function App(): React.JSX.Element {
     date: now,
     targetedPosition: initialCv.targetedPosition,
     recipient: {},
+    coverLetterHeadline: initialCoverLetter.headline,
     coverLetterBodyMarkup: convertParagraphsToMarkup(initialCoverLetter.body),
   });
 
@@ -41,6 +42,7 @@ function App(): React.JSX.Element {
       ...previousForm,
       formLanguage: language,
       targetedPosition: initialCv.targetedPosition,
+      coverLetterHeadline: initialCoverLetter.headline,
       coverLetterBodyMarkup: convertParagraphsToMarkup(initialCoverLetter.body),
     }));
   }
