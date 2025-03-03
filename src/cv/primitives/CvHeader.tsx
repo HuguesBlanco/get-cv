@@ -73,7 +73,7 @@ function CvHeader({
               backgroundColor: color,
               width: IMAGE_SIZE,
               height: IMAGE_SIZE,
-              borderRadius: '50%',
+              borderRadius: '50',
             }}
           >
             <Image
@@ -81,7 +81,7 @@ function CvHeader({
               style={{
                 width: IMAGE_SIZE,
                 height: IMAGE_SIZE,
-                borderRadius: '50%',
+                borderRadius: '50',
                 opacity: 0.6,
               }}
             />
